@@ -46,6 +46,17 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
         }
 
         .nav-links {
@@ -366,7 +377,9 @@
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <div class="logo">AI Fix Pro</div>
+            <a href="index.html" class="logo">
+                <img src="logo.svg" alt="AI Fix Pro" style="height: 50px; width: auto;">
+            </a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="automation.html">Automation</a></li>
@@ -382,11 +395,15 @@
     <section class="hero">
         <div class="spiral-background">
             <canvas id="spiralCanvas" class="spiral-canvas"></canvas>
+            <!-- Floating animated words -->
+            <div class="floating-words word1">AUTOMATION</div>
+            <div class="floating-words word2">CONSULTANCY</div>
+            <div class="floating-words word3">DEVELOPMENT</div>
         </div>
         <div class="hero-content">
-            <h1>Helping businesses <span class="gradient-text-turn">turn</span><br>into systems that save time</h1>
-            <p>AI-powered automation for modern businesses</p>
-            <a href="contact.html" class="cta-button">Get Started Today</a>
+            <h1>Helping businesses <span class="gradient-text-turn">turn</span> challenges into<br>solutions that save time</h1>
+            <p>Advanced AI-Powered Business Automation</p>
+            <a href="contact.html" class="cta-button">Get Started</a>
             
             <div class="video-placeholder"></div>
         </div>

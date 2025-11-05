@@ -43,6 +43,17 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
         }
 
         .nav-links {
@@ -266,7 +277,7 @@
 
     <nav>
         <div class="container">
-            <div class="logo">AI Fix Pro</div>
+            <a href="index.html" class="logo"><img src="logo.svg" alt="AI Fix Pro" style="height: 50px; width: auto;"></a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="automation.html">Automation</a></li>

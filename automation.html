@@ -44,6 +44,17 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
         }
 
         .nav-links {
@@ -295,7 +306,7 @@
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <div class="logo">AI Fix Pro</div>
+            <a href="index.html" class="logo"><img src="logo.svg" alt="AI Fix Pro" style="height: 50px; width: auto;"></a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="automation.html">Automation</a></li>
@@ -323,7 +334,7 @@
             <!-- Incoming Calls -->
             <div class="feature-card">
                 <div class="feature-icon">📞</div>
-                <h3>Incoming Call Handling</h3>
+                <h3>Incoming Calls</h3>
                 <p>AI voice assistants that handle calls to your business with natural conversation and intelligent routing.</p>
                 <ul class="feature-list">
                     <li>Natural voice conversations</li>
@@ -337,25 +348,25 @@
             <!-- Outbound Calls -->
             <div class="feature-card">
                 <div class="feature-icon">📱</div>
-                <h3>Outbound Call Campaigns</h3>
-                <p>Make automated calls to leads and customers for follow-ups, reminders, and promotions.</p>
+                <h3>Outbound Calls to Convert Leads to Sales</h3>
+                <p>Make automated calls to leads and customers for follow-ups, conversions, and sales opportunities.</p>
                 <ul class="feature-list">
-                    <li>Lead qualification</li>
-                    <li>Appointment reminders</li>
-                    <li>Customer surveys</li>
-                    <li>Payment reminders</li>
-                    <li>Promotional campaigns</li>
+                    <li>Lead qualification & nurturing</li>
+                    <li>Sales conversion campaigns</li>
+                    <li>Follow-up automation</li>
+                    <li>Appointment booking</li>
+                    <li>Customer surveys & feedback</li>
                 </ul>
             </div>
 
             <!-- Call Transfer -->
             <div class="feature-card">
                 <div class="feature-icon">🔀</div>
-                <h3>Intelligent Call Transfer</h3>
-                <p>Smart routing that transfers calls to the right person or department based on customer needs.</p>
+                <h3>Transfer Calls to Manager</h3>
+                <p>Smart routing that transfers calls to managers or the right person based on customer needs and urgency.</p>
                 <ul class="feature-list">
-                    <li>Department routing</li>
-                    <li>Skill-based routing</li>
+                    <li>Intelligent call routing</li>
+                    <li>Manager escalation</li>
                     <li>VIP customer priority</li>
                     <li>Business hours handling</li>
                     <li>Voicemail integration</li>
@@ -365,10 +376,10 @@
             <!-- Appointment Management -->
             <div class="feature-card">
                 <div class="feature-icon">📅</div>
-                <h3>Appointment Scheduling</h3>
-                <p>Automated booking, rescheduling, and cancellation with calendar integration.</p>
+                <h3>Make | Reschedule | Cancel Appointment</h3>
+                <p>Complete appointment lifecycle management with calendar integration and automated notifications.</p>
                 <ul class="feature-list">
-                    <li>Google Calendar sync</li>
+                    <li>Calendar integration</li>
                     <li>Conflict detection</li>
                     <li>SMS confirmations</li>
                     <li>Automatic reminders</li>
@@ -379,7 +390,7 @@
             <!-- Website Chatbots -->
             <div class="feature-card">
                 <div class="feature-icon">💬</div>
-                <h3>Website Chat Bots</h3>
+                <h3>Website Bots for Your Business</h3>
                 <p>Intelligent chatbots that engage visitors and qualify leads instead of traditional contact forms.</p>
                 <ul class="feature-list">
                     <li>24/7 instant responses</li>
@@ -393,7 +404,7 @@
             <!-- SMS Bots -->
             <div class="feature-card">
                 <div class="feature-icon">💬</div>
-                <h3>SMS Automation</h3>
+                <h3>SMS Bots for Your Business</h3>
                 <p>Text message conversations that handle bookings, inquiries, and customer service via SMS.</p>
                 <ul class="feature-list">
                     <li>Two-way SMS conversations</li>
@@ -407,13 +418,13 @@
             <!-- Inventory Tracker -->
             <div class="feature-card">
                 <div class="feature-icon">📦</div>
-                <h3>Inventory Management</h3>
-                <p>Track inventory levels, employee utilization, and deal progress automatically.</p>
+                <h3>Tracker (Inventory Management, Employee Utilization, Leads etc.)</h3>
+                <p>Comprehensive tracking system for inventory levels, employee utilization, and lead management.</p>
                 <ul class="feature-list">
-                    <li>Real-time stock tracking</li>
+                    <li>Real-time inventory tracking</li>
                     <li>Low stock alerts</li>
-                    <li>Employee scheduling</li>
-                    <li>Deal pipeline tracking</li>
+                    <li>Employee scheduling & utilization</li>
+                    <li>Lead pipeline tracking</li>
                     <li>Automated reordering</li>
                 </ul>
             </div>
@@ -421,14 +432,14 @@
             <!-- Dashboards -->
             <div class="feature-card">
                 <div class="feature-icon">📊</div>
-                <h3>Analytics Dashboards</h3>
-                <p>Real-time dashboards for analytics, resource management, and revenue tracking.</p>
+                <h3>Dashboards (Analytics, Resource Management, Revenue etc.)</h3>
+                <p>Real-time dashboards for comprehensive business analytics, resource tracking, and revenue monitoring.</p>
                 <ul class="feature-list">
                     <li>Live performance metrics</li>
-                    <li>Revenue analytics</li>
+                    <li>Revenue analytics & forecasting</li>
                     <li>Customer insights</li>
-                    <li>Resource utilization</li>
-                    <li>Custom reports</li>
+                    <li>Resource utilization tracking</li>
+                    <li>Custom reports & exports</li>
                 </ul>
             </div>
         </div>
