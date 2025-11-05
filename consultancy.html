@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultancy Services - AI Fix Pro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+        }
+
+        nav {
+            position: fixed;
+            top: 10px;
+            width: 100%;
+            padding: 1rem 2rem;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(90deg, #ff6b35, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #4ecdc4;
+        }
+
+        .top-spiral-border {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            z-index: 9999;
+            overflow: hidden;
+            background: linear-gradient(90deg, #1a1a2e 0%, #0f3460 50%, #1a1a2e 100%);
+        }
+
+        .spiral-flow {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, #ff6b35 10%, #00d4ff 30%, #4ecdc4 50%, #00d4ff 70%, #ff6b35 90%, transparent 100%);
+            animation: spiralFlow 6s linear infinite;
+            filter: blur(1px);
+        }
+
+        @keyframes spiralFlow {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .hero {
+            padding: 120px 2rem 60px;
+            text-align: center;
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #ff6b35, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            color: #ddd;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .video-placeholder {
+            width: 100%;
+            max-width: 900px;
+            height: 500px;
+            margin: 3rem auto;
+            background: rgba(15, 52, 96, 0.8);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #4ecdc4;
+            position: relative;
+        }
+
+        .video-placeholder::before {
+            content: "▶";
+            font-size: 4rem;
+            color: #4ecdc4;
+        }
+
+        .video-placeholder::after {
+            content: "Consultancy Process Demo";
+            position: absolute;
+            bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #4ecdc4;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: rgba(15, 52, 96, 0.6);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: #4ecdc4;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(78, 205, 196, 0.3);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #00d4ff;
+        }
+
+        .service-card p {
+            color: #ddd;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .process-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-step {
+            background: rgba(15, 52, 96, 0.6);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid #4ecdc4;
+            position: relative;
+        }
+
+        .step-number {
+            position: absolute;
+            left: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .process-step h3 {
+            color: #4ecdc4;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+        }
+
+        .process-step p {
+            color: #ddd;
+            line-height: 1.6;
+            padding-left: 2rem;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: rgba(15, 52, 96, 0.4);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.6);
+        }
+
+        footer {
+            background: rgba(15, 15, 25, 0.95);
+            padding: 3rem 2rem 1rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #4ecdc4;
+            text-decoration: none;
+        }
+
+        .copyright {
+            color: #888;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-spiral-border">
+        <div class="spiral-flow"></div>
+    </div>
+
+    <nav>
+        <div class="container">
+            <div class="logo">AI Fix Pro</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="automation.html">Automation</a></li>
+                <li><a href="consultancy.html">Consultancy</a></li>
+                <li><a href="development.html">Development</a></li>
+                <li><a href="design.html">Design</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>💡 Business Consultancy</h1>
+        <p>Strategic guidance to transform your business with data, technology, and marketing</p>
+        <div class="video-placeholder"></div>
+    </section>
+
+    <section class="container">
+        <h2 class="section-title">Our Consultancy Services</h2>
+        
+        <div class="services-grid">
+            <div class="service-card" onclick="window.location.href='data-tech.html'" style="cursor: pointer;">
+                <div class="service-icon">📊</div>
+                <h3>Data & Tech Strategy</h3>
+                <p>We analyze your business operations and design custom technology solutions that align with your goals. From system architecture to data analytics, we provide the roadmap for digital transformation.</p>
+                <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                    <li style="padding: 0.5rem 0; color: #bbb;">✓ Technology stack assessment</li>
+                    <li style="padding: 0.5rem 0; color: #bbb;">✓ Data analytics strategy</li>
+                    <li style="padding: 0.5rem 0; color: #bbb;">✓ System integration planning</li>
+                    <li style="padding: 0.5rem 0; color: #bbb;">✓ Cloud migration strategy</li>
+                </ul>
+                <a href="data-tech.html" style="color: #ff6b35; font-weight: 600; text-decoration: none; display: inline-block; margin-top: 1rem;">Learn More →</a>
+            </div>
+
+            <div class="service-card" onclick="window.location.href='marketing.html'" style="cursor: pointer;">
+                <div class="service-icon">📈</div>
+                <h3>Marketing Strategy</h3>
+                <p>Develop comprehensive marketing strategies that drive growth. We help you understand your audience, optimize your channels, and maximize ROI across all marketing efforts.</p>
+                <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                    <li style="padding: 0.5rem 0; color: #bbb;">✓ Market analysis & positioning</li>
+                    <li style="padding: 0.5rem 0; color: #bbb;">✓ Digital marketing strategy</li>
+                    <li style="padding: 0.5rem 0; color: #bbb;">✓ Customer journey mapping</li>
+                    <li style="padding: 0.5rem 0; color: #bbb;">✓ Performance analytics</li>
+                </ul>
+                <a href="marketing.html" style="color: #ff6b35; font-weight: 600; text-decoration: none; display: inline-block; margin-top: 1rem;">Learn More →</a>
+            </div>
+
+            <div class="service-card" onclick="window.location.href='branding.html'" style="cursor: pointer;">
+                <div class="service-icon">🎨</div>
+                <h3>Branding & Identity</h3>
+                <p>Build a strong brand that resonates with your target audience. We craft unique brand identities that stand out and create lasting impressions.</p>
+                <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                    <li style="padding: 0.5rem 0; color: #bbb;">✓ Brand strategy development</li>
+                    <li style="padding: 0.5rem 0; color: #bbb;">✓ Visual identity design</li>
+                    <li style="padding: 0.5rem 0; color: #bbb;">✓ Brand guidelines creation</li>
+                    <li style="padding: 0.5rem 0; color: #bbb;">✓ Market differentiation</li>
+                </ul>
+                <a href="branding.html" style="color: #ff6b35; font-weight: 600; text-decoration: none; display: inline-block; margin-top: 1rem;">Learn More →</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <h3>Gap Analysis</h3>
+                <p>Identify opportunities and bottlenecks in your current operations. We provide actionable insights to bridge the gap between where you are and where you want to be.</p>
+                <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                    <li style="padding: 0.5rem 0; color: #bbb;">✓ Process optimization</li>
+                    <li style="padding: 0.5rem 0; color: #bbb;">✓ Technology gap identification</li>
+                    <li style="padding: 0.5rem 0; color: #bbb;">✓ Competitive analysis</li>
+                    <li style="padding: 0.5rem 0; color: #bbb;">✓ Implementation roadmap</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <h2 class="section-title">Our Consultancy Process</h2>
+        
+        <div class="process-flow" style="padding-left: 3rem;">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h3>Discovery & Analysis</h3>
+                <p>We start by understanding your business, goals, challenges, and current systems. This includes stakeholder interviews, data analysis, and market research.</p>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h3>Strategy Development</h3>
+                <p>Based on our findings, we develop a comprehensive strategy tailored to your needs, including technology recommendations, marketing plans, and branding guidelines.</p>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h3>Presentation & Refinement</h3>
+                <p>We present our recommendations in a detailed report and workshop session, collaborating with your team to refine the strategy based on feedback.</p>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h3>Implementation Support</h3>
+                <p>We don't just hand you a report – we support you through implementation with ongoing guidance, technical assistance, and progress monitoring.</p>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">5</div>
+                <h3>Optimization & Growth</h3>
+                <p>Continuous improvement through performance monitoring, A/B testing, and iterative refinements to maximize results and ROI.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: #4ecdc4;">Ready to Transform Your Business?</h2>
+        <p style="font-size: 1.3rem; margin-bottom: 2rem; color: #ddd;">Let's discuss your challenges and create a winning strategy together</p>
+        <a href="contact.html" class="cta-button">Schedule a Consultation</a>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="automation.html">Automation</a>
+                <a href="consultancy.html">Consultancy</a>
+                <a href="development.html">Development</a>
+                <a href="design.html">Design</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <p class="copyright">&copy; 2025 AI Fix Pro. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

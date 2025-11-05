@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Services - AI Fix Pro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+        }
+
+        nav {
+            position: fixed;
+            top: 10px;
+            width: 100%;
+            padding: 1rem 2rem;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(90deg, #ff6b35, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #4ecdc4;
+        }
+
+        .top-spiral-border {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            z-index: 9999;
+            overflow: hidden;
+            background: linear-gradient(90deg, #1a1a2e 0%, #0f3460 50%, #1a1a2e 100%);
+        }
+
+        .spiral-flow {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, #ff6b35 10%, #00d4ff 30%, #4ecdc4 50%, #00d4ff 70%, #ff6b35 90%, transparent 100%);
+            animation: spiralFlow 6s linear infinite;
+            filter: blur(1px);
+        }
+
+        @keyframes spiralFlow {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .hero {
+            padding: 120px 2rem 60px;
+            text-align: center;
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #ff6b35, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            color: #ddd;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .video-placeholder {
+            width: 100%;
+            max-width: 900px;
+            height: 500px;
+            margin: 3rem auto;
+            background: rgba(15, 52, 96, 0.8);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #4ecdc4;
+            position: relative;
+        }
+
+        .video-placeholder::before {
+            content: "▶";
+            font-size: 4rem;
+            color: #4ecdc4;
+        }
+
+        .video-placeholder::after {
+            content: "Design Portfolio Showcase";
+            position: absolute;
+            bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #4ecdc4;
+        }
+
+        .design-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .design-card {
+            background: rgba(15, 52, 96, 0.6);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .design-card:hover {
+            border-color: #ff6b35;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.3);
+        }
+
+        .design-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .design-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #ff6b35;
+        }
+
+        .design-card p {
+            color: #ddd;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .design-features {
+            list-style: none;
+            padding: 0;
+            margin-top: 1.5rem;
+        }
+
+        .design-features li {
+            padding: 0.5rem 0;
+            color: #bbb;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .design-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4ecdc4;
+            font-weight: bold;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: rgba(15, 52, 96, 0.4);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.6);
+        }
+
+        footer {
+            background: rgba(15, 15, 25, 0.95);
+            padding: 3rem 2rem 1rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #4ecdc4;
+            text-decoration: none;
+        }
+
+        .copyright {
+            color: #888;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-spiral-border">
+        <div class="spiral-flow"></div>
+    </div>
+
+    <nav>
+        <div class="container">
+            <div class="logo">AI Fix Pro</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="automation.html">Automation</a></li>
+                <li><a href="consultancy.html">Consultancy</a></li>
+                <li><a href="development.html">Development</a></li>
+                <li><a href="design.html">Design</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>🎨 Design Excellence</h1>
+        <p>Creating beautiful experiences that captivate and convert</p>
+        <div class="video-placeholder"></div>
+    </section>
+
+    <section class="container">
+        <h2 class="section-title">Our Design Services</h2>
+        
+        <div class="design-grid">
+            <div class="design-card">
+                <div class="design-icon">🎯</div>
+                <h3>CX Design (Customer Experience)</h3>
+                <p>We craft end-to-end customer journeys that delight at every touchpoint. From first impression to long-term loyalty, we design experiences that keep customers coming back.</p>
+                <ul class="design-features">
+                    <li>Customer journey mapping</li>
+                    <li>Touchpoint optimization</li>
+                    <li>Service design blueprints</li>
+                    <li>Experience testing & iteration</li>
+                    <li>Omnichannel consistency</li>
+                </ul>
+            </div>
+
+            <div class="design-card">
+                <div class="design-icon">📱</div>
+                <h3>UX Design (User Experience)</h3>
+                <p>User-centered design that makes complex tasks simple. We create intuitive interfaces backed by research, testing, and best practices.</p>
+                <ul class="design-features">
+                    <li>User research & personas</li>
+                    <li>Information architecture</li>
+                    <li>Wireframing & prototyping</li>
+                    <li>Usability testing</li>
+                    <li>Interaction design</li>
+                </ul>
+            </div>
+
+            <div class="design-card">
+                <div class="design-icon">🎨</div>
+                <h3>Brand Identity</h3>
+                <p>Comprehensive brand systems that establish strong market presence. From logos to complete visual languages that tell your story.</p>
+                <ul class="design-features">
+                    <li>Logo & visual identity</li>
+                    <li>Brand strategy & positioning</li>
+                    <li>Color palette & typography</li>
+                    <li>Brand guidelines</li>
+                    <li>Marketing collateral</li>
+                </ul>
+            </div>
+
+            <div class="design-card">
+                <div class="design-icon">🌐</div>
+                <h3>UI Design (User Interface)</h3>
+                <p>Pixel-perfect interfaces that combine aesthetics with functionality. Beautiful designs that enhance usability and brand perception.</p>
+                <ul class="design-features">
+                    <li>Visual design systems</li>
+                    <li>Responsive layouts</li>
+                    <li>Icon & illustration design</li>
+                    <li>Motion design & animations</li>
+                    <li>Design system creation</li>
+                </ul>
+            </div>
+
+            <div class="design-card">
+                <div class="design-icon">📊</div>
+                <h3>Dashboard Design</h3>
+                <p>Data visualization that turns complex information into actionable insights. Intuitive dashboards that help teams make better decisions.</p>
+                <ul class="design-features">
+                    <li>Data visualization</li>
+                    <li>KPI dashboard design</li>
+                    <li>Real-time monitoring interfaces</li>
+                    <li>Analytics reporting</li>
+                    <li>Interactive charts & graphs</li>
+                </ul>
+            </div>
+
+            <div class="design-card">
+                <div class="design-icon">✏️</div>
+                <h3>Prototyping</h3>
+                <p>Interactive prototypes that bring ideas to life before development. Test concepts, gather feedback, and refine designs efficiently.</p>
+                <ul class="design-features">
+                    <li>Low & high-fidelity prototypes</li>
+                    <li>Interactive mockups</li>
+                    <li>Design validation</li>
+                    <li>User testing preparation</li>
+                    <li>Developer handoff</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <h2 class="section-title">Our Design Process</h2>
+        
+        <div class="design-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+            <div class="design-card">
+                <h3>1. Discovery</h3>
+                <p>Understanding your business, users, goals, and challenges through research and stakeholder interviews.</p>
+            </div>
+
+            <div class="design-card">
+                <h3>2. Research & Strategy</h3>
+                <p>User research, competitive analysis, and design strategy development to inform creative decisions.</p>
+            </div>
+
+            <div class="design-card">
+                <h3>3. Concepting</h3>
+                <p>Exploring multiple creative directions and presenting concepts for feedback and refinement.</p>
+            </div>
+
+            <div class="design-card">
+                <h3>4. Design & Iteration</h3>
+                <p>Detailed design work with multiple rounds of feedback and refinement to perfect the solution.</p>
+            </div>
+
+            <div class="design-card">
+                <h3>5. Testing</h3>
+                <p>User testing and validation to ensure designs meet user needs and business objectives.</p>
+            </div>
+
+            <div class="design-card">
+                <h3>6. Delivery</h3>
+                <p>Final assets, design systems, and documentation for seamless implementation.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: #4ecdc4;">Ready to Transform Your Brand?</h2>
+        <p style="font-size: 1.3rem; margin-bottom: 2rem; color: #ddd;">Let's create something beautiful together</p>
+        <a href="contact.html" class="cta-button">Start Your Design Project</a>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="automation.html">Automation</a>
+                <a href="consultancy.html">Consultancy</a>
+                <a href="development.html">Development</a>
+                <a href="design.html">Design</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <p class="copyright">&copy; 2025 AI Fix Pro. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

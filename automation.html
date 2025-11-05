@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automation Services - AI Fix Pro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 10px;
+            width: 100%;
+            padding: 1rem 2rem;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(90deg, #ff6b35, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #4ecdc4;
+        }
+
+        /* Flowing Spiral Border */
+        .top-spiral-border {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            z-index: 9999;
+            overflow: hidden;
+            background: linear-gradient(90deg, #1a1a2e 0%, #0f3460 50%, #1a1a2e 100%);
+        }
+
+        .spiral-flow {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                #ff6b35 10%,
+                #00d4ff 30%,
+                #4ecdc4 50%,
+                #00d4ff 70%,
+                #ff6b35 90%,
+                transparent 100%
+            );
+            animation: spiralFlow 6s linear infinite;
+            filter: blur(1px);
+        }
+
+        @keyframes spiralFlow {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 2rem 60px;
+            text-align: center;
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #ff6b35, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            color: #ddd;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Video Placeholder */
+        .video-placeholder {
+            width: 100%;
+            max-width: 900px;
+            height: 500px;
+            margin: 3rem auto;
+            background: rgba(15, 52, 96, 0.8);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #4ecdc4;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-placeholder::before {
+            content: "▶";
+            font-size: 4rem;
+            color: #4ecdc4;
+            position: absolute;
+        }
+
+        .video-placeholder::after {
+            content: "Automation Demo Video";
+            position: absolute;
+            bottom: 20px;
+            font-size: 1.2rem;
+            color: #fff;
+        }
+
+        /* Content Sections */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #4ecdc4;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: rgba(15, 52, 96, 0.6);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: #4ecdc4;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(78, 205, 196, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #00d4ff;
+        }
+
+        .feature-card p {
+            color: #ddd;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .feature-list li {
+            padding: 0.5rem 0;
+            color: #bbb;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4ecdc4;
+            font-weight: bold;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: rgba(15, 52, 96, 0.4);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.6);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(15, 15, 25, 0.95);
+            padding: 3rem 2rem 1rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #4ecdc4;
+            text-decoration: none;
+        }
+
+        .copyright {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Top Border -->
+    <div class="top-spiral-border">
+        <div class="spiral-flow"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">AI Fix Pro</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="automation.html">Automation</a></li>
+                <li><a href="consultancy.html">Consultancy</a></li>
+                <li><a href="development.html">Development</a></li>
+                <li><a href="design.html">Design</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>🤖 Business Automation Solutions</h1>
+        <p>Transform your business operations with AI-powered automation that works 24/7</p>
+        
+        <div class="video-placeholder"></div>
+    </section>
+
+    <!-- Automation Features -->
+    <section class="container">
+        <h2 class="section-title">Our Automation Services</h2>
+        
+        <div class="features-grid">
+            <!-- Incoming Calls -->
+            <div class="feature-card">
+                <div class="feature-icon">📞</div>
+                <h3>Incoming Call Handling</h3>
+                <p>AI voice assistants that handle calls to your business with natural conversation and intelligent routing.</p>
+                <ul class="feature-list">
+                    <li>Natural voice conversations</li>
+                    <li>24/7 availability</li>
+                    <li>Multi-language support</li>
+                    <li>Call transcription & logging</li>
+                    <li>Sentiment analysis</li>
+                </ul>
+            </div>
+
+            <!-- Outbound Calls -->
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3>Outbound Call Campaigns</h3>
+                <p>Make automated calls to leads and customers for follow-ups, reminders, and promotions.</p>
+                <ul class="feature-list">
+                    <li>Lead qualification</li>
+                    <li>Appointment reminders</li>
+                    <li>Customer surveys</li>
+                    <li>Payment reminders</li>
+                    <li>Promotional campaigns</li>
+                </ul>
+            </div>
+
+            <!-- Call Transfer -->
+            <div class="feature-card">
+                <div class="feature-icon">🔀</div>
+                <h3>Intelligent Call Transfer</h3>
+                <p>Smart routing that transfers calls to the right person or department based on customer needs.</p>
+                <ul class="feature-list">
+                    <li>Department routing</li>
+                    <li>Skill-based routing</li>
+                    <li>VIP customer priority</li>
+                    <li>Business hours handling</li>
+                    <li>Voicemail integration</li>
+                </ul>
+            </div>
+
+            <!-- Appointment Management -->
+            <div class="feature-card">
+                <div class="feature-icon">📅</div>
+                <h3>Appointment Scheduling</h3>
+                <p>Automated booking, rescheduling, and cancellation with calendar integration.</p>
+                <ul class="feature-list">
+                    <li>Google Calendar sync</li>
+                    <li>Conflict detection</li>
+                    <li>SMS confirmations</li>
+                    <li>Automatic reminders</li>
+                    <li>No-show reduction</li>
+                </ul>
+            </div>
+
+            <!-- Website Chatbots -->
+            <div class="feature-card">
+                <div class="feature-icon">💬</div>
+                <h3>Website Chat Bots</h3>
+                <p>Intelligent chatbots that engage visitors and qualify leads instead of traditional contact forms.</p>
+                <ul class="feature-list">
+                    <li>24/7 instant responses</li>
+                    <li>Lead qualification</li>
+                    <li>Product recommendations</li>
+                    <li>FAQ automation</li>
+                    <li>Human handoff when needed</li>
+                </ul>
+            </div>
+
+            <!-- SMS Bots -->
+            <div class="feature-card">
+                <div class="feature-icon">💬</div>
+                <h3>SMS Automation</h3>
+                <p>Text message conversations that handle bookings, inquiries, and customer service via SMS.</p>
+                <ul class="feature-list">
+                    <li>Two-way SMS conversations</li>
+                    <li>Appointment booking via text</li>
+                    <li>Order status updates</li>
+                    <li>Payment links</li>
+                    <li>Customer support</li>
+                </ul>
+            </div>
+
+            <!-- Inventory Tracker -->
+            <div class="feature-card">
+                <div class="feature-icon">📦</div>
+                <h3>Inventory Management</h3>
+                <p>Track inventory levels, employee utilization, and deal progress automatically.</p>
+                <ul class="feature-list">
+                    <li>Real-time stock tracking</li>
+                    <li>Low stock alerts</li>
+                    <li>Employee scheduling</li>
+                    <li>Deal pipeline tracking</li>
+                    <li>Automated reordering</li>
+                </ul>
+            </div>
+
+            <!-- Dashboards -->
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Analytics Dashboards</h3>
+                <p>Real-time dashboards for analytics, resource management, and revenue tracking.</p>
+                <ul class="feature-list">
+                    <li>Live performance metrics</li>
+                    <li>Revenue analytics</li>
+                    <li>Customer insights</li>
+                    <li>Resource utilization</li>
+                    <li>Custom reports</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section class="container">
+        <h2 class="section-title">Perfect For These Industries</h2>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🔧</div>
+                <h3>Automotive Garages</h3>
+                <p>Automated service bookings, parts inquiries, and customer follow-ups.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">👓</div>
+                <h3>Opticians</h3>
+                <p>Eye test appointments, frame consultations, and recall campaigns.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🏠</div>
+                <h3>Property Management</h3>
+                <p>Guest inquiries, booking management, and automated check-ins for Airbnb properties.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🏢</div>
+                <h3>Letting Agents</h3>
+                <p>Property viewing bookings and tenant inquiry management.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">⚖️</div>
+                <h3>Law Firms</h3>
+                <p>Client intake, consultation scheduling, and case inquiry handling.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🍽️</div>
+                <h3>Restaurants</h3>
+                <p>Table reservations, takeaway orders, and delivery coordination.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: #4ecdc4;">Ready to Automate Your Business?</h2>
+        <p style="font-size: 1.3rem; margin-bottom: 2rem; color: #ddd;">Let's discuss how automation can save you time and grow your revenue</p>
+        <a href="contact.html" class="cta-button">Book a Free Consultation</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="automation.html">Automation</a>
+                <a href="consultancy.html">Consultancy</a>
+                <a href="development.html">Development</a>
+                <a href="design.html">Design</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <p class="copyright">&copy; 2025 AI Fix Pro. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

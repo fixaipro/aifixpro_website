@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Development Services - AI Fix Pro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+        }
+
+        nav {
+            position: fixed;
+            top: 10px;
+            width: 100%;
+            padding: 1rem 2rem;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(90deg, #ff6b35, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #4ecdc4;
+        }
+
+        .top-spiral-border {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            z-index: 9999;
+            overflow: hidden;
+            background: linear-gradient(90deg, #1a1a2e 0%, #0f3460 50%, #1a1a2e 100%);
+        }
+
+        .spiral-flow {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, #ff6b35 10%, #00d4ff 30%, #4ecdc4 50%, #00d4ff 70%, #ff6b35 90%, transparent 100%);
+            animation: spiralFlow 6s linear infinite;
+            filter: blur(1px);
+        }
+
+        @keyframes spiralFlow {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .hero {
+            padding: 120px 2rem 60px;
+            text-align: center;
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #ff6b35, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            color: #ddd;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .video-placeholder {
+            width: 100%;
+            max-width: 900px;
+            height: 500px;
+            margin: 3rem auto;
+            background: rgba(15, 52, 96, 0.8);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #4ecdc4;
+            position: relative;
+        }
+
+        .video-placeholder::before {
+            content: "▶";
+            font-size: 4rem;
+            color: #4ecdc4;
+        }
+
+        .video-placeholder::after {
+            content: "Development Portfolio Showcase";
+            position: absolute;
+            bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #4ecdc4;
+        }
+
+        .dev-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .dev-card {
+            background: rgba(15, 52, 96, 0.6);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .dev-card:hover {
+            border-color: #00d4ff;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+        }
+
+        .dev-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .dev-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #00d4ff;
+        }
+
+        .dev-card p {
+            color: #ddd;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .tech-badge {
+            background: rgba(78, 205, 196, 0.2);
+            color: #4ecdc4;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid #4ecdc4;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: rgba(15, 52, 96, 0.4);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.6);
+        }
+
+        footer {
+            background: rgba(15, 15, 25, 0.95);
+            padding: 3rem 2rem 1rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #4ecdc4;
+            text-decoration: none;
+        }
+
+        .copyright {
+            color: #888;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-spiral-border">
+        <div class="spiral-flow"></div>
+    </div>
+
+    <nav>
+        <div class="container">
+            <div class="logo">AI Fix Pro</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="automation.html">Automation</a></li>
+                <li><a href="consultancy.html">Consultancy</a></li>
+                <li><a href="development.html">Development</a></li>
+                <li><a href="design.html">Design</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>💻 Custom Development</h1>
+        <p>Building powerful applications with modern technology</p>
+        <div class="video-placeholder"></div>
+    </section>
+
+    <section class="container">
+        <h2 class="section-title">Development Services</h2>
+        
+        <div class="dev-grid">
+            <div class="dev-card" onclick="window.location.href='app-development.html'" style="cursor: pointer;">
+                <div class="dev-icon">📱</div>
+                <h3>Mobile Applications</h3>
+                <p>Native and cross-platform mobile apps that deliver exceptional user experiences on iOS and Android.</p>
+                <div class="tech-stack">
+                    <span class="tech-badge">React Native</span>
+                    <span class="tech-badge">Flutter</span>
+                    <span class="tech-badge">Swift</span>
+                    <span class="tech-badge">Kotlin</span>
+                </div>
+                <a href="app-development.html" style="color: #ff6b35; font-weight: 600; text-decoration: none; display: inline-block; margin-top: 1rem;">Learn More →</a>
+            </div>
+
+            <div class="dev-card" onclick="window.location.href='web-development.html'" style="cursor: pointer;">
+                <div class="dev-icon">🌐</div>
+                <h3>Web Applications</h3>
+                <p>Responsive, fast, and scalable web applications built with modern frameworks and best practices.</p>
+                <div class="tech-stack">
+                    <span class="tech-badge">React</span>
+                    <span class="tech-badge">Next.js</span>
+                    <span class="tech-badge">Node.js</span>
+                    <span class="tech-badge">Python/Flask</span>
+                </div>
+                <a href="web-development.html" style="color: #ff6b35; font-weight: 600; text-decoration: none; display: inline-block; margin-top: 1rem;">Learn More →</a>
+            </div>
+
+            <div class="dev-card" onclick="window.location.href='brand-guidelines.html'" style="cursor: pointer;">
+                <div class="dev-icon">🎨</div>
+                <h3>Brand Guidelines</h3>
+                <p>Comprehensive brand identity systems including logos, color palettes, typography, and usage guidelines.</p>
+                <div class="tech-stack">
+                    <span class="tech-badge">Adobe Suite</span>
+                    <span class="tech-badge">Figma</span>
+                    <span class="tech-badge">Brand Strategy</span>
+                </div>
+                <a href="brand-guidelines.html" style="color: #ff6b35; font-weight: 600; text-decoration: none; display: inline-block; margin-top: 1rem;">Learn More →</a>
+            </div>
+
+            <div class="dev-card">
+                <div class="dev-icon">☁️</div>
+                <h3>Cloud Infrastructure</h3>
+                <p>Scalable cloud solutions with serverless architecture, database management, and API development.</p>
+                <div class="tech-stack">
+                    <span class="tech-badge">Google Cloud</span>
+                    <span class="tech-badge">Firebase</span>
+                    <span class="tech-badge">AWS</span>
+                    <span class="tech-badge">Firestore</span>
+                </div>
+            </div>
+
+            <div class="dev-card">
+                <div class="dev-icon">🔌</div>
+                <h3>API Integration</h3>
+                <p>Seamless integration with third-party services including payment processors, CRMs, and communication platforms.</p>
+                <div class="tech-stack">
+                    <span class="tech-badge">Twilio</span>
+                    <span class="tech-badge">Stripe</span>
+                    <span class="tech-badge">Google APIs</span>
+                    <span class="tech-badge">REST/GraphQL</span>
+                </div>
+            </div>
+
+            <div class="dev-card">
+                <div class="dev-icon">🤖</div>
+                <h3>AI/ML Integration</h3>
+                <p>Incorporate artificial intelligence and machine learning capabilities into your applications.</p>
+                <div class="tech-stack">
+                    <span class="tech-badge">Gemini AI</span>
+                    <span class="tech-badge">OpenAI</span>
+                    <span class="tech-badge">TensorFlow</span>
+                    <span class="tech-badge">NLP</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <h2 class="section-title">Our Tech Stack</h2>
+        
+        <div class="dev-grid">
+            <div class="dev-card">
+                <h3>Frontend</h3>
+                <p>Modern, responsive interfaces with exceptional user experiences.</p>
+                <div class="tech-stack">
+                    <span class="tech-badge">React</span>
+                    <span class="tech-badge">Next.js</span>
+                    <span class="tech-badge">Vue.js</span>
+                    <span class="tech-badge">TypeScript</span>
+                    <span class="tech-badge">Tailwind CSS</span>
+                    <span class="tech-badge">HTML5/CSS3</span>
+                </div>
+            </div>
+
+            <div class="dev-card">
+                <h3>Backend</h3>
+                <p>Robust server-side architecture and API development.</p>
+                <div class="tech-stack">
+                    <span class="tech-badge">Python/Flask</span>
+                    <span class="tech-badge">Node.js</span>
+                    <span class="tech-badge">Express</span>
+                    <span class="tech-badge">FastAPI</span>
+                    <span class="tech-badge">GraphQL</span>
+                    <span class="tech-badge">REST APIs</span>
+                </div>
+            </div>
+
+            <div class="dev-card">
+                <h3>Cloud & DevOps</h3>
+                <p>Scalable infrastructure and continuous deployment.</p>
+                <div class="tech-stack">
+                    <span class="tech-badge">Google Cloud</span>
+                    <span class="tech-badge">Firebase</span>
+                    <span class="tech-badge">Docker</span>
+                    <span class="tech-badge">GitHub Actions</span>
+                    <span class="tech-badge">Cloud Functions</span>
+                    <span class="tech-badge">Cloud Run</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: #4ecdc4;">Ready to Build Your Application?</h2>
+        <p style="font-size: 1.3rem; margin-bottom: 2rem; color: #ddd;">Let's discuss your project requirements and create something amazing</p>
+        <a href="contact.html" class="cta-button">Start Your Project</a>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="automation.html">Automation</a>
+                <a href="consultancy.html">Consultancy</a>
+                <a href="development.html">Development</a>
+                <a href="design.html">Design</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <p class="copyright">&copy; 2025 AI Fix Pro. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
