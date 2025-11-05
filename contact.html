@@ -310,8 +310,13 @@
 
     <nav>
         <div class="container">
-            <a href="index.html" class="logo"><img src="logo.png" alt="AI Fix Pro" style="height: 50px; width: auto;"></a>
-            <ul class="nav-links">
+            <a href="index.html" class="logo"><img src="logo.png" alt="AI Fix Pro" style="height: 65px; width: auto;"></a>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="automation.html">Automation</a></li>
                 <li><a href="consultancy.html">Consultancy</a></li>
@@ -544,6 +549,17 @@
     • Verify deployment permissions are set to "Anyone"
     ═══════════════════════════════════════════════════════════════
     -->
+    <script>
+function toggleMenu() {
+    const navLinks = document.getElementById("navLinks");
+    navLinks.classList.toggle("active");
+}
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        document.getElementById("navLinks").classList.remove("active");
+    });
+});
+</script>
     <script src="animations.js"></script>
 </body>
 </html>
