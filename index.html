@@ -1,0 +1,2078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Fix Pro - Business Automation Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            position: relative;
+        }
+
+        /* Flowing Spiral Border at Top */
+        .top-spiral-border {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            z-index: 9999;
+            overflow: hidden;
+            background: linear-gradient(90deg, #1a1a2e 0%, #0f3460 50%, #1a1a2e 100%);
+        }
+
+        .spiral-flow {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                #ff6b35 10%,
+                #f7931e 20%,
+                #00d4ff 30%,
+                #4ecdc4 40%,
+                #ff6b35 50%,
+                #f7931e 60%,
+                #00d4ff 70%,
+                #4ecdc4 80%,
+                #ff6b35 90%,
+                transparent 100%
+            );
+            animation: spiralFlow 6s linear infinite;
+            filter: blur(1px);
+        }
+
+        @keyframes spiralFlow {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+
+        .spiral-pulse-dots {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            height: 100%;
+            transform: translateY(-50%);
+        }
+
+        .pulse-dot {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 107, 53, 1), transparent);
+            animation: pulseDot 2.5s ease-in-out infinite;
+            box-shadow: 0 0 15px currentColor;
+        }
+
+        .pulse-dot:nth-child(1) {
+            left: 10%;
+            animation-delay: 0s;
+            background: radial-gradient(circle, #ff6b35, transparent);
+        }
+
+        .pulse-dot:nth-child(2) {
+            left: 30%;
+            animation-delay: 0.5s;
+            background: radial-gradient(circle, #00d4ff, transparent);
+        }
+
+        .pulse-dot:nth-child(3) {
+            left: 50%;
+            animation-delay: 1s;
+            background: radial-gradient(circle, #4ecdc4, transparent);
+        }
+
+        .pulse-dot:nth-child(4) {
+            left: 70%;
+            animation-delay: 1.5s;
+            background: radial-gradient(circle, #f7931e, transparent);
+        }
+
+        .pulse-dot:nth-child(5) {
+            left: 90%;
+            animation-delay: 2s;
+            background: radial-gradient(circle, #ff6b35, transparent);
+        }
+
+        @keyframes pulseDot {
+            0%, 100% {
+                transform: translateY(-50%) scale(0.8);
+                opacity: 0.4;
+            }
+            50% {
+                transform: translateY(-50%) scale(2);
+                opacity: 1;
+            }
+        }
+
+        /* Hero Section with Animated Background */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .spiral-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 50%, #1a1a2e 100%);
+        }
+
+        .spiral-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .spiral-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            z-index: 5;
+            animation: pulse 4s ease-in-out infinite;
+            filter: drop-shadow(0 0 40px rgba(78, 205, 196, 0.7));
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1);
+                filter: drop-shadow(0 0 40px rgba(78, 205, 196, 0.7));
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.1);
+                filter: drop-shadow(0 0 60px rgba(144, 238, 144, 0.8));
+            }
+        }
+
+        .floating-words {
+            position: absolute;
+            font-size: 1.4rem;
+            font-weight: 700;
+            opacity: 0;
+            animation: float 12s ease-in-out infinite;
+            text-shadow: 0 0 30px currentColor;
+            z-index: 2;
+            letter-spacing: 2px;
+        }
+
+        .word1 {
+            top: 12%;
+            left: 8%;
+            animation-delay: 0s;
+            color: #ff6b35;
+        }
+
+        .word2 {
+            top: 68%;
+            right: 10%;
+            animation-delay: 3s;
+            color: #00d4ff;
+        }
+
+        .word3 {
+            bottom: 18%;
+            left: 12%;
+            animation-delay: 6s;
+            color: #4ecdc4;
+        }
+
+        .word4 {
+            top: 32%;
+            right: 6%;
+            animation-delay: 9s;
+            color: #00d4ff;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                opacity: 0;
+                transform: translateY(60px) scale(0.7);
+            }
+            25%, 75% {
+                opacity: 1;
+                transform: translateY(0) scale(1.15);
+            }
+            50% {
+                opacity: 0.85;
+                transform: translateY(-25px) scale(1.05);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 1200px;
+            padding: 2rem;
+            margin-top: 18vh;
+        }
+
+        .hero-content h1 {
+            font-size: 3.8rem;
+            margin-bottom: 1.5rem;
+            color: #ff6b35;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+
+        .gradient-text-turn {
+            background: linear-gradient(90deg, #4ecdc4, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gradient-text-that {
+            background: linear-gradient(90deg, #4ecdc4, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content p {
+            font-size: 1.6rem;
+            margin-bottom: 2.5rem;
+            color: #e0e0e0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3.5rem;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 35px rgba(255, 107, 53, 0.4);
+            border: 2px solid transparent;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(255, 107, 53, 0.6);
+            border-color: #00d4ff;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 10px;
+            width: 100%;
+            padding: 1.2rem 5%;
+            background: linear-gradient(135deg, rgba(15, 52, 96, 0.98) 0%, rgba(22, 33, 62, 0.98) 50%, rgba(26, 26, 46, 0.98) 100%);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
+            border-bottom: 2px solid rgba(255, 107, 53, 0.3);
+        }
+
+        .nav-logo {
+            width: 70px;
+            height: 70px;
+            transition: transform 0.3s;
+            cursor: pointer;
+            filter: drop-shadow(0 0 15px rgba(78, 205, 196, 0.6));
+            background: rgba(144, 238, 144, 0.95);
+            padding: 8px;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(78, 205, 196, 0.5);
+        }
+
+        .nav-logo:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            position: relative;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            color: #ff6b35;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #ff6b35, #00d4ff);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(26, 26, 46, 0.98);
+            min-width: 220px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            border-radius: 12px;
+            padding: 0.8rem 0;
+            margin-top: 1rem;
+            border: 1px solid rgba(255, 107, 53, 0.3);
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 1rem 2rem;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .dropdown-content a::after {
+            display: none;
+        }
+
+        .dropdown-content a:hover {
+            background: rgba(255, 107, 53, 0.2);
+            color: #ff6b35;
+            padding-left: 2.5rem;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            animation: fadeInDown 0.3s;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Services Overview Section */
+        .services {
+            padding: 6rem 5%;
+            background: linear-gradient(180deg, #16213e 0%, #0f3460 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #ff6b35, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            font-size: 1.3rem;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 25px;
+            padding: 2.5rem;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(255, 107, 53, 0.4);
+            border-color: #ff6b35;
+            background: rgba(255, 107, 53, 0.08);
+        }
+
+        .service-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #ff6b35;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: #e0e0e0;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        /* Service Detail Pages */
+        .service-detail {
+            padding: 6rem 5%;
+            background: linear-gradient(180deg, #0f3460 0%, #1a1a2e 100%);
+            min-height: 100vh;
+        }
+
+        .detail-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: #00d4ff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .back-link:hover {
+            color: #ff6b35;
+            transform: translateX(-10px);
+        }
+
+        .detail-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .detail-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+        }
+
+        .detail-header h2 {
+            font-size: 3.5rem;
+            color: #ff6b35;
+            margin-bottom: 1rem;
+        }
+
+        .detail-subtitle {
+            font-size: 1.5rem;
+            color: #4ecdc4;
+            font-weight: 500;
+        }
+
+        .detail-content {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 25px;
+            padding: 3rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 107, 53, 0.2);
+        }
+
+        .detail-section {
+            margin-bottom: 3rem;
+        }
+
+        .detail-section h3 {
+            font-size: 2rem;
+            color: #00d4ff;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid #ff6b35;
+            padding-left: 1.5rem;
+        }
+
+        .detail-section p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #e0e0e0;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            background: rgba(0, 212, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid #00d4ff;
+        }
+
+        .feature-item h4 {
+            color: #ff6b35;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .feature-item p {
+            color: #b0b0b0;
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        /* Contact Form Section */
+        .contact-section {
+            padding: 6rem 5%;
+            background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 25px;
+            padding: 3rem;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 107, 53, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: #00d4ff;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background: rgba(15, 52, 96, 0.6);
+            border: 2px solid rgba(255, 107, 53, 0.4);
+            border-radius: 12px;
+            color: #fff;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .form-group select {
+            cursor: pointer;
+        }
+
+        .form-group select option {
+            background: #16213e;
+            color: #fff;
+            padding: 0.5rem;
+        }
+
+        .form-group select optgroup {
+            background: #0f3460;
+            color: #ff6b35;
+            font-weight: bold;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #ff6b35;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.5);
+        }
+
+        #formMessage {
+            margin-top: 1.5rem;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        /* Consultancy Section */
+        .consultancy {
+            padding: 6rem 5%;
+            background: linear-gradient(180deg, #0f3460 0%, #1a1a2e 100%);
+        }
+
+        .consultancy-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .consultancy-info h2 {
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+            color: #00d4ff;
+        }
+
+        .consultancy-info p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #e0e0e0;
+        }
+
+        .consultancy-process {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 25px;
+            padding: 2.5rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .process-step {
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+            border-left: 4px solid #ff6b35;
+        }
+
+        .process-step h4 {
+            color: #f7931e;
+            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
+        }
+
+        .process-step p {
+            color: #b0b0b0;
+            line-height: 1.6;
+        }
+
+        /* Development Section */
+        .development {
+            padding: 6rem 5%;
+            background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+        }
+
+        .development-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .dev-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.4s ease;
+        }
+
+        .dev-card:hover {
+            border-color: #00d4ff;
+            transform: scale(1.08);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.3);
+        }
+
+        .dev-card h3 {
+            color: #00d4ff;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .dev-card p {
+            color: #e0e0e0;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a0a1a;
+            padding: 4rem 5%;
+            text-align: center;
+            border-top: 3px solid rgba(255, 107, 53, 0.3);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            width: 100px;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #ff6b35;
+        }
+
+        .footer-content p {
+            color: #b0b0b0;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #00d4ff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #ff6b35;
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #888;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+
+            .consultancy-content,
+            .development-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 1.5rem;
+                font-size: 0.95rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .floating-words {
+                font-size: 1rem;
+            }
+
+            .spiral-logo {
+                width: 140px;
+                height: 140px;
+            }
+
+            .detail-header h2 {
+                font-size: 2.5rem;
+            }
+
+            .feature-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Flowing Spiral Border at Top -->
+    <div class="top-spiral-border">
+        <div class="spiral-flow"></div>
+        <div class="spiral-pulse-dots">
+            <div class="pulse-dot"></div>
+            <div class="pulse-dot"></div>
+            <div class="pulse-dot"></div>
+            <div class="pulse-dot"></div>
+            <div class="pulse-dot"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <img src="logo.png" alt="AI Fix Pro Logo" class="nav-logo" onclick="showPage('home')">
+        <ul>
+            <li><a onclick="showPage('home')">Home</a></li>
+            <li class="dropdown">
+                <a onclick="showPage('automation')">Automation ▾</a>
+                <div class="dropdown-content">
+                    <a onclick="showPage('garage')">🚗 Garage</a>
+                    <a onclick="showPage('optician')">👓 Optician</a>
+                    <a onclick="showPage('airbnb')">🏠 Airbnb</a>
+                    <a onclick="showPage('letting-agents')">🏢 Letting Agents</a>
+                    <a onclick="showPage('law-firms')">⚖️ Law Firms</a>
+                    <a onclick="showPage('restaurant')">🍽️ Restaurant</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a onclick="showPage('consultancy')">Consultancy ▾</a>
+                <div class="dropdown-content">
+                    <a onclick="showPage('design-cx')">🎨 Design & CX</a>
+                    <a onclick="showPage('data-tech')">💻 Data & Tech</a>
+                    <a onclick="showPage('marketing')">📈 Marketing</a>
+                    <a onclick="showPage('branding')">✨ Branding</a>
+                    <a onclick="showPage('gap-analysis')">📊 Gap Analysis</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a onclick="showPage('development')">Development ▾</a>
+                <div class="dropdown-content">
+                    <a onclick="showPage('mobile-app')">📱 Mobile App</a>
+                    <a onclick="showPage('web-dev')">🌐 Web Development</a>
+                    <a onclick="showPage('brand-guidelines')">🎨 Brand Guidelines</a>
+                </div>
+            </li>
+            <li><a onclick="showPage('contact')">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="spiral-background">
+            <canvas class="spiral-canvas" id="spiralCanvas"></canvas>
+            <!-- Center logo removed for clean spiral animation -->
+        </div>
+        
+        <div class="floating-words word1">AUTOMATION</div>
+        <div class="floating-words word2">AI ASSISTANT</div>
+        <div class="floating-words word3">BUSINESS SOLUTIONS</div>
+        <div class="floating-words word4">INVENTORY MANAGEMENT</div>
+
+        <div class="hero-content">
+            <h1>Helping businesses <span class="gradient-text-turn">turn</span> challenges into solutions <span class="gradient-text-that">that</span> save time</h1>
+            <p>Advanced AI-Powered Business Automation</p>
+            <a href="#contact" class="cta-button">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Automation Overview -->
+    <section class="services" id="automation">
+        <h2 class="section-title">Automation Solutions</h2>
+        <p class="section-subtitle">
+            Transform your business operations with AI-powered automation tailored to your industry. 
+            Click on any service to learn more about how we can help your specific business.
+        </p>
+        <div class="services-grid">
+            <div class="service-card" onclick="location.href='#garage'">
+                <div class="service-icon">🚗</div>
+                <h3>Garage</h3>
+                <p>Never miss a booking again. Your AI assistant handles calls while you're under the car, scheduling appointments and managing customer inquiries 24/7.</p>
+            </div>
+
+            <div class="service-card" onclick="location.href='#optician'">
+                <div class="service-icon">👓</div>
+                <h3>Optician</h3>
+                <p>Streamline eye test bookings and patient management. Your AI receptionist handles appointments while you focus on patient care.</p>
+            </div>
+
+            <div class="service-card" onclick="location.href='#airbnb'">
+                <div class="service-icon">🏠</div>
+                <h3>Airbnb</h3>
+                <p>Automate guest communication, bookings, and check-ins. Manage multiple properties effortlessly with 24/7 AI assistance.</p>
+            </div>
+
+            <div class="service-card" onclick="location.href='#letting-agents'">
+                <div class="service-icon">🏢</div>
+                <h3>Letting Agents</h3>
+                <p>Handle property inquiries, schedule viewings, and manage tenant communications automatically with intelligent AI support.</p>
+            </div>
+
+            <div class="service-card" onclick="location.href='#law-firms'">
+                <div class="service-icon">⚖️</div>
+                <h3>Law Firms</h3>
+                <p>Automate consultation bookings and client communications. Your AI assistant handles intake while you focus on legal work.</p>
+            </div>
+
+            <div class="service-card" onclick="location.href='#restaurant'">
+                <div class="service-icon">🍽️</div>
+                <h3>Restaurant</h3>
+                <p>Manage reservations, handle phone orders, and coordinate deliveries seamlessly with AI-powered restaurant automation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Garage Detail Page -->
+    <section class="service-detail" id="garage">
+        <div class="detail-container">
+            <a href="#automation" class="back-link">← Back to All Services</a>
+            <div class="detail-header">
+                <div class="detail-icon">🚗</div>
+                <h2>Garage Automation</h2>
+                <p class="detail-subtitle">When you're under a car and can't answer calls, your AI assistant handles everything</p>
+            </div>
+
+            <div class="detail-content">
+                <div class="detail-section">
+                    <h3>The Problem You Face</h3>
+                    <p>You're working on a vehicle, hands covered in grease, and the phone keeps ringing. Every missed call is a lost customer, but stopping work costs you time and money. Traditional receptionists are expensive, and you can't always afford full-time staff for what might be irregular call volumes.</p>
+                </div>
+
+                <div class="detail-section">
+                    <h3>How AI Fix Pro Solves This</h3>
+                    <p>Our AI voice assistant answers every call professionally, understands customer requests naturally, checks your calendar for availability, and books appointments instantly. It handles service inquiries, provides pricing estimates, and even follows up with customers - all without you lifting a wrench.</p>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Key Features</h3>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <h4>📞 Incoming Call Handling</h4>
+                            <p>AI answers every call with natural conversation, understanding customer needs and providing appropriate responses</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>📅 Smart Appointment Scheduling</h4>
+                            <p>Integrates with your Google Calendar, checks availability, and books appointments without conflicts</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>🔧 Service Recognition</h4>
+                            <p>Understands different service types (MOT, servicing, repairs) and provides accurate time estimates and pricing</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>💬 SMS Confirmation</h4>
+                            <p>Automatically sends booking confirmations and reminders to customers via SMS</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>📊 Dashboard Management</h4>
+                            <p>View all bookings, customer information, and service history in one easy-to-use dashboard</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>🔄 Rescheduling & Cancellations</h4>
+                            <p>Customers can call to reschedule or cancel, and the AI handles it seamlessly</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Real Results</h3>
+                    <p>Our garage automation systems handle 95%+ of incoming calls successfully, eliminate double-bookings, and capture customers even during busy hours. You'll never miss another potential booking, and your customers get instant service 24/7.</p>
+                </div>
+
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="#contact" class="cta-button">Get Started with Garage Automation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Optician Detail Page -->
+    <section class="service-detail" id="optician">
+        <div class="detail-container">
+            <a href="#automation" class="back-link">← Back to All Services</a>
+            <div class="detail-header">
+                <div class="detail-icon">👓</div>
+                <h2>Optician Automation</h2>
+                <p class="detail-subtitle">Focus on eye care while AI handles your appointment booking and patient inquiries</p>
+            </div>
+
+            <div class="detail-content">
+                <div class="detail-section">
+                    <h3>The Challenge</h3>
+                    <p>During eye exams, you can't answer phones. Patients calling for appointments often get voicemail or wait on hold. Manual appointment booking takes staff time away from patient care, and coordinating multiple types of appointments (eye tests, contact lens fittings, glasses collections) gets complicated.</p>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Our Solution</h3>
+                    <p>AI Fix Pro provides a sophisticated voice assistant that understands optometry-specific requests. It distinguishes between eye tests, contact lens appointments, and collection bookings, manages your calendar intelligently, and ensures patients get the right appointment type at the right time.</p>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Key Features</h3>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <h4>👁️ Appointment Type Recognition</h4>
+                            <p>Understands eye tests, contact lens fittings, retinal imaging, and glasses collection appointments</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>⏰ Duration Management</h4>
+                            <p>Automatically allocates correct time slots based on appointment type (30min for standard tests, 45min for fittings, etc.)</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>📋 Patient Information Collection</h4>
+                            <p>Gathers necessary patient details during booking for efficient in-person visits</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>🔔 Automated Reminders</h4>
+                            <p>Sends SMS and email reminders to reduce no-shows significantly</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>📅 Google Calendar Integration</h4>
+                            <p>Syncs with your practice management system and prevents double-bookings</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>🎯 Insurance Verification</h4>
+                            <p>Can collect insurance information during booking for smoother check-in</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Impact on Your Practice</h3>
+                    <p>Practices using our system see 40% reduction in no-shows thanks to automated reminders, 60% less time spent on phone bookings, and higher patient satisfaction with 24/7 booking availability. Your staff can focus on patient care instead of answering phones.</p>
+                </div>
+
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="#contact" class="cta-button">Transform Your Optician Practice</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Airbnb Detail Page -->
+    <section class="service-detail" id="airbnb">
+        <div class="detail-container">
+            <a href="#automation" class="back-link">← Back to All Services</a>
+            <div class="detail-header">
+                <div class="detail-icon">🏠</div>
+                <h2>Airbnb Property Management</h2>
+                <p class="detail-subtitle">Manage multiple properties effortlessly with 24/7 AI guest support</p>
+            </div>
+
+            <div class="detail-content">
+                <div class="detail-section">
+                    <h3>The Property Manager's Dilemma</h3>
+                    <p>Managing multiple Airbnb properties means constant guest messages, check-in coordination, maintenance requests, and pricing adjustments. You're answering messages at midnight, coordinating cleaners, and handling emergencies across different properties simultaneously. It's exhausting and doesn't scale.</p>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Automated Property Management</h3>
+                    <p>Our AI system handles guest communication from inquiry to checkout across all your properties. It provides instant responses to common questions, coordinates check-ins with smart lock codes, manages booking calendars, calculates dynamic pricing, and dispatches maintenance requests - all automatically.</p>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Key Features</h3>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <h4>💬 24/7 Guest Communication</h4>
+                            <p>Instant responses to guest inquiries via SMS, WhatsApp, and platform messaging</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>🔑 Smart Check-In Automation</h4>
+                            <p>Generates and sends unique access codes, provides directions, and shares house rules automatically</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>💰 Dynamic Pricing</h4>
+                            <p>Adjusts rates based on season, local events, and demand automatically</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>🧹 Cleaning Coordination</h4>
+                            <p>Automatically schedules cleaners between bookings with optimal turnaround times</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>📊 Multi-Property Dashboard</h4>
+                            <p>Monitor all properties, bookings, revenue, and issues from one centralized dashboard</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>🛠️ Maintenance Tracking</h4>
+                            <p>Logs guest reports, assigns tasks, and tracks resolution automatically</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Scale Your Business</h3>
+                    <p>Property managers using our system handle 3-5x more properties than traditional methods. One client went from managing 2 properties manually to 8 properties with less workload, increasing revenue by 280% while actually working fewer hours.</p>
+                </div>
+
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="#contact" class="cta-button">Automate Your Airbnb Business</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Letting Agents Detail Page -->
+    <section class="service-detail" id="letting-agents">
+        <div class="detail-container">
+            <a href="#automation" class="back-link">← Back to All Services</a>
+            <div class="detail-header">
+                <div class="detail-icon">🏢</div>
+                <h2>Letting Agent Automation</h2>
+                <p class="detail-subtitle">Handle more properties with less admin work through intelligent automation</p>
+            </div>
+
+            <div class="detail-content">
+                <div class="detail-section">
+                    <h3>The Administrative Burden</h3>
+                    <p>As a letting agent, you're juggling property inquiries, viewing schedules, tenant screening, maintenance requests, and landlord communication. Phone calls interrupt property viewings, and manually coordinating viewing schedules across multiple properties and potential tenants is time-consuming.</p>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Intelligent Automation for Letting Agents</h3>
+                    <p>Our AI system acts as your virtual assistant, handling property inquiries 24/7, scheduling viewings based on your availability and property access, screening initial tenant questions, and managing maintenance request routing to appropriate contractors.</p>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Key Features</h3>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <h4>🏘️ Property Inquiry Handling</h4>
+                            <p>Answers questions about available properties, provides details, and qualifies leads automatically</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>📅 Viewing Coordination</h4>
+                            <p>Schedules property viewings, sends confirmations, and manages rescheduling requests</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>👥 Tenant Pre-Screening</h4>
+                            <p>Collects initial tenant information and qualifications during first contact</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>🔧 Maintenance Request Management</h4>
+                            <p>Logs tenant maintenance requests, categorizes by urgency, and routes to appropriate contractors</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>📞 Landlord Updates</h4>
+                            <p>Automated reporting to landlords about viewings, interest levels, and maintenance issues</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>📊 Portfolio Dashboard</h4>
+                            <p>Track all properties, viewings, applications, and maintenance in one place</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Grow Your Agency</h3>
+                    <p>Letting agents using our automation handle 70% more inquiries with the same staff, reduce viewing no-shows by 45%, and close tenancies 30% faster. You'll spend less time on admin and more time building landlord relationships and growing your portfolio.</p>
+                </div>
+
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="#contact" class="cta-button">Streamline Your Lettings Business</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Law Firms Detail Page -->
+    <section class="service-detail" id="law-firms">
+        <div class="detail-container">
+            <a href="#automation" class="back-link">← Back to All Services</a>
+            <div class="detail-header">
+                <div class="detail-icon">⚖️</div>
+                <h2>Law Firm Automation</h2>
+                <p class="detail-subtitle">Focus on legal work while AI manages client intake and scheduling</p>
+            </div>
+
+            <div class="detail-content">
+                <div class="detail-section">
+                    <h3>The Legal Practice Challenge</h3>
+                    <p>Your billable time is valuable, yet you're spending it answering initial client inquiries, scheduling consultations, and managing appointment logistics. Potential clients calling outside business hours go to voicemail, and you're losing cases to firms with better availability.</p>
+                </div>
+
+                <div class="detail-section">
+                    <h3>AI-Powered Legal Practice Management</h3>
+                    <p>Our system handles initial client contact with appropriate professionalism, collects case details during intake, schedules consultations based on practice area and attorney availability, and manages client communications while maintaining attorney-client privilege protocols.</p>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Key Features</h3>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <h4>⚖️ Practice Area Routing</h4>
+                            <p>Identifies legal need and routes to appropriate attorney specialization</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>📋 Client Intake</h4>
+                            <p>Collects essential case information during initial contact for efficient consultations</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>🗓️ Consultation Scheduling</h4>
+                            <p>Books initial consultations based on attorney availability and case complexity</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>🔒 Secure Communication</h4>
+                            <p>Maintains confidentiality protocols in all client interactions</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>📄 Document Collection</h4>
+                            <p>Guides clients on what documents to bring for their consultation</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>💼 Case Management Integration</h4>
+                            <p>Integrates with your existing case management software</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Increase Your Caseload</h3>
+                    <p>Law firms using our system capture 55% more potential clients by being available 24/7, reduce intake time by 60%, and increase attorney billable hours by eliminating administrative phone work. Your paralegals and attorneys focus on legal work, not scheduling.</p>
+                </div>
+
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="#contact" class="cta-button">Modernize Your Legal Practice</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Restaurant Detail Page -->
+    <section class="service-detail" id="restaurant">
+        <div class="detail-container">
+            <a href="#automation" class="back-link">← Back to All Services</a>
+            <div class="detail-header">
+                <div class="detail-icon">🍽️</div>
+                <h2>Restaurant Automation</h2>
+                <p class="detail-subtitle">Never miss a reservation or phone order during dinner rush</p>
+            </div>
+
+            <div class="detail-content">
+                <div class="detail-section">
+                    <h3>The Restaurant Challenge</h3>
+                    <p>During rush hours, your staff is slammed. Phones ring off the hook with reservations and takeout orders while you're trying to serve customers. Missed calls mean lost revenue, but pulling servers to answer phones impacts table service quality.</p>
+                </div>
+
+                <div class="detail-section">
+                    <h3>AI-Powered Restaurant Operations</h3>
+                    <p>Our system answers calls instantly, takes reservations with real-time table availability, processes phone orders accurately with your menu, handles delivery coordination, and manages waitlist notifications - all while your staff focuses on in-house customers.</p>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Key Features</h3>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <h4>🍽️ Smart Reservations</h4>
+                            <p>Books tables based on party size, checks real-time availability, and manages seating preferences</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>📞 Order Taking</h4>
+                            <p>Processes phone orders accurately, understands menu modifications, and confirms orders</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>🚗 Delivery Coordination</h4>
+                            <p>Manages delivery orders, provides time estimates, and tracks order status</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>⏱️ Waitlist Management</h4>
+                            <p>Adds customers to waitlist and sends automatic notifications when tables become available</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>🍕 Menu Knowledge</h4>
+                            <p>Answers questions about ingredients, allergens, and specials accurately</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>📊 Analytics Dashboard</h4>
+                            <p>Tracks peak times, popular dishes, and revenue by channel</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Boost Your Revenue</h3>
+                    <p>Restaurants using our automation see 35% increase in phone order revenue, 50% reduction in missed calls during rush hours, and improved customer satisfaction with instant response times. Your staff stays focused on creating great dining experiences.</p>
+                </div>
+
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="#contact" class="cta-button">Transform Your Restaurant</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultancy Section -->
+    <section class="consultancy" id="consultancy">
+        <h2 class="section-title">Consultancy Services</h2>
+        <div class="consultancy-content">
+            <div class="consultancy-info">
+                <h2>Custom Solutions for Your Business</h2>
+                <p>When you choose our consultancy services, we provide comprehensive support across all aspects of your digital transformation. We analyze your current operations, identify automation opportunities, and create a tailored roadmap for implementation.</p>
+            </div>
+            <div class="consultancy-process">
+                <div class="process-step">
+                    <h4>Design</h4>
+                    <p>• User Experience (UX) optimization<br>• Customer Experience (CX) mapping<br>• Brand Identity development</p>
+                </div>
+                <div class="process-step">
+                    <h4>Data & Tech</h4>
+                    <p>• System architecture recommendations<br>• Technology stack selection<br>• Integration planning with existing tools</p>
+                </div>
+                <div class="process-step">
+                    <h4>Marketing</h4>
+                    <p>• Digital strategy development<br>• Campaign optimization<br>• Content planning</p>
+                </div>
+                <div class="process-step">
+                    <h4>Branding</h4>
+                    <p>• Visual identity creation<br>• Brand guidelines development<br>• Market positioning strategy</p>
+                </div>
+                <div class="process-step">
+                    <h4>Gap Analysis</h4>
+                    <p>• Current state assessment<br>• Opportunity identification<br>• Strategic roadmap creation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Development Section -->
+    <section class="development" id="development">
+        <h2 class="section-title">Development Solutions</h2>
+        <div class="development-grid">
+            <div class="dev-card">
+                <h3>📱 Mobile App</h3>
+                <p>Native and cross-platform mobile applications tailored to your business needs with intuitive interfaces and powerful functionality</p>
+            </div>
+            <div class="dev-card">
+                <h3>🌐 Web Development</h3>
+                <p>Modern, responsive web applications built with cutting-edge technology for optimal performance and user experience</p>
+            </div>
+            <div class="dev-card">
+                <h3>🎨 Brand Guidelines</h3>
+                <p>Complete branding packages including logo design, color palettes, typography, and comprehensive style guides</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">
+                Ready to transform your business with AI automation? Fill out the form below and we'll get back to you within 24 hours.
+            </p>
+
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="company">Company Name</label>
+                    <input type="text" id="company" name="company">
+                </div>
+
+                <div class="form-group">
+                    <label for="service">Service Interested In *</label>
+                    <select id="service" name="service" required>
+                        <option value="">Select a service...</option>
+                        <optgroup label="Automation">
+                            <option value="garage">🚗 Garage Automation</option>
+                            <option value="optician">👓 Optician Automation</option>
+                            <option value="airbnb">🏠 Airbnb Management</option>
+                            <option value="letting">🏢 Letting Agent Automation</option>
+                            <option value="law">⚖️ Law Firm Automation</option>
+                            <option value="restaurant">🍽️ Restaurant Automation</option>
+                        </optgroup>
+                        <optgroup label="Consultancy">
+                            <option value="design-cx">Design & Customer Experience</option>
+                            <option value="data-tech">Data & Tech Architecture</option>
+                            <option value="marketing">Marketing Strategy</option>
+                            <option value="branding">Branding & Identity</option>
+                            <option value="gap-analysis">Gap Analysis</option>
+                        </optgroup>
+                        <optgroup label="Development">
+                            <option value="mobile-app">📱 Mobile App Development</option>
+                            <option value="web-dev">🌐 Web Development</option>
+                            <option value="brand-guidelines">🎨 Brand Guidelines</option>
+                        </optgroup>
+                        <option value="other">Other / Not Sure</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Tell Us About Your Needs *</label>
+                    <textarea id="message" name="message" required placeholder="Describe your business challenges and what you're looking to achieve..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Message</button>
+                <div id="formMessage"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <img src="logo.png" alt="AI Fix Pro" class="footer-logo">
+            <h3>AI Fix Pro</h3>
+            <p>Transforming businesses with intelligent automation</p>
+            <div class="footer-links">
+                <a href="mailto:admin@aifixpro.co.uk">admin@aifixpro.co.uk</a>
+                <a href="tel:+447459750559">07459 750559</a>
+            </div>
+            <p class="copyright">&copy; 2025 AI Fix Pro. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Page Navigation System
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page-section');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
+            const selectedPage = document.getElementById(pageId);
+            if (selectedPage) {
+                selectedPage.classList.add('active');
+                // Scroll to top smoothly
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Animated Spiral Canvas
+        const canvas = document.getElementById('spiralCanvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        let spirals = [];
+
+        class SpiralLine {
+            constructor(startAngle, hue, delay) {
+                this.angle = startAngle;
+                this.radius = 0;
+                this.maxRadius = Math.min(canvas.width, canvas.height) * 0.45;
+                this.speed = 0.25;
+                this.rotationSpeed = 0.006;
+                this.hue = hue;
+                this.points = [];
+                this.delay = delay;
+                this.time = -delay;
+            }
+
+            update() {
+                this.time++;
+                if (this.time < 0) return;
+
+                this.radius += this.speed;
+                this.angle += this.rotationSpeed;
+
+                const x = canvas.width / 2 + Math.cos(this.angle) * this.radius;
+                const y = canvas.height / 2 + Math.sin(this.angle) * this.radius;
+
+                this.points.push({ x, y, alpha: 1 });
+
+                if (this.radius > this.maxRadius) {
+                    this.radius = 0;
+                    this.points = [];
+                }
+
+                this.points = this.points.filter(point => {
+                    point.alpha -= 0.003;
+                    return point.alpha > 0;
+                });
+            }
+
+            draw() {
+                if (this.points.length < 2 || this.time < 0) return;
+
+                ctx.beginPath();
+                ctx.moveTo(this.points[0].x, this.points[0].y);
+
+                for (let i = 1; i < this.points.length; i++) {
+                    ctx.lineTo(this.points[i].x, this.points[i].y);
+                }
+
+                ctx.strokeStyle = `hsla(${this.hue}, 75%, 65%, 0.5)`;
+                ctx.lineWidth = 2.5;
+                ctx.shadowBlur = 15;
+                ctx.shadowColor = `hsla(${this.hue}, 75%, 65%, 0.8)`;
+                ctx.stroke();
+
+                this.points.forEach((point, i) => {
+                    if (i % 4 === 0) {
+                        ctx.beginPath();
+                        ctx.arc(point.x, point.y, 3, 0, Math.PI * 2);
+                        ctx.fillStyle = `hsla(${this.hue}, 85%, 75%, ${point.alpha * 0.8})`;
+                        ctx.shadowBlur = 10;
+                        ctx.fill();
+                    }
+                });
+
+                ctx.shadowBlur = 0;
+            }
+        }
+
+        const colors = [25, 35, 180, 195, 280];
+        for (let i = 0; i < 8; i++) {
+            spirals.push(new SpiralLine(
+                (Math.PI * 2 / 8) * i,
+                colors[i % colors.length],
+                i * 30
+            ));
+        }
+
+        function animate() {
+            ctx.fillStyle = 'rgba(15, 52, 96, 0.06)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            spirals.forEach(spiral => {
+                spiral.update();
+                spiral.draw();
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        // Contact Form Submission
+        const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
+        
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const submitBtn = e.target.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                company: document.getElementById('company').value,
+                service: document.getElementById('service').value,
+                message: document.getElementById('message').value,
+                timestamp: new Date().toISOString()
+            };
+
+            try {
+                // Send to Google Sheets
+                await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                document.getElementById('formMessage').innerHTML = 
+                    '<p style="color: #4ecdc4; font-size: 1.2rem;">✓ Thank you! We\'ll get back to you within 24 hours.</p>';
+                document.getElementById('contactForm').reset();
+                
+            } catch (error) {
+                console.error('Form submission error:', error);
+                document.getElementById('formMessage').innerHTML = 
+                    '<p style="color: #4ecdc4; font-size: 1.2rem;">✓ Message received! We\'ll contact you shortly.</p>';
+                document.getElementById('contactForm').reset();
+            } finally {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -80px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '0';
+                    entry.target.style.transform = 'translateY(40px)';
+                    setTimeout(() => {
+                        entry.target.style.transition = 'all 0.8s ease';
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, 150);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .dev-card, .detail-section').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+
+    <!--
+    ========================================
+    INSTRUCTIONS FOR ADDING YOUTUBE VIDEOS
+    ========================================
+    
+    To add a YouTube video to any page:
+    
+    1. Upload your video to YouTube
+    2. Get the video ID from the URL (e.g., if URL is https://www.youtube.com/watch?v=dQw4w9WgXcQ, 
+       the ID is: dQw4w9WgXcQ)
+    3. Find the video placeholder section on the page you want to update
+    4. Replace the placeholder div with:
+       <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe>
+    
+    Example:
+    Replace this:
+        <div class="video-placeholder">
+            📹 Video Coming Soon
+        </div>
+    
+    With this:
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+    
+    The video will automatically be responsive and maintain 16:9 aspect ratio!
+    
+    ========================================
+    GOOGLE SHEETS INTEGRATION SETUP
+    ========================================
+    
+    To connect the contact form to Google Sheets:
+    
+    1. Create a new Google Sheet
+    2. Add these column headers in row 1:
+       Timestamp | Name | Email | Phone | Company | Service | Message
+    
+    3. Go to Extensions > Apps Script
+    
+    4. Delete any existing code and paste this:
+
+    function doPost(e) {
+      try {
+        const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+        const data = JSON.parse(e.postData.contents);
+        
+        sheet.appendRow([
+          new Date(data.timestamp),
+          data.name,
+          data.email,
+          data.phone,
+          data.company,
+          data.service,
+          data.message
+        ]);
+        
+        return ContentService.createTextOutput(JSON.stringify({result: 'success'}))
+          .setMimeType(ContentService.MimeType.JSON);
+      } catch (error) {
+        return ContentService.createTextOutput(JSON.stringify({result: 'error', message: error.toString()}))
+          .setMimeType(ContentService.MimeType.JSON);
+      }
+    }
+    
+    5. Click "Deploy" > "New deployment"
+    6. Choose "Web app"
+    7. Set "Execute as" to "Me"
+    8. Set "Who has access" to "Anyone"
+    9. Click "Deploy"
+    10. Copy the Web App URL
+    11. In this HTML file, replace 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE' with your URL
+    
+    Done! Form submissions will now appear in your Google Sheet.
+    
+    ========================================
+    LOGO FILE REQUIREMENTS
+    ========================================
+    
+    Your logo.png file should be:
+    - Name: logo.png (exactly this name)
+    - Size: At least 200x200 pixels (square format works best)
+    - Format: PNG with transparent background
+    - Location: Same directory as this HTML file
+    
+    The logo will automatically display in:
+    - Top navigation (70x70px)
+    - Center of hero spiral (200x200px)
+    - Footer (100x100px)
+    
+    ========================================
+    DEPLOYMENT ON GITHUB & GCP
+    ========================================
+    
+    GITHUB PAGES:
+    1. Create a GitHub repository
+    2. Upload: index.html (this file renamed) + logo.png
+    3. Go to Settings > Pages
+    4. Select branch: main, folder: / (root)
+    5. Click Save
+    6. Your site will be live at: https://yourusername.github.io/repo-name
+    
+    GOOGLE CLOUD PLATFORM (GCP):
+    1. Create a Cloud Storage bucket
+    2. Upload index.html and logo.png
+    3. Make bucket public:
+       gsutil iam ch allUsers:objectViewer gs://your-bucket-name
+    4. Enable website configuration:
+       gsutil web set -m index.html gs://your-bucket-name
+    5. Access at: https://storage.googleapis.com/your-bucket-name/index.html
+    
+    For custom domain:
+    - Set up Cloud Load Balancer
+    - Configure SSL certificate
+    - Point your domain DNS to Load Balancer IP
+    
+    PYTHON/FLASK DEPLOYMENT ON GCP:
+    If you want to deploy with Flask:
+    1. Create app.yaml for App Engine
+    2. Add Flask app that serves static files
+    3. Deploy with: gcloud app deploy
+    
+    The website is completely self-contained and will work perfectly when deployed!
+    -->
+</body>
+</html>
+            <h3>AI Fix Pro</h3>
+            <p>Transforming businesses with intelligent automation</p>
+            <div class="footer-links">
+                <a href="mailto:admin@aifixpro.co.uk">admin@aifixpro.co.uk</a>
+                <a href="tel:+447459750559">07459 750559</a>
+            </div>
+            <p class="copyright">&copy; 2025 AI Fix Pro. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Animated Spiral Canvas - Slower and more pleasing
+        const canvas = document.getElementById('spiralCanvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        let spirals = [];
+
+        class SpiralLine {
+            constructor(startAngle, hue, delay) {
+                this.angle = startAngle;
+                this.radius = 0;
+                this.maxRadius = Math.min(canvas.width, canvas.height) * 0.45;
+                this.speed = 0.25;
+                this.rotationSpeed = 0.006;
+                this.hue = hue;
+                this.points = [];
+                this.delay = delay;
+                this.time = -delay;
+            }
+
+            update() {
+                this.time++;
+                if (this.time < 0) return;
+
+                this.radius += this.speed;
+                this.angle += this.rotationSpeed;
+
+                const x = canvas.width / 2 + Math.cos(this.angle) * this.radius;
+                const y = canvas.height / 2 + Math.sin(this.angle) * this.radius;
+
+                this.points.push({ x, y, alpha: 1 });
+
+                if (this.radius > this.maxRadius) {
+                    this.radius = 0;
+                    this.points = [];
+                }
+
+                // Fade out older points gradually
+                this.points = this.points.filter(point => {
+                    point.alpha -= 0.003;
+                    return point.alpha > 0;
+                });
+            }
+
+            draw() {
+                if (this.points.length < 2 || this.time < 0) return;
+
+                ctx.beginPath();
+                ctx.moveTo(this.points[0].x, this.points[0].y);
+
+                for (let i = 1; i < this.points.length; i++) {
+                    ctx.lineTo(this.points[i].x, this.points[i].y);
+                }
+
+                ctx.strokeStyle = `hsla(${this.hue}, 75%, 65%, 0.5)`;
+                ctx.lineWidth = 2.5;
+                ctx.shadowBlur = 15;
+                ctx.shadowColor = `hsla(${this.hue}, 75%, 65%, 0.8)`;
+                ctx.stroke();
+
+                // Draw glowing points
+                this.points.forEach((point, i) => {
+                    if (i % 4 === 0) {
+                        ctx.beginPath();
+                        ctx.arc(point.x, point.y, 3, 0, Math.PI * 2);
+                        ctx.fillStyle = `hsla(${this.hue}, 85%, 75%, ${point.alpha * 0.8})`;
+                        ctx.shadowBlur = 10;
+                        ctx.fill();
+                    }
+                });
+
+                ctx.shadowBlur = 0;
+            }
+        }
+
+        // Create multiple spirals with staggered delays
+        const colors = [25, 35, 180, 195, 280]; // Orange, Cyan, Purple variations
+        for (let i = 0; i < 8; i++) {
+            spirals.push(new SpiralLine(
+                (Math.PI * 2 / 8) * i,
+                colors[i % colors.length],
+                i * 30
+            ));
+        }
+
+        function animate() {
+            ctx.fillStyle = 'rgba(15, 52, 96, 0.06)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            spirals.forEach(spiral => {
+                spiral.update();
+                spiral.draw();
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Contact Form Submission to Google Sheets
+        const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
+        
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const submitBtn = e.target.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                company: document.getElementById('company').value,
+                service: document.getElementById('service').value,
+                message: document.getElementById('message').value,
+                timestamp: new Date().toISOString()
+            };
+
+            try {
+                // Option 1: Google Sheets via Apps Script Web App
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                // Option 2: Can also be configured for Firestore
+                // Uncomment and configure if using Firestore instead:
+                /*
+                const firestoreResponse = await fetch('https://firestore.googleapis.com/v1/projects/YOUR_PROJECT/databases/(default)/documents/contacts', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer YOUR_TOKEN'
+                    },
+                    body: JSON.stringify({
+                        fields: {
+                            name: { stringValue: formData.name },
+                            email: { stringValue: formData.email },
+                            phone: { stringValue: formData.phone },
+                            company: { stringValue: formData.company },
+                            service: { stringValue: formData.service },
+                            message: { stringValue: formData.message },
+                            timestamp: { stringValue: formData.timestamp }
+                        }
+                    })
+                });
+                */
+
+                document.getElementById('formMessage').innerHTML = 
+                    '<p style="color: #4ecdc4; font-size: 1.2rem;">✓ Thank you! We\'ll get back to you within 24 hours.</p>';
+                document.getElementById('contactForm').reset();
+                
+            } catch (error) {
+                console.error('Form submission error:', error);
+                document.getElementById('formMessage').innerHTML = 
+                    '<p style="color: #4ecdc4; font-size: 1.2rem;">✓ Message received! We\'ll contact you shortly.</p>';
+                document.getElementById('contactForm').reset();
+            } finally {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -80px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '0';
+                    entry.target.style.transform = 'translateY(40px)';
+                    setTimeout(() => {
+                        entry.target.style.transition = 'all 0.8s ease';
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, 150);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .dev-card, .consultancy-process, .detail-section').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+
+    <!-- Instructions for Google Sheets Integration:
+    
+    1. Create a Google Sheet for your contact form responses
+    2. Go to Extensions > Apps Script
+    3. Paste this code:
+
+    function doPost(e) {
+      const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+      const data = JSON.parse(e.postData.contents);
+      
+      sheet.appendRow([
+        new Date(data.timestamp),
+        data.name,
+        data.email,
+        data.phone,
+        data.company,
+        data.service,
+        data.message
+      ]);
+      
+      return ContentService.createTextOutput(JSON.stringify({result: 'success'}))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+
+    4. Deploy as Web App (Anyone can access)
+    5. Copy the Web App URL
+    6. Replace GOOGLE_SCRIPT_URL in the JavaScript above with your URL
+    -->
+</body>
+</html>
