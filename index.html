@@ -49,10 +49,17 @@
             display: flex;
             align-items: center;
             text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 8px;
+            background: rgba(78, 205, 196, 0.15);
         }
 
         .logo img {
             transition: transform 0.3s ease;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 8px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .logo:hover img {
@@ -152,6 +159,90 @@
             padding: 2rem;
         }
 
+        .network-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.4;
+        }
+
+        .floating-bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(78, 205, 196, 0.3), rgba(0, 212, 255, 0.1));
+            animation: float 20s infinite ease-in-out;
+            pointer-events: none;
+        }
+
+        .bubble-1 {
+            width: 100px;
+            height: 100px;
+            left: 10%;
+            bottom: -100px;
+            animation-delay: 0s;
+            animation-duration: 15s;
+        }
+
+        .bubble-2 {
+            width: 60px;
+            height: 60px;
+            left: 30%;
+            bottom: -60px;
+            animation-delay: 3s;
+            animation-duration: 18s;
+        }
+
+        .bubble-3 {
+            width: 80px;
+            height: 80px;
+            left: 50%;
+            bottom: -80px;
+            animation-delay: 6s;
+            animation-duration: 20s;
+        }
+
+        .bubble-4 {
+            width: 70px;
+            height: 70px;
+            left: 70%;
+            bottom: -70px;
+            animation-delay: 2s;
+            animation-duration: 16s;
+        }
+
+        .bubble-5 {
+            width: 90px;
+            height: 90px;
+            left: 85%;
+            bottom: -90px;
+            animation-delay: 5s;
+            animation-duration: 19s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(50px) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        .video-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
+        }
+
         .hero-content h1 {
             font-size: 3.8rem;
             margin-bottom: 1.5rem;
@@ -199,12 +290,16 @@
             margin: 3rem auto;
             background: rgba(15, 52, 96, 0.8);
             border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             border: 2px solid #4ecdc4;
             position: relative;
             overflow: hidden;
+        }
+
+        .video-placeholder iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 20px;
         }
 
         .video-placeholder::before {
@@ -212,14 +307,31 @@
             font-size: 4rem;
             color: #4ecdc4;
             position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .video-placeholder.has-video::before {
+            display: none;
         }
 
         .video-placeholder::after {
-            content: "Demo Video - Coming Soon";
+            content: "Add Your YouTube Video";
             position: absolute;
             bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
             font-size: 1.2rem;
             color: #fff;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .video-placeholder.has-video::after {
+            display: none;
         }
 
         /* Services Section */
@@ -367,6 +479,7 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="animations.css">
 </head>
 <body>
     <!-- Animated Top Border -->
@@ -378,7 +491,7 @@
     <nav>
         <div class="container">
             <a href="index.html" class="logo">
-                <img src="logo.svg" alt="AI Fix Pro" style="height: 50px; width: auto;">
+                <img src="logo.png" alt="AI Fix Pro" style="height: 50px; width: auto;">
             </a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -395,6 +508,14 @@
     <section class="hero">
         <div class="spiral-background">
             <canvas id="spiralCanvas" class="spiral-canvas"></canvas>
+            <!-- AI Network Animation -->
+            <canvas id="networkCanvas" class="network-canvas"></canvas>
+            <!-- Floating Bubbles -->
+            <div class="floating-bubble bubble-1"></div>
+            <div class="floating-bubble bubble-2"></div>
+            <div class="floating-bubble bubble-3"></div>
+            <div class="floating-bubble bubble-4"></div>
+            <div class="floating-bubble bubble-5"></div>
             <!-- Floating animated words -->
             <div class="floating-words word1">AUTOMATION</div>
             <div class="floating-words word2">CONSULTANCY</div>
@@ -404,8 +525,28 @@
             <h1>Helping businesses <span class="gradient-text-turn">turn</span> challenges into<br>solutions that save time</h1>
             <p>Advanced AI-Powered Business Automation</p>
             <a href="contact.html" class="cta-button">Get Started</a>
-            
-            <div class="video-placeholder"></div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <h2 class="section-title">See Our Solutions in Action</h2>
+            <div class="video-placeholder" id="videoPlaceholder">
+                <!-- TO ADD YOUR YOUTUBE VIDEO:
+                     1. Upload video to YouTube
+                     2. Click Share → Embed
+                     3. Copy the iframe code
+                     4. Paste it below, replacing this comment
+                     
+                     Example:
+                     <iframe width="900" height="500" 
+                         src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
+                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                         allowfullscreen>
+                     </iframe>
+                -->
+            </div>
         </div>
     </section>
 
@@ -615,6 +756,81 @@
 
         animate();
 
+        // AI Network Animation
+        const networkCanvas = document.getElementById('networkCanvas');
+        const netCtx = networkCanvas.getContext('2d');
+        
+        networkCanvas.width = window.innerWidth;
+        networkCanvas.height = window.innerHeight;
+        
+        window.addEventListener('resize', () => {
+            networkCanvas.width = window.innerWidth;
+            networkCanvas.height = window.innerHeight;
+        });
+
+        class NetworkNode {
+            constructor() {
+                this.x = Math.random() * networkCanvas.width;
+                this.y = Math.random() * networkCanvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = Math.random() * 2 + 1;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > networkCanvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > networkCanvas.height) this.vy *= -1;
+            }
+
+            draw() {
+                netCtx.beginPath();
+                netCtx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                netCtx.fillStyle = 'rgba(78, 205, 196, 0.8)';
+                netCtx.fill();
+            }
+        }
+
+        const nodes = [];
+        for (let i = 0; i < 50; i++) {
+            nodes.push(new NetworkNode());
+        }
+
+        function drawConnections() {
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    const dx = nodes[i].x - nodes[j].x;
+                    const dy = nodes[i].y - nodes[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 150) {
+                        netCtx.beginPath();
+                        netCtx.moveTo(nodes[i].x, nodes[i].y);
+                        netCtx.lineTo(nodes[j].x, nodes[j].y);
+                        netCtx.strokeStyle = `rgba(78, 205, 196, ${0.2 * (1 - distance / 150)})`;
+                        netCtx.lineWidth = 1;
+                        netCtx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animateNetwork() {
+            netCtx.clearRect(0, 0, networkCanvas.width, networkCanvas.height);
+            
+            nodes.forEach(node => {
+                node.update();
+                node.draw();
+            });
+            
+            drawConnections();
+            requestAnimationFrame(animateNetwork);
+        }
+
+        animateNetwork();
+
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -629,5 +845,6 @@
             });
         });
     </script>
+    <script src="animations.js"></script>
 </body>
 </html>
