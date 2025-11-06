@@ -112,18 +112,26 @@ nav .container {
 }
 
 @media (max-width: 968px) {
+    body {
+        padding-top: 90px;
+    }
+    
     .nav-links {
         position: fixed;
         right: -100%;
         top: 90px;
         flex-direction: column;
         background: rgba(22, 33, 62, 0.98);
-        width: 100%;
+        width: 80%;
+        max-width: 300px;
+        height: calc(100vh - 90px);
         text-align: center;
-        transition: 0.3s;
+        transition: right 0.3s ease;
         padding: 2rem 0;
         gap: 1rem;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        overflow-y: auto;
+        border-left: 1px solid rgba(78, 205, 196, 0.3);
     }
 
     .nav-links.active {
@@ -137,6 +145,14 @@ nav .container {
 
     .menu-toggle {
         display: flex;
+    }
+    
+    nav {
+        padding: 1rem 1.5rem;
+    }
+    
+    .logo img {
+        height: 50px;
     }
 }
 
@@ -338,6 +354,10 @@ footer {
     position: relative;
 }
 
+.has-dropdown > a {
+    cursor: pointer;
+}
+
 .dropdown-arrow {
     font-size: 0.8rem;
     margin-left: 5px;
@@ -345,6 +365,10 @@ footer {
 }
 
 .has-dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.mega-menu.active .dropdown-arrow {
     transform: rotate(180deg);
 }
 

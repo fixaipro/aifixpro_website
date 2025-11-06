@@ -1,109 +1,125 @@
-/* Updated Logo Styles - Clearer and Larger */
-.logo {
-    font-size: 1.8rem;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    padding: 8px 14px;
-    border-radius: 12px;
-    background: white !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-}
+// Navigation JavaScript - ES5 Compatible Version
+// Improved for responsiveness and mobile
+// Works even during page transitions
 
-.logo img {
-    transition: transform 0.3s ease;
-    height: 65px;
-    width: auto;
-}
-
-.logo:hover img {
-    transform: scale(1.08);
-}
-
-/* Better Navigation Styles */
-.nav-links {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-    align-items: center;
-}
-
-.nav-links a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1.05rem;
-    transition: all 0.3s;
-    padding: 10px 18px;
-    border-radius: 8px;
-    position: relative;
-}
-
-.nav-links a:hover {
-    color: #4ecdc4;
-    background: rgba(78, 205, 196, 0.15);
-    transform: translateY(-2px);
-}
-
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: 5px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 2px;
-    background: #4ecdc4;
-    transition: width 0.3s;
-}
-
-.nav-links a:hover::after {
-    width: 60%;
-}
-
-/* Hamburger Menu */
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 6px;
-    z-index: 1001;
-}
-
-.menu-toggle span {
-    width: 30px;
-    height: 3px;
-    background: #4ecdc4;
-    border-radius: 3px;
-    transition: 0.3s;
-}
-
-@media (max-width: 968px) {
-    .nav-links {
-        position: fixed;
-        right: -100%;
-        top: 90px;
-        flex-direction: column;
-        background: rgba(22, 33, 62, 0.98);
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        padding: 2rem 0;
-        gap: 1rem;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+(function() {
+    'use strict';
+    
+    // Wait for DOM to be fully loaded
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initNavigation);
+    } else {
+        initNavigation();
     }
-
-    .nav-links.active {
-        right: 0;
+    
+    function initNavigation() {
+        console.log('Navigation initialized');
+        
+        // Get elements
+        var servicesBtn = document.getElementById('servicesBtn');
+        var servicesMenu = document.getElementById('servicesMenu');
+        var dropdown = document.querySelector('.has-dropdown');
+        var menuToggle = document.querySelector('.menu-toggle');
+        var navLinks = document.getElementById('navLinks');
+        
+        // Services Mega Menu - Desktop
+        if (servicesBtn && servicesMenu && dropdown) {
+            
+            // Click handler for Services button
+            servicesBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Services clicked');
+                servicesMenu.classList.toggle('active');
+            });
+            
+            // Click outside to close
+            document.addEventListener('click', function(e) {
+                if (!dropdown.contains(e.target)) {
+                    servicesMenu.classList.remove('active');
+                }
+            });
+            
+            // Prevent closing when clicking inside menu
+            servicesMenu.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+            
+            // Close menu when clicking on a menu item
+            var menuLinks = servicesMenu.querySelectorAll('a');
+            for (var i = 0; i < menuLinks.length; i++) {
+                menuLinks[i].addEventListener('click', function() {
+                    servicesMenu.classList.remove('active');
+                });
+            }
+        }
+        
+        // Hamburger Menu - Mobile
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                console.log('Hamburger clicked');
+                navLinks.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                }
+            });
+            
+            // Close mobile menu when clicking a link
+            var allNavLinks = navLinks.querySelectorAll('a');
+            for (var j = 0; j < allNavLinks.length; j++) {
+                (function(link) {
+                    link.addEventListener('click', function() {
+                        // Don't close if it's the Services button on mobile
+                        if (this.id !== 'servicesBtn') {
+                            navLinks.classList.remove('active');
+                        }
+                    });
+                })(allNavLinks[j]);
+            }
+        }
+        
+        // Handle window resize
+        var resizeTimer;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function() {
+                // Close all menus on resize
+                if (servicesMenu) {
+                    servicesMenu.classList.remove('active');
+                }
+                if (navLinks && window.innerWidth > 968) {
+                    navLinks.classList.remove('active');
+                }
+            }, 250);
+        });
+        
+        // Keyboard accessibility
+        if (servicesBtn) {
+            servicesBtn.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    servicesMenu.classList.toggle('active');
+                }
+                if (e.key === 'Escape') {
+                    servicesMenu.classList.remove('active');
+                }
+            });
+        }
+        
+        console.log('Navigation ready!');
     }
-
-    .nav-links a {
-        width: 90%;
-        margin: 0 auto;
-    }
-
-    .menu-toggle {
-        display: flex;
-    }
-}
+    
+    // Re-initialize on page show (for back/forward navigation)
+    window.addEventListener('pageshow', function(event) {
+        if (event.persisted) {
+            console.log('Page from cache, re-initializing');
+            initNavigation();
+        }
+    });
+    
+})();
