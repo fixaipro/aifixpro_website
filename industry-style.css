@@ -8,13 +8,16 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     color: #fff;
+    padding-top: 120px;
 }
 
 nav {
     position: fixed;
-    top: 10px;
+    top: 0;
+    left: 0;
+    right: 0;
     width: 100%;
-    padding: 1rem 2rem;
+    padding: 1.2rem 2rem;
     background: rgba(26, 26, 46, 0.95);
     backdrop-filter: blur(10px);
     z-index: 1000;
