@@ -1,18 +1,57 @@
-// Navigation JavaScript - Complete Version with All Features
-// Async, non-blocking, works on iPhone and desktop
+// Navigation JavaScript - Universal Mobile Fix
+// Works on iOS, Android, and Desktop
+// Prevents hanging, memory leaks, and event stacking
+
 (function() {
     'use strict';
     
-    // Wait for DOM to be fully loaded
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initNavigation);
-    } else {
-        // Use setTimeout for async initialization
-        setTimeout(initNavigation, 0);
+    // Global flag to prevent multiple initializations
+    var NAVIGATION_INITIALIZED = false;
+    
+    // Store handlers for cleanup
+    var eventHandlers = {
+        menuToggle: null,
+        closeOutside: null,
+        resize: null,
+        scroll: null
+    };
+    
+    function cleanupEventListeners() {
+        console.log('🧹 Cleaning up old event listeners');
+        
+        var menuToggle = document.querySelector('.menu-toggle');
+        var navLinks = document.getElementById('navLinks');
+        
+        // Remove old event listeners if they exist
+        if (menuToggle && eventHandlers.menuToggle) {
+            menuToggle.removeEventListener('click', eventHandlers.menuToggle);
+            menuToggle.removeEventListener('touchstart', eventHandlers.menuToggle);
+        }
+        
+        if (eventHandlers.closeOutside) {
+            document.removeEventListener('click', eventHandlers.closeOutside);
+        }
+        
+        if (eventHandlers.resize) {
+            window.removeEventListener('resize', eventHandlers.resize);
+        }
+        
+        if (eventHandlers.scroll) {
+            window.removeEventListener('scroll', eventHandlers.scroll);
+        }
     }
     
     function initNavigation() {
-        console.log('🚀 Navigation initialized');
+        // Prevent multiple initializations (Android/iOS bug fix)
+        if (NAVIGATION_INITIALIZED) {
+            console.log('⚠️ Navigation already initialized - skipping to prevent duplicates');
+            return;
+        }
+        
+        console.log('🚀 Initializing navigation (Universal Mobile)');
+        
+        // Clean up any existing listeners first
+        cleanupEventListeners();
         
         // Get elements
         var servicesBtn = document.getElementById('servicesBtn');
@@ -22,157 +61,146 @@
         var navLinks = document.getElementById('navLinks');
         var nav = document.querySelector('nav');
         
-        // Services Mega Menu - Desktop
+        if (!menuToggle || !navLinks) {
+            console.error('❌ Navigation elements not found');
+            return;
+        }
+        
+        // Menu state tracker
+        var isMenuOpen = false;
+        
+        // === HAMBURGER MENU - MOBILE (Android + iOS Fix) ===
+        eventHandlers.menuToggle = function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Toggle state
+            isMenuOpen = !isMenuOpen;
+            
+            console.log('📱 Menu toggle clicked - Open:', isMenuOpen);
+            
+            // Update classes based on state
+            if (isMenuOpen) {
+                navLinks.classList.add('active');
+            } else {
+                navLinks.classList.remove('active');
+            }
+        };
+        
+        // Add event listeners (both click and touchstart for mobile compatibility)
+        menuToggle.addEventListener('click', eventHandlers.menuToggle);
+        menuToggle.addEventListener('touchstart', eventHandlers.menuToggle, { passive: false });
+        
+        // === CLOSE MENU WHEN CLICKING OUTSIDE ===
+        eventHandlers.closeOutside = function(e) {
+            if (isMenuOpen && !navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+                navLinks.classList.remove('active');
+                isMenuOpen = false;
+                console.log('📱 Menu closed (clicked outside)');
+            }
+        };
+        
+        document.addEventListener('click', eventHandlers.closeOutside);
+        document.addEventListener('touchstart', eventHandlers.closeOutside, { passive: true });
+        
+        // === CLOSE MENU WHEN CLICKING A LINK ===
+        var allNavLinks = navLinks.querySelectorAll('a');
+        for (var i = 0; i < allNavLinks.length; i++) {
+            (function(link) {
+                link.addEventListener('click', function() {
+                    if (this.id !== 'servicesBtn') {
+                        navLinks.classList.remove('active');
+                        isMenuOpen = false;
+                        console.log('📱 Menu closed (link clicked)');
+                    }
+                });
+            })(allNavLinks[i]);
+        }
+        
+        // === SERVICES MEGA MENU - DESKTOP ===
         if (servicesBtn && servicesMenu && dropdown) {
-            // Click handler for Services button
             servicesBtn.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
-                requestAnimationFrame(function() {
-                    servicesMenu.classList.toggle('active');
-                });
+                servicesMenu.classList.toggle('active');
             });
             
-            // Click outside to close
             document.addEventListener('click', function(e) {
                 if (!dropdown.contains(e.target)) {
-                    requestAnimationFrame(function() {
-                        servicesMenu.classList.remove('active');
-                    });
+                    servicesMenu.classList.remove('active');
                 }
             });
             
-            // Prevent closing when clicking inside menu
             servicesMenu.addEventListener('click', function(e) {
                 e.stopPropagation();
             });
             
-            // Close menu when clicking on a menu item
             var menuLinks = servicesMenu.querySelectorAll('a');
-            for (var i = 0; i < menuLinks.length; i++) {
-                menuLinks[i].addEventListener('click', function() {
-                    requestAnimationFrame(function() {
-                        servicesMenu.classList.remove('active');
-                    });
+            for (var j = 0; j < menuLinks.length; j++) {
+                menuLinks[j].addEventListener('click', function() {
+                    servicesMenu.classList.remove('active');
                 });
-            }
-            
-            // Keyboard accessibility
-            servicesBtn.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    requestAnimationFrame(function() {
-                        servicesMenu.classList.toggle('active');
-                    });
-                }
-                if (e.key === 'Escape') {
-                    requestAnimationFrame(function() {
-                        servicesMenu.classList.remove('active');
-                    });
-                }
-            });
-        }
-        
-        // Hamburger Menu - Mobile (with iPhone support)
-        if (menuToggle && navLinks) {
-            var toggleMenu = function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                requestAnimationFrame(function() {
-                    navLinks.classList.toggle('active');
-                });
-            };
-            
-            // Add both click and touchstart for better mobile support
-            menuToggle.addEventListener('click', toggleMenu);
-            menuToggle.addEventListener('touchstart', toggleMenu, { passive: false });
-            
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
-                    requestAnimationFrame(function() {
-                        navLinks.classList.remove('active');
-                    });
-                }
-            });
-            
-            // Close mobile menu when clicking a link
-            var allNavLinks = navLinks.querySelectorAll('a');
-            for (var j = 0; j < allNavLinks.length; j++) {
-                (function(link) {
-                    link.addEventListener('click', function() {
-                        // Don't close if it's the Services button on mobile
-                        if (this.id !== 'servicesBtn') {
-                            requestAnimationFrame(function() {
-                                navLinks.classList.remove('active');
-                            });
-                        }
-                    });
-                })(allNavLinks[j]);
             }
         }
         
-        // Handle window resize - async
+        // === WINDOW RESIZE HANDLER ===
         var resizeTimer;
-        window.addEventListener('resize', function() {
+        eventHandlers.resize = function() {
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(function() {
-                requestAnimationFrame(function() {
-                    // Close all menus on resize
-                    if (servicesMenu) {
-                        servicesMenu.classList.remove('active');
-                    }
-                    if (navLinks && window.innerWidth > 968) {
-                        navLinks.classList.remove('active');
-                    }
-                });
+                if (servicesMenu) {
+                    servicesMenu.classList.remove('active');
+                }
+                if (navLinks && window.innerWidth > 968) {
+                    navLinks.classList.remove('active');
+                    isMenuOpen = false;
+                }
             }, 250);
-        });
+        };
         
-        // Scroll transparency for mobile - async and throttled
+        window.addEventListener('resize', eventHandlers.resize);
+        
+        // === SCROLL TRANSPARENCY - MOBILE ===
         if (nav) {
-            var lastScrollTop = 0;
             var scrollTicking = false;
             
-            function updateNavOnScroll() {
-                var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                
-                // Only apply on mobile
-                if (window.innerWidth <= 968) {
-                    if (scrollTop > 50) {
-                        nav.style.background = 'rgba(26, 26, 46, 0.15)';
-                        nav.style.backdropFilter = 'blur(2px)';
-                        nav.style.transition = 'all 0.3s ease-in-out';
-                    } else {
-                        nav.style.background = 'rgba(26, 26, 46, 0.15)';
-                        nav.style.backdropFilter = 'blur(2px)';
-                        nav.style.transition = 'all 0.3s ease-in-out';
-                    }
-                } else {
-                    // Desktop - always solid nav
-                    nav.style.background = 'rgba(26, 26, 46, 0.95)';
-                    nav.style.backdropFilter = 'blur(10px)';
-                }
-                
-                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-                scrollTicking = false;
-            }
-            
-            window.addEventListener('scroll', function() {
+            eventHandlers.scroll = function() {
                 if (!scrollTicking) {
-                    requestAnimationFrame(updateNavOnScroll);
+                    window.requestAnimationFrame(function() {
+                        if (window.innerWidth <= 968) {
+                            nav.style.background = 'rgba(26, 26, 46, 0.15)';
+                            nav.style.backdropFilter = 'blur(2px)';
+                        } else {
+                            nav.style.background = 'rgba(26, 26, 46, 0.95)';
+                            nav.style.backdropFilter = 'blur(10px)';
+                        }
+                        scrollTicking = false;
+                    });
                     scrollTicking = true;
                 }
-            });
+            };
+            
+            window.addEventListener('scroll', eventHandlers.scroll, { passive: true });
         }
         
-        console.log('✅ Navigation ready!');
+        // Mark as initialized
+        NAVIGATION_INITIALIZED = true;
+        console.log('✅ Navigation ready (Android + iOS compatible)');
     }
     
-    // Re-initialize on page show (for back/forward navigation)
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initNavigation);
+    } else {
+        setTimeout(initNavigation, 0);
+    }
+    
+    // Handle back/forward navigation (mobile browsers)
     window.addEventListener('pageshow', function(event) {
         if (event.persisted) {
-            console.log('📄 Page from cache, re-initializing');
+            console.log('📄 Page from cache - resetting navigation state');
+            NAVIGATION_INITIALIZED = false;
+            cleanupEventListeners();
             setTimeout(initNavigation, 0);
         }
     });
