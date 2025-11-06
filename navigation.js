@@ -1,7 +1,5 @@
-// Navigation JavaScript - ES5 Compatible Version
-// Improved for responsiveness and mobile
-// Works even during page transitions
-
+// Navigation JavaScript - Complete Version with All Features
+// Async, non-blocking, works on iPhone and desktop
 (function() {
     'use strict';
     
@@ -9,11 +7,12 @@
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initNavigation);
     } else {
-        initNavigation();
+        // Use setTimeout for async initialization
+        setTimeout(initNavigation, 0);
     }
     
     function initNavigation() {
-        console.log('Navigation initialized');
+        console.log('🚀 Navigation initialized');
         
         // Get elements
         var servicesBtn = document.getElementById('servicesBtn');
@@ -21,22 +20,25 @@
         var dropdown = document.querySelector('.has-dropdown');
         var menuToggle = document.querySelector('.menu-toggle');
         var navLinks = document.getElementById('navLinks');
+        var nav = document.querySelector('nav');
         
         // Services Mega Menu - Desktop
         if (servicesBtn && servicesMenu && dropdown) {
-            
             // Click handler for Services button
             servicesBtn.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
-                console.log('Services clicked');
-                servicesMenu.classList.toggle('active');
+                requestAnimationFrame(function() {
+                    servicesMenu.classList.toggle('active');
+                });
             });
             
             // Click outside to close
             document.addEventListener('click', function(e) {
                 if (!dropdown.contains(e.target)) {
-                    servicesMenu.classList.remove('active');
+                    requestAnimationFrame(function() {
+                        servicesMenu.classList.remove('active');
+                    });
                 }
             });
             
@@ -49,23 +51,48 @@
             var menuLinks = servicesMenu.querySelectorAll('a');
             for (var i = 0; i < menuLinks.length; i++) {
                 menuLinks[i].addEventListener('click', function() {
-                    servicesMenu.classList.remove('active');
+                    requestAnimationFrame(function() {
+                        servicesMenu.classList.remove('active');
+                    });
                 });
             }
+            
+            // Keyboard accessibility
+            servicesBtn.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    requestAnimationFrame(function() {
+                        servicesMenu.classList.toggle('active');
+                    });
+                }
+                if (e.key === 'Escape') {
+                    requestAnimationFrame(function() {
+                        servicesMenu.classList.remove('active');
+                    });
+                }
+            });
         }
         
-        // Hamburger Menu - Mobile
+        // Hamburger Menu - Mobile (with iPhone support)
         if (menuToggle && navLinks) {
-            menuToggle.addEventListener('click', function(e) {
+            var toggleMenu = function(e) {
+                e.preventDefault();
                 e.stopPropagation();
-                console.log('Hamburger clicked');
-                navLinks.classList.toggle('active');
-            });
+                requestAnimationFrame(function() {
+                    navLinks.classList.toggle('active');
+                });
+            };
+            
+            // Add both click and touchstart for better mobile support
+            menuToggle.addEventListener('click', toggleMenu);
+            menuToggle.addEventListener('touchstart', toggleMenu, { passive: false });
             
             // Close mobile menu when clicking outside
             document.addEventListener('click', function(e) {
                 if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
-                    navLinks.classList.remove('active');
+                    requestAnimationFrame(function() {
+                        navLinks.classList.remove('active');
+                    });
                 }
             });
             
@@ -76,80 +103,77 @@
                     link.addEventListener('click', function() {
                         // Don't close if it's the Services button on mobile
                         if (this.id !== 'servicesBtn') {
-                            navLinks.classList.remove('active');
+                            requestAnimationFrame(function() {
+                                navLinks.classList.remove('active');
+                            });
                         }
                     });
                 })(allNavLinks[j]);
             }
         }
         
-        // Handle window resize
+        // Handle window resize - async
         var resizeTimer;
         window.addEventListener('resize', function() {
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(function() {
-                // Close all menus on resize
-                if (servicesMenu) {
-                    servicesMenu.classList.remove('active');
-                }
-                if (navLinks && window.innerWidth > 968) {
-                    navLinks.classList.remove('active');
-                }
+                requestAnimationFrame(function() {
+                    // Close all menus on resize
+                    if (servicesMenu) {
+                        servicesMenu.classList.remove('active');
+                    }
+                    if (navLinks && window.innerWidth > 968) {
+                        navLinks.classList.remove('active');
+                    }
+                });
             }, 250);
         });
         
-        // Hide navigation on scroll down (Mobile only)
-        var lastScrollTop = 0;
-        var nav = document.querySelector('nav');
-        var scrollThreshold = 10; // Minimum scroll distance to trigger hide/show
-        
-        window.addEventListener('scroll', function() {
-            // Only apply on mobile
-            if (window.innerWidth <= 968) {
+        // Scroll transparency for mobile - async and throttled
+        if (nav) {
+            var lastScrollTop = 0;
+            var scrollTicking = false;
+            
+            function updateNavOnScroll() {
                 var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
                 
-                // When scrolling (down or up), make nav transparent
-                if (scrollTop > 50) {
-                    nav.style.background = 'rgba(26, 26, 46, 0.3)';
-                    nav.style.backdropFilter = 'blur(5px)';
-                    nav.style.transition = 'all 0.3s ease-in-out';
-                }
-                // At top of page, make nav solid again
-                else {
+                // Only apply on mobile
+                if (window.innerWidth <= 968) {
+                    if (scrollTop > 50) {
+                        nav.style.background = 'rgba(26, 26, 46, 0.15)';
+                        nav.style.backdropFilter = 'blur(2px)';
+                        nav.style.transition = 'all 0.3s ease-in-out';
+                    } else {
+                        nav.style.background = 'rgba(26, 26, 46, 0.15)';
+                        nav.style.backdropFilter = 'blur(2px)';
+                        nav.style.transition = 'all 0.3s ease-in-out';
+                    }
+                } else {
+                    // Desktop - always solid nav
                     nav.style.background = 'rgba(26, 26, 46, 0.95)';
                     nav.style.backdropFilter = 'blur(10px)';
-                    nav.style.transition = 'all 0.3s ease-in-out';
                 }
                 
                 lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-            } else {
-                // Desktop - always solid nav
-                nav.style.background = 'rgba(26, 26, 46, 0.95)';
-                nav.style.backdropFilter = 'blur(10px)';
+                scrollTicking = false;
             }
-        });
-        
-        // Keyboard accessibility
-        if (servicesBtn) {
-            servicesBtn.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    servicesMenu.classList.toggle('active');
-                }
-                if (e.key === 'Escape') {
-                    servicesMenu.classList.remove('active');
+            
+            window.addEventListener('scroll', function() {
+                if (!scrollTicking) {
+                    requestAnimationFrame(updateNavOnScroll);
+                    scrollTicking = true;
                 }
             });
         }
         
-        console.log('Navigation ready!');
+        console.log('✅ Navigation ready!');
     }
     
     // Re-initialize on page show (for back/forward navigation)
     window.addEventListener('pageshow', function(event) {
         if (event.persisted) {
-            console.log('Page from cache, re-initializing');
-            initNavigation();
+            console.log('📄 Page from cache, re-initializing');
+            setTimeout(initNavigation, 0);
         }
     });
     

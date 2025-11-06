@@ -1003,43 +1003,6 @@
 
         animateNetwork();
 
-        // Menu Toggle Function
-        function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
-
-        // Services Mega Menu Toggle
-        function toggleServicesMenu() {
-            const menu = document.getElementById('servicesMenu');
-            menu.classList.toggle('active');
-        }
-
-        // Close mega menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const servicesMenu = document.getElementById('servicesMenu');
-            const servicesLink = event.target.closest('.has-dropdown');
-            
-            if (!servicesLink && servicesMenu) {
-                servicesMenu.classList.remove('active');
-            }
-        });
-
-        // Close mega menu when clicking a link inside it
-        document.querySelectorAll('.mega-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('servicesMenu').classList.remove('active');
-                document.getElementById('navLinks').classList.remove('active');
-            });
-        });
-
-        // Close menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('navLinks').classList.remove('active');
-            });
-        });
-
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1055,5 +1018,6 @@
         });
     </script>
     <script src="animations.js"></script>
+    <script src="navigation.js"></script>
 </body>
 </html>
