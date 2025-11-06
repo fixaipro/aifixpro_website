@@ -24,7 +24,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 1rem 2rem;
+            padding: 0.8rem 2rem;
             background: rgba(26, 26, 46, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
@@ -32,9 +32,18 @@
         }
 
         @media (max-width: 968px) {
+            body {
+                padding-top: 80px;
+            }
+            
             nav {
-                background: rgba(26, 26, 46, 0.3);
-                backdrop-filter: blur(5px);
+                background: rgba(26, 26, 46, 0.2);
+                backdrop-filter: blur(3px);
+                padding: 0.6rem 1.5rem;
+            }
+            
+            .logo img {
+                height: 45px !important;
             }
         }
 
@@ -60,7 +69,7 @@
 
         .logo img {
             transition: transform 0.3s ease;
-            height: 65px;
+            height: 50px;
             width: auto;
         }
 
