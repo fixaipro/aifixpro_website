@@ -108,24 +108,24 @@
             if (window.innerWidth <= 968) {
                 var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
                 
-                // Scrolling down
-                if (scrollTop > lastScrollTop && scrollTop > 100) {
-                    nav.style.transform = 'translateY(-100%)';
-                    nav.style.transition = 'transform 0.3s ease-in-out';
-                    // Close menus when hiding nav
-                    if (servicesMenu) servicesMenu.classList.remove('active');
-                    if (navLinks) navLinks.classList.remove('active');
+                // When scrolling (down or up), make nav transparent
+                if (scrollTop > 50) {
+                    nav.style.background = 'rgba(26, 26, 46, 0.3)';
+                    nav.style.backdropFilter = 'blur(5px)';
+                    nav.style.transition = 'all 0.3s ease-in-out';
                 }
-                // Scrolling up
-                else if (scrollTop < lastScrollTop) {
-                    nav.style.transform = 'translateY(0)';
-                    nav.style.transition = 'transform 0.3s ease-in-out';
+                // At top of page, make nav solid again
+                else {
+                    nav.style.background = 'rgba(26, 26, 46, 0.95)';
+                    nav.style.backdropFilter = 'blur(10px)';
+                    nav.style.transition = 'all 0.3s ease-in-out';
                 }
                 
                 lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
             } else {
-                // Desktop - always show nav
-                nav.style.transform = 'translateY(0)';
+                // Desktop - always solid nav
+                nav.style.background = 'rgba(26, 26, 46, 0.95)';
+                nav.style.backdropFilter = 'blur(10px)';
             }
         });
         
