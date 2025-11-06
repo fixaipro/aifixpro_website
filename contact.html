@@ -9,11 +9,32 @@
     <style>
         .has-dropdown { position: relative; }
         .dropdown-arrow { font-size: 0.8rem; margin-left: 5px; }
-        .mega-menu {
-            position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
-            background: rgba(26, 26, 46, 0.98); border: 2px solid #4ecdc4; border-radius: 15px;
-            padding: 2rem; min-width: 800px; display: none; margin-top: 10px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); z-index: 2000;
+                .mega-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(26, 26, 46, 0.98);
+            border: 2px solid #4ecdc4;
+            border-radius: 15px;
+            padding: 2rem;
+            min-width: 800px;
+            margin-top: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mega-menu.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mega-menu.active {
+            opacity: 1;
+            visibility: visible;
         }
         .mega-menu.active { display: block; }
         .mega-menu-content { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
@@ -255,46 +276,46 @@
         </div>
     </div>
 
+    
+    <script src="animations.js"></script>
     <script>
+        console.log('Script loaded!');
+        
+        // Get elements
+        var servicesBtn = document.getElementById('servicesBtn');
+        var servicesMenu = document.getElementById('servicesMenu');
+        var dropdown = document.querySelector('.has-dropdown');
+        
+        console.log('servicesBtn:', servicesBtn);
+        console.log('servicesMenu:', servicesMenu);
+        
+        // Click on Services button
+        if (servicesBtn && servicesMenu) {
+            servicesBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('Services button clicked!');
+                servicesMenu.classList.toggle('show');
+            });
+            
+            // Click outside to close
+            document.addEventListener('click', function(e) {
+                if (!dropdown.contains(e.target)) {
+                    servicesMenu.classList.remove('show');
+                }
+            });
+            
+            // Don't close when clicking inside menu
+            servicesMenu.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        }
+        
+        // Hamburger menu
         function toggleMenu() {
             document.getElementById('navLinks').classList.toggle('active');
         }
-
-        // SIMPLE WORKING Services Menu
-        window.addEventListener('DOMContentLoaded', function() {
-            var btn = document.getElementById('servicesBtn');
-            var menu = document.getElementById('servicesMenu');
-            var dropdown = document.querySelector('.has-dropdown');
-            
-            if (btn && menu) {
-                btn.onclick = function(e) {
-                    e.preventDefault();
-                    menu.classList.toggle('active');
-                    return false;
-                };
-                
-                document.onclick = function(e) {
-                    if (!dropdown.contains(e.target)) {
-                        menu.classList.remove('active');
-                    }
-                };
-                
-                var links = menu.querySelectorAll('a');
-                for (var i = 0; i < links.length; i++) {
-                    links[i].onclick = function() {
-                        menu.classList.remove('active');
-                        document.getElementById('navLinks').classList.remove('active');
-                    };
-                }
-            }
-        });
-
-        document.getElementById('contactForm').onsubmit = function(e) {
-            e.preventDefault();
-            alert('Thank you! Your message has been sent. We will get back to you within 24 hours.');
-            this.reset();
-            return false;
-        };
+        
+        console.log('Event listeners attached!');
     </script>
     <script src="animations.js"></script>
 </body>

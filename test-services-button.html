@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Services Button</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            padding-top: 120px;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 26, 46, 0.95);
+            padding: 1.2rem 2rem;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            padding: 8px 14px;
+            background: white;
+            border-radius: 12px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.05rem;
+            padding: 10px 18px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        .nav-links a:hover {
+            color: #4ecdc4;
+            background: rgba(78, 205, 196, 0.15);
+        }
+        .has-dropdown { position: relative; }
+        .dropdown-arrow { font-size: 0.8rem; margin-left: 5px; }
+        
+        .mega-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(26, 26, 46, 0.98);
+            border: 2px solid #4ecdc4;
+            border-radius: 15px;
+            padding: 2rem;
+            min-width: 800px;
+            margin-top: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .mega-menu.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .mega-menu-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        .mega-menu-column h4 {
+            color: #4ecdc4;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #4ecdc4;
+        }
+        .mega-menu-column a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            margin: 0.25rem 0;
+            border-radius: 6px;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+        .mega-menu-column a:hover {
+            background: rgba(78, 205, 196, 0.2);
+            color: #4ecdc4;
+            padding-left: 1rem;
+        }
+        
+        .test-section {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 2rem;
+            background: rgba(26, 26, 46, 0.8);
+            border: 2px solid #4ecdc4;
+            border-radius: 15px;
+            text-align: center;
+        }
+        .test-section h1 {
+            color: #4ecdc4;
+            margin-bottom: 1rem;
+        }
+        .test-section p {
+            color: #ccc;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">
+                <span style="color: #1a1a2e; font-weight: bold;">AI Fix Pro</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="has-dropdown">
+                    <a href="#" id="servicesBtn">
+                        Services <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <div class="mega-menu" id="servicesMenu">
+                        <div class="mega-menu-content">
+                            <div class="mega-menu-column">
+                                <h4>🤖 AI Solutions</h4>
+                                <a href="automation.html">AI Automation</a>
+                                <a href="consultancy.html">AI Consultancy</a>
+                                <a href="development.html">AI Development</a>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h4>💻 Development</h4>
+                                <a href="app-development.html">App Development</a>
+                                <a href="web-development.html">Web Development</a>
+                                <a href="data-tech.html">Data & Tech</a>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h4>🎨 Creative</h4>
+                                <a href="design.html">Design Services</a>
+                                <a href="branding.html">Branding</a>
+                                <a href="brand-guidelines.html">Brand Guidelines</a>
+                                <a href="marketing.html">Marketing</a>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h4>🏢 Industries</h4>
+                                <a href="garage.html">Automotive</a>
+                                <a href="optician.html">Healthcare</a>
+                                <a href="airbnb.html">Hospitality</a>
+                                <a href="letting-agents.html">Real Estate</a>
+                                <a href="law-firms.html">Legal</a>
+                                <a href="restaurant.html">Food Service</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="test-section">
+        <h1>✅ Test Services Button</h1>
+        <p>Click the "Services" button above.</p>
+        <p>The mega menu should appear with 4 columns showing all services.</p>
+        <p>Click any service to navigate to that page.</p>
+        <p style="margin-top: 2rem; font-size: 1.3rem; color: #4ecdc4;"><strong>Try it now! ⬆️</strong></p>
+    </div>
+
+    <script>
+        console.log('Script loaded!');
+        
+        // Get elements
+        var servicesBtn = document.getElementById('servicesBtn');
+        var servicesMenu = document.getElementById('servicesMenu');
+        var dropdown = document.querySelector('.has-dropdown');
+        
+        console.log('servicesBtn:', servicesBtn);
+        console.log('servicesMenu:', servicesMenu);
+        
+        // Click on Services button
+        servicesBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Services button clicked!');
+            servicesMenu.classList.toggle('show');
+        });
+        
+        // Click outside to close
+        document.addEventListener('click', function(e) {
+            if (!dropdown.contains(e.target)) {
+                servicesMenu.classList.remove('show');
+            }
+        });
+        
+        // Don't close when clicking inside menu
+        servicesMenu.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+        
+        console.log('Event listeners attached!');
+    </script>
+</body>
+</html>
