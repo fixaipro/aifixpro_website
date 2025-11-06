@@ -140,32 +140,7 @@ nav .container {
     }
 }
 
-.top-spiral-border {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 10px;
-    z-index: 9999;
-    overflow: hidden;
-    background: linear-gradient(90deg, #1a1a2e 0%, #0f3460 50%, #1a1a2e 100%);
-}
-
-.spiral-flow {
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 200%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent 0%, #ff6b35 10%, #00d4ff 30%, #4ecdc4 50%, #00d4ff 70%, #ff6b35 90%, transparent 100%);
-    animation: spiralFlow 6s linear infinite;
-    filter: blur(1px);
-}
-
-@keyframes spiralFlow {
-    0% { left: -100%; }
-    100% { left: 100%; }
-}
+/* Removed spiral animation for better performance */
 
 .hero {
     padding: 120px 2rem 60px;
