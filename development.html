@@ -3,124 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Development Services - AI Fix Pro - AI Fix Pro</title>
+    <title>AI Development - AI Fix Pro</title>
     <link rel="stylesheet" href="industry-style.css">
     <link rel="stylesheet" href="animations.css">
     <style>
-        /* Mega Menu Styles */
-        .has-dropdown {
-            position: relative;
+        .has-dropdown { position: relative; }
+        .dropdown-arrow { font-size: 0.8rem; margin-left: 5px; }
+        .mega-menu {
+            position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+            background: rgba(26, 26, 46, 0.98); border: 2px solid #4ecdc4; border-radius: 15px;
+            padding: 2rem; min-width: 800px; margin-top: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); z-index: 2000;
+            opacity: 0; visibility: hidden; transition: all 0.3s ease;
         }
-
-        .dropdown-arrow {
-            font-size: 0.8rem;
-            margin-left: 5px;
-        }
-
-                .mega-menu {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(26, 26, 46, 0.98);
-            border: 2px solid #4ecdc4;
-            border-radius: 15px;
-            padding: 2rem;
-            min-width: 800px;
-            margin-top: 10px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-            z-index: 2000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .mega-menu.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .mega-menu.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .mega-menu.active {
-            display: block;
-        }
-
-        .mega-menu-content {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-        }
-
+        .mega-menu.show { opacity: 1; visibility: visible; }
+        .mega-menu.active { opacity: 1; visibility: visible; }
+        .mega-menu-content { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
         .mega-menu-column h4 {
-            color: #4ecdc4;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid #4ecdc4;
+            color: #4ecdc4; font-size: 1.1rem; margin-bottom: 1rem;
+            padding-bottom: 0.5rem; border-bottom: 2px solid #4ecdc4;
         }
-
         .mega-menu-column a {
-            display: block;
-            color: #fff;
-            text-decoration: none;
-            padding: 0.5rem 0.75rem;
-            margin: 0.25rem 0;
-            border-radius: 6px;
-            transition: all 0.3s;
-            font-size: 0.95rem;
+            display: block; color: #fff; text-decoration: none; padding: 0.5rem 0.75rem;
+            margin: 0.25rem 0; border-radius: 6px; transition: all 0.3s; font-size: 0.95rem;
         }
-
-        .mega-menu-column a:hover {
-            background: rgba(78, 205, 196, 0.2);
-            color: #4ecdc4;
-            padding-left: 1rem;
+        .mega-menu-column a:hover { background: rgba(78, 205, 196, 0.2); color: #4ecdc4; padding-left: 1rem; }
+        
+        .hero {
+            text-align: center; padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.1), rgba(255, 107, 53, 0.1));
+            border-radius: 20px; margin: 2rem auto; max-width: 1200px;
         }
-
+        .hero h1 {
+            font-size: 4rem; margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #4ecdc4, #ff6b35);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .hero-icon { font-size: 5rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.4rem; color: #ccc; line-height: 1.8; max-width: 800px; margin: 0 auto; }
+        .cta-button {
+            display: inline-block; margin-top: 2rem; padding: 1.2rem 3rem;
+            background: linear-gradient(135deg, #4ecdc4, #ff6b35); color: #fff;
+            text-decoration: none; border-radius: 50px; font-size: 1.2rem; font-weight: 600; transition: all 0.3s;
+        }
+        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(78, 205, 196, 0.5); }
+        .features { max-width: 1200px; margin: 5rem auto; padding: 0 2rem; }
+        .features h2 { text-align: center; font-size: 3rem; color: #4ecdc4; margin-bottom: 3rem; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+        .feature-card {
+            background: rgba(26, 26, 46, 0.8); border: 2px solid rgba(78, 205, 196, 0.3);
+            border-radius: 15px; padding: 2.5rem; text-align: center; transition: all 0.3s;
+        }
+        .feature-card:hover {
+            border-color: #4ecdc4; transform: translateY(-10px); box-shadow: 0 15px 40px rgba(78, 205, 196, 0.3);
+        }
+        .feature-icon { font-size: 4rem; margin-bottom: 1.5rem; }
+        .feature-card h3 { color: #4ecdc4; font-size: 1.6rem; margin-bottom: 1rem; }
+        .feature-card p { color: #ccc; line-height: 1.8; font-size: 1.1rem; }
         @media (max-width: 968px) {
-            .mega-menu {
-                position: static;
-                transform: none;
-                min-width: auto;
-                width: 100%;
-                margin-top: 0.5rem;
-                padding: 1rem;
-            }
-
-            .mega-menu-content {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
+            .hero h1 { font-size: 2.5rem; }
+            .mega-menu { position: static; transform: none; min-width: auto; width: 100%; }
+            .mega-menu-content { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <div class="container">
             <a href="index.html" class="logo">
                 <img src="logo.png" alt="AI Fix Pro" style="height: 65px; width: auto;">
             </a>
             <div class="menu-toggle" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
                 <li class="has-dropdown">
-                    <a href="#" id="servicesBtn">
-                        Services <span class="dropdown-arrow">▼</span>
-                    </a>
+                    <a href="#" id="servicesBtn">Services <span class="dropdown-arrow">▼</span></a>
                     <div class="mega-menu" id="servicesMenu">
                         <div class="mega-menu-content">
                             <div class="mega-menu-column">
                                 <h4>🤖 AI Solutions</h4>
                                 <a href="automation.html">AI Automation</a>
-                                <a href="consultancy.html">AI Consultancy</a>
+                                <a href="development.html">AI Development</a>
                                 <a href="development.html">AI Development</a>
                             </div>
                             <div class="mega-menu-column">
@@ -153,253 +118,73 @@
         </div>
     </nav>
 
-    <div class="top-spiral-border">
-        <div class="spiral-flow"></div>
+    <div class="hero floating">
+        <div class="hero-icon">⚙️</div>
+        <h1>AI Development</h1>
+        <p>Custom AI solutions built for your specific needs. From chatbots to automation systems, we develop intelligent applications.</p>
+        <a href="contact.html" class="cta-button">🚀 Get Started</a>
     </div>
 
-    <nav>
-        <div class="container">
-            <a href="index.html" class="logo"><img src="logo.png" alt="AI Fix Pro" style="height: 65px; width: auto;"></a>
-            <div class="menu-toggle" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
+    <div class="features">
+        <h2>✨ Consultancy Services</h2>
+        <div class="features-grid">
+            <div class="feature-card floating" style="animation-delay: 0.1s;">
+                <div class="feature-icon">🎯</div>
+                <h3>Strategy Planning</h3>
+                <p>Develop a comprehensive AI strategy aligned with your business goals and industry needs.</p>
             </div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
-                <li class="has-dropdown">
-                    <a href="#" onclick="event.preventDefault(); toggleServicesMenu()">
-                        Services <span class="dropdown-arrow">▼</span>
-                    </a>
-                    <div class="mega-menu" id="servicesMenu">
-                        <div class="mega-menu-content">
-                            <div class="mega-menu-column">
-                                <h4>🤖 AI Solutions</h4>
-                                <a href="automation.html">AI Automation</a>
-                                <a href="consultancy.html">AI Consultancy</a>
-                                <a href="development.html">AI Development</a>
-                            </div>
-                            <div class="mega-menu-column">
-                                <h4>💻 Development</h4>
-                                <a href="app-development.html">App Development</a>
-                                <a href="web-development.html">Web Development</a>
-                                <a href="data-tech.html">Data &amp; Tech</a>
-                            </div>
-                            <div class="mega-menu-column">
-                                <h4>🎨 Creative</h4>
-                                <a href="design.html">Design Services</a>
-                                <a href="branding.html">Branding</a>
-                                <a href="brand-guidelines.html">Brand Guidelines</a>
-                                <a href="marketing.html">Marketing</a>
-                            </div>
-                            <div class="mega-menu-column">
-                                <h4>🏢 Industries</h4>
-                                <a href="garage.html">Automotive</a>
-                                <a href="optician.html">Healthcare</a>
-                                <a href="airbnb.html">Hospitality</a>
-                                <a href="letting-agents.html">Real Estate</a>
-                                <a href="law-firms.html">Legal</a>
-                                <a href="restaurant.html">Food Service</a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            </ul>
-        </div>
-    </nav>
-
-    <section class="hero">
-        <h1>💻 Custom Development</h1>
-        <p>Building powerful applications with modern technology</p>
-        <div class="video-placeholder"></div>
-    </section>
-
-    <section class="container">
-        <h2 class="section-title">Development Services</h2>
-        
-        <div class="dev-grid">
-            <div class="dev-card" onclick="window.location.href='app-development.html'" style="cursor: pointer;">
-                <div class="dev-icon">📱</div>
-                <h3>Mobile Applications</h3>
-                <p>Native and cross-platform mobile apps that deliver exceptional user experiences on iOS and Android.</p>
-                <div class="tech-stack">
-                    <span class="tech-badge">React Native</span>
-                    <span class="tech-badge">Flutter</span>
-                    <span class="tech-badge">Swift</span>
-                    <span class="tech-badge">Kotlin</span>
-                </div>
-                <a href="app-development.html" style="color: #ff6b35; font-weight: 600; text-decoration: none; display: inline-block; margin-top: 1rem;">Learn More →</a>
+            <div class="feature-card floating" style="animation-delay: 0.2s;">
+                <div class="feature-icon">🔍</div>
+                <h3>Opportunity Assessment</h3>
+                <p>Identify high-impact AI opportunities and prioritize initiatives for maximum ROI.</p>
             </div>
-
-            <div class="dev-card" onclick="window.location.href='web-development.html'" style="cursor: pointer;">
-                <div class="dev-icon">🌐</div>
-                <h3>Web Applications</h3>
-                <p>Responsive, fast, and scalable web applications built with modern frameworks and best practices.</p>
-                <div class="tech-stack">
-                    <span class="tech-badge">React</span>
-                    <span class="tech-badge">Next.js</span>
-                    <span class="tech-badge">Node.js</span>
-                    <span class="tech-badge">Python/Flask</span>
-                </div>
-                <a href="web-development.html" style="color: #ff6b35; font-weight: 600; text-decoration: none; display: inline-block; margin-top: 1rem;">Learn More →</a>
+            <div class="feature-card floating" style="animation-delay: 0.3s;">
+                <div class="feature-icon">🛠️</div>
+                <h3>Implementation Roadmap</h3>
+                <p>Detailed execution plans with timelines, resources, and success metrics.</p>
             </div>
-
-            <div class="dev-card" onclick="window.location.href='brand-guidelines.html'" style="cursor: pointer;">
-                <div class="dev-icon">🎨</div>
-                <h3>Brand Guidelines</h3>
-                <p>Comprehensive brand identity systems including logos, color palettes, typography, and usage guidelines.</p>
-                <div class="tech-stack">
-                    <span class="tech-badge">Adobe Suite</span>
-                    <span class="tech-badge">Figma</span>
-                    <span class="tech-badge">Brand Strategy</span>
-                </div>
-                <a href="brand-guidelines.html" style="color: #ff6b35; font-weight: 600; text-decoration: none; display: inline-block; margin-top: 1rem;">Learn More →</a>
+            <div class="feature-card floating" style="animation-delay: 0.4s;">
+                <div class="feature-icon">📊</div>
+                <h3>ROI Analysis</h3>
+                <p>Data-driven analysis to quantify potential returns and business impact.</p>
             </div>
-
-            <div class="dev-card">
-                <div class="dev-icon">☁️</div>
-                <h3>Cloud Infrastructure</h3>
-                <p>Scalable cloud solutions with serverless architecture, database management, and API development.</p>
-                <div class="tech-stack">
-                    <span class="tech-badge">Google Cloud</span>
-                    <span class="tech-badge">Firebase</span>
-                    <span class="tech-badge">AWS</span>
-                    <span class="tech-badge">Firestore</span>
-                </div>
+            <div class="feature-card floating" style="animation-delay: 0.5s;">
+                <div class="feature-icon">👥</div>
+                <h3>Team Training</h3>
+                <p>Upskill your team to effectively use and manage AI solutions.</p>
             </div>
-
-            <div class="dev-card">
-                <div class="dev-icon">🔌</div>
-                <h3>API Integration</h3>
-                <p>Seamless integration with third-party services including payment processors, CRMs, and communication platforms.</p>
-                <div class="tech-stack">
-                    <span class="tech-badge">Twilio</span>
-                    <span class="tech-badge">Stripe</span>
-                    <span class="tech-badge">Google APIs</span>
-                    <span class="tech-badge">REST/GraphQL</span>
-                </div>
-            </div>
-
-            <div class="dev-card">
-                <div class="dev-icon">🤖</div>
-                <h3>AI/ML Integration</h3>
-                <p>Incorporate artificial intelligence and machine learning capabilities into your applications.</p>
-                <div class="tech-stack">
-                    <span class="tech-badge">Gemini AI</span>
-                    <span class="tech-badge">OpenAI</span>
-                    <span class="tech-badge">TensorFlow</span>
-                    <span class="tech-badge">NLP</span>
-                </div>
+            <div class="feature-card floating" style="animation-delay: 0.6s;">
+                <div class="feature-icon">🔄</div>
+                <h3>Ongoing Support</h3>
+                <p>Continuous advisory services to optimize and scale your AI initiatives.</p>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section class="container">
-        <h2 class="section-title">Our Tech Stack</h2>
-        
-        <div class="dev-grid">
-            <div class="dev-card">
-                <h3>Frontend</h3>
-                <p>Modern, responsive interfaces with exceptional user experiences.</p>
-                <div class="tech-stack">
-                    <span class="tech-badge">React</span>
-                    <span class="tech-badge">Next.js</span>
-                    <span class="tech-badge">Vue.js</span>
-                    <span class="tech-badge">TypeScript</span>
-                    <span class="tech-badge">Tailwind CSS</span>
-                    <span class="tech-badge">HTML5/CSS3</span>
-                </div>
-            </div>
-
-            <div class="dev-card">
-                <h3>Backend</h3>
-                <p>Robust server-side architecture and API development.</p>
-                <div class="tech-stack">
-                    <span class="tech-badge">Python/Flask</span>
-                    <span class="tech-badge">Node.js</span>
-                    <span class="tech-badge">Express</span>
-                    <span class="tech-badge">FastAPI</span>
-                    <span class="tech-badge">GraphQL</span>
-                    <span class="tech-badge">REST APIs</span>
-                </div>
-            </div>
-
-            <div class="dev-card">
-                <h3>Cloud & DevOps</h3>
-                <p>Scalable infrastructure and continuous deployment.</p>
-                <div class="tech-stack">
-                    <span class="tech-badge">Google Cloud</span>
-                    <span class="tech-badge">Firebase</span>
-                    <span class="tech-badge">Docker</span>
-                    <span class="tech-badge">GitHub Actions</span>
-                    <span class="tech-badge">Cloud Functions</span>
-                    <span class="tech-badge">Cloud Run</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta-section">
-        <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: #4ecdc4;">Ready to Build Your Application?</h2>
-        <p style="font-size: 1.3rem; margin-bottom: 2rem; color: #ddd;">Let's discuss your project requirements and create something amazing</p>
-        <a href="contact.html" class="cta-button">Start Your Project</a>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-links">
-                <a href="automation.html">Automation</a>
-                <a href="consultancy.html">Consultancy</a>
-                <a href="development.html">Development</a>
-                <a href="design.html">Design</a>
-                <a href="contact.html">Contact</a>
-            </div>
-            <p class="copyright">&copy; 2025 AI Fix Pro. All rights reserved.</p>
-        </div>
-    </footer>
-    <script src="animations.js"></script>
-
-    
-    <script src="animations.js"></script>
     <script>
         console.log('Script loaded!');
-        
-        // Get elements
         var servicesBtn = document.getElementById('servicesBtn');
         var servicesMenu = document.getElementById('servicesMenu');
         var dropdown = document.querySelector('.has-dropdown');
         
-        console.log('servicesBtn:', servicesBtn);
-        console.log('servicesMenu:', servicesMenu);
-        
-        // Click on Services button
         if (servicesBtn && servicesMenu) {
             servicesBtn.addEventListener('click', function(e) {
                 e.preventDefault();
                 console.log('Services button clicked!');
                 servicesMenu.classList.toggle('show');
             });
-            
-            // Click outside to close
             document.addEventListener('click', function(e) {
                 if (!dropdown.contains(e.target)) {
                     servicesMenu.classList.remove('show');
                 }
             });
-            
-            // Don't close when clicking inside menu
             servicesMenu.addEventListener('click', function(e) {
                 e.stopPropagation();
             });
         }
-        
-        // Hamburger menu
         function toggleMenu() {
             document.getElementById('navLinks').classList.toggle('active');
         }
-        
         console.log('Event listeners attached!');
     </script>
     <script src="animations.js"></script>
