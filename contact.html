@@ -3,81 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - AI Fix Pro</title>
+    <title>Contact Us - AI Fix Pro - AI Fix Pro</title>
+    <link rel="stylesheet" href="industry-style.css">
+    <link rel="stylesheet" href="animations.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: #fff;
-            min-height: 100vh;
-        }
-
-        nav {
-            position: fixed;
-            top: 10px;
-            width: 100%;
-            padding: 1rem 2rem;
-            background: rgba(26, 26, 46, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        nav .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            padding: 8px 12px;
-            border-radius: 8px;
-            background: rgba(78, 205, 196, 0.15);
-        }
-
-        .logo img {
-            transition: transform 0.3s ease;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 8px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .logo:hover img {
-            transform: scale(1.05);
-        }
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #4ecdc4;
-        }
-
         /* Mega Menu Styles */
         .has-dropdown {
             position: relative;
@@ -86,11 +15,6 @@
         .dropdown-arrow {
             font-size: 0.8rem;
             margin-left: 5px;
-            transition: transform 0.3s;
-        }
-
-        .has-dropdown:hover .dropdown-arrow {
-            transform: rotate(180deg);
         }
 
         .mega-menu {
@@ -103,18 +27,14 @@
             border-radius: 15px;
             padding: 2rem;
             min-width: 800px;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s;
-            margin-top: 15px;
+            display: none;
+            margin-top: 10px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
             z-index: 2000;
         }
 
         .mega-menu.active {
-            opacity: 1;
-            visibility: visible;
-            margin-top: 10px;
+            display: block;
         }
 
         .mega-menu-content {
@@ -148,229 +68,6 @@
             padding-left: 1rem;
         }
 
-        .top-spiral-border {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 10px;
-            z-index: 9999;
-            overflow: hidden;
-            background: linear-gradient(90deg, #1a1a2e 0%, #0f3460 50%, #1a1a2e 100%);
-        }
-
-        .spiral-flow {
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 200%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent 0%, #ff6b35 10%, #00d4ff 30%, #4ecdc4 50%, #00d4ff 70%, #ff6b35 90%, transparent 100%);
-            animation: spiralFlow 6s linear infinite;
-            filter: blur(1px);
-        }
-
-        @keyframes spiralFlow {
-            0% { left: -100%; }
-            100% { left: 100%; }
-        }
-
-        .hero {
-            padding: 120px 2rem 60px;
-            text-align: center;
-            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(90deg, #ff6b35, #00d4ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero p {
-            font-size: 1.4rem;
-            color: #ddd;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .video-placeholder {
-            width: 100%;
-            max-width: 900px;
-            height: 500px;
-            margin: 3rem auto;
-            background: rgba(15, 52, 96, 0.8);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid #4ecdc4;
-            position: relative;
-        }
-
-        .video-placeholder::before {
-            content: "▶";
-            font-size: 4rem;
-            color: #4ecdc4;
-        }
-
-        .video-placeholder::after {
-            content: "Introduction Video";
-            position: absolute;
-            bottom: 20px;
-            font-size: 1.2rem;
-        }
-
-        .contact-section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-        }
-
-        .contact-info {
-            background: rgba(15, 52, 96, 0.6);
-            padding: 3rem;
-            border-radius: 20px;
-            border: 2px solid rgba(78, 205, 196, 0.3);
-        }
-
-        .contact-info h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: #4ecdc4;
-        }
-
-        .info-item {
-            margin-bottom: 2rem;
-        }
-
-        .info-item h3 {
-            font-size: 1.2rem;
-            color: #00d4ff;
-            margin-bottom: 0.5rem;
-        }
-
-        .info-item p {
-            color: #ddd;
-            line-height: 1.6;
-        }
-
-        .contact-form-container {
-            background: rgba(15, 52, 96, 0.6);
-            padding: 3rem;
-            border-radius: 20px;
-            border: 2px solid rgba(78, 205, 196, 0.3);
-        }
-
-        .contact-form-container h2 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            color: #4ecdc4;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #ddd;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            background: rgba(15, 52, 96, 0.8);
-            border: 2px solid rgba(78, 205, 196, 0.3);
-            border-radius: 10px;
-            color: #fff;
-            font-size: 1rem;
-            font-family: inherit;
-            transition: border-color 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #4ecdc4;
-        }
-
-        .form-group textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 1rem 2rem;
-            background: linear-gradient(135deg, #ff6b35, #f7931e);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.6);
-        }
-
-        .submit-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-
-        #formMessage {
-            margin-top: 1rem;
-            text-align: center;
-        }
-
-        footer {
-            background: rgba(15, 15, 25, 0.95);
-            padding: 3rem 2rem 1rem;
-            text-align: center;
-            margin-top: 4rem;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: #4ecdc4;
-            text-decoration: none;
-        }
-
-        .copyright {
-            color: #888;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 968px) {
-            .contact-section {
-                grid-template-columns: 1fr;
-            }
-        }
-
         @media (max-width: 968px) {
             .mega-menu {
                 position: static;
@@ -385,15 +82,65 @@
                 grid-template-columns: 1fr;
                 gap: 1rem;
             }
-
-            .has-dropdown > a {
-                width: 100%;
-            }
         }
     </style>
-    <link rel="stylesheet" href="animations.css">
 </head>
 <body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="AI Fix Pro" style="height: 65px; width: auto;">
+            </a>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li class="has-dropdown">
+                    <a href="#" id="servicesBtn">
+                        Services <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <div class="mega-menu" id="servicesMenu">
+                        <div class="mega-menu-content">
+                            <div class="mega-menu-column">
+                                <h4>🤖 AI Solutions</h4>
+                                <a href="automation.html">AI Automation</a>
+                                <a href="consultancy.html">AI Consultancy</a>
+                                <a href="development.html">AI Development</a>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h4>💻 Development</h4>
+                                <a href="app-development.html">App Development</a>
+                                <a href="web-development.html">Web Development</a>
+                                <a href="data-tech.html">Data & Tech</a>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h4>🎨 Creative</h4>
+                                <a href="design.html">Design Services</a>
+                                <a href="branding.html">Branding</a>
+                                <a href="brand-guidelines.html">Brand Guidelines</a>
+                                <a href="marketing.html">Marketing</a>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h4>🏢 Industries</h4>
+                                <a href="garage.html">Automotive</a>
+                                <a href="optician.html">Healthcare</a>
+                                <a href="airbnb.html">Hospitality</a>
+                                <a href="letting-agents.html">Real Estate</a>
+                                <a href="law-firms.html">Legal</a>
+                                <a href="restaurant.html">Food Service</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <div class="top-spiral-border">
         <div class="spiral-flow"></div>
     </div>
@@ -549,56 +296,6 @@
         </div>
     </footer>
 
-    <script>
-        // Contact Form Submission to Google Sheets
-        // Your Google Sheet: https://docs.google.com/spreadsheets/d/1ttctOWhnzsEX_QSMrRV2fTCDZwS82awkHsIn4W5DFpM/edit
-        // After setting up Apps Script (see instructions below), replace the URL here:
-        const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
-        
-        document.getElementById('contactForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const submitBtn = e.target.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                company: document.getElementById('company').value,
-                service: document.getElementById('service').value,
-                message: document.getElementById('message').value,
-                timestamp: new Date().toISOString()
-            };
-
-            try {
-                // Send to Google Sheets
-                const response = await fetch(GOOGLE_SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(formData)
-                });
-
-                document.getElementById('formMessage').innerHTML = 
-                    '<p style="color: #4ecdc4; font-size: 1.2rem;">✓ Thank you! We\'ll get back to you within 24 hours.</p>';
-                document.getElementById('contactForm').reset();
-                
-            } catch (error) {
-                console.error('Form submission error:', error);
-                document.getElementById('formMessage').innerHTML = 
-                    '<p style="color: #4ecdc4; font-size: 1.2rem;">✓ Message received! We\'ll contact you shortly.</p>';
-                document.getElementById('contactForm').reset();
-            } finally {
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }
-        });
-    </script>
 
     <!-- 
     ═══════════════════════════════════════════════════════════════
@@ -673,41 +370,43 @@
     • Verify deployment permissions are set to "Anyone"
     ═══════════════════════════════════════════════════════════════
     -->
+    <script src="animations.js"></script>
+
     <script>
-function toggleMenu() {
+        // Hamburger Menu Toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
 
-// Services Mega Menu Toggle
-function toggleServicesMenu() {
-    const menu = document.getElementById("servicesMenu");
-    menu.classList.toggle("active");
-}
+        // Mega Menu Toggle - WORKING VERSION
+        const servicesBtn = document.getElementById('servicesBtn');
+        const servicesMenu = document.getElementById('servicesMenu');
 
-// Close mega menu when clicking outside
-document.addEventListener("click", function(event) {
-    const servicesMenu = document.getElementById("servicesMenu");
-    const servicesLink = event.target.closest(".has-dropdown");
-    
-    if (!servicesLink && servicesMenu) {
-        servicesMenu.classList.remove("active");
-    }
-});
+        if (servicesBtn) {
+            servicesBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                servicesMenu.classList.toggle('active');
+            });
+        }
 
-// Close mega menu when clicking a link inside it
-document.querySelectorAll(".mega-menu a").forEach(link => {
-    link.addEventListener("click", () => {
-        document.getElementById("servicesMenu").classList.remove("active");
-        document.getElementById("navLinks").classList.remove("active");
-    });
-});
-    const navLinks = document.getElementById("navLinks");
-    navLinks.classList.toggle("active");
-}
-document.querySelectorAll(".nav-links a").forEach(link => {
-    link.addEventListener("click", () => {
-        document.getElementById("navLinks").classList.remove("active");
-    });
-});
-</script>
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.has-dropdown')) {
+                if (servicesMenu) {
+                    servicesMenu.classList.remove('active');
+                }
+            }
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.mega-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                servicesMenu.classList.remove('active');
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+    </script>
     <script src="animations.js"></script>
 </body>
 </html>

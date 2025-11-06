@@ -1,9 +1,19 @@
+#!/bin/bash
+
+# This script applies the WORKING mega menu code to all pages
+
+for file in automation.html consultancy.html development.html design.html contact.html data-tech.html marketing.html branding.html app-development.html web-development.html brand-guidelines.html garage.html optician.html airbnb.html letting-agents.html law-firms.html restaurant.html; do
+  
+  echo "Updating $file with working mega menu..."
+  
+  # Create new file with working code
+  cat > "${file}.new" << 'EOFHTML'
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Optician Solutions - AI Fix Pro - AI Fix Pro</title>
+    <title>TITLE_PLACEHOLDER - AI Fix Pro</title>
     <link rel="stylesheet" href="industry-style.css">
     <link rel="stylesheet" href="animations.css">
     <style>
@@ -141,136 +151,7 @@
         </div>
     </nav>
 
-    <div class="top-spiral-border"><div class="spiral-flow"></div></div>
-    
-    <nav>
-        <div class="container">
-            <a href="index.html" class="logo"><img src="logo.png" alt="AI Fix Pro" style="height: 65px; width: auto;"></a>
-            <div class="menu-toggle" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
-                <li class="has-dropdown">
-                    <a href="#" onclick="event.preventDefault(); toggleServicesMenu()">
-                        Services <span class="dropdown-arrow">▼</span>
-                    </a>
-                    <div class="mega-menu" id="servicesMenu">
-                        <div class="mega-menu-content">
-                            <div class="mega-menu-column">
-                                <h4>🤖 AI Solutions</h4>
-                                <a href="automation.html">AI Automation</a>
-                                <a href="consultancy.html">AI Consultancy</a>
-                                <a href="development.html">AI Development</a>
-                            </div>
-                            <div class="mega-menu-column">
-                                <h4>💻 Development</h4>
-                                <a href="app-development.html">App Development</a>
-                                <a href="web-development.html">Web Development</a>
-                                <a href="data-tech.html">Data &amp; Tech</a>
-                            </div>
-                            <div class="mega-menu-column">
-                                <h4>🎨 Creative</h4>
-                                <a href="design.html">Design Services</a>
-                                <a href="branding.html">Branding</a>
-                                <a href="brand-guidelines.html">Brand Guidelines</a>
-                                <a href="marketing.html">Marketing</a>
-                            </div>
-                            <div class="mega-menu-column">
-                                <h4>🏢 Industries</h4>
-                                <a href="garage.html">Automotive</a>
-                                <a href="optician.html">Healthcare</a>
-                                <a href="airbnb.html">Hospitality</a>
-                                <a href="letting-agents.html">Real Estate</a>
-                                <a href="law-firms.html">Legal</a>
-                                <a href="restaurant.html">Food Service</a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            </ul>
-        </div>
-    </nav>
-
-    <section class="hero">
-        <h1>👓 Optician Practice Automation</h1>
-        <p>Smart appointment booking and patient management for optical practices</p>
-        <div class="video-placeholder"></div>
-    </section>
-
-    <section class="container">
-        <h2 class="section-title">Solutions for Opticians</h2>
-        
-        <div class="features-grid">
-            <div class="feature-card">
-                <h3>📞 AI Receptionist</h3>
-                <p>Voice assistant that handles appointment bookings, prescription inquiries, and patient questions naturally.</p>
-                <ul>
-                    <li>Eye test appointments</li>
-                    <li>Contact lens consultations</li>
-                    <li>Frame selection appointments</li>
-                    <li>Prescription renewals</li>
-                </ul>
-            </div>
-
-            <div class="feature-card">
-                <h3>📅 Appointment Management</h3>
-                <p>Intelligent scheduling with Google Calendar integration and automated patient reminders.</p>
-                <ul>
-                    <li>Test duration management</li>
-                    <li>Optometrist availability</li>
-                    <li>SMS/Email reminders</li>
-                    <li>No-show reduction</li>
-                </ul>
-            </div>
-
-            <div class="feature-card">
-                <h3>💬 Patient Communication</h3>
-                <p>Website chat and SMS systems for prescription orders and frame inquiries.</p>
-                <ul>
-                    <li>Frame availability</li>
-                    <li>Prescription status</li>
-                    <li>Insurance queries</li>
-                    <li>Repair requests</li>
-                </ul>
-            </div>
-
-            <div class="feature-card">
-                <h3>📊 Practice Dashboard</h3>
-                <p>Track appointments, patient history, and practice metrics in real-time.</p>
-                <ul>
-                    <li>Booking analytics</li>
-                    <li>Patient history</li>
-                    <li>Revenue tracking</li>
-                    <li>Recall campaigns</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta-section">
-        <h2>Transform Your Optical Practice</h2>
-        <p>Join leading opticians using AI to improve patient experience</p>
-        <a href="contact.html" class="cta-button">Schedule a Demo</a>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-links">
-                <a href="automation.html">Automation</a>
-                <a href="consultancy.html">Consultancy</a>
-                <a href="development.html">Development</a>
-                <a href="design.html">Design</a>
-                <a href="contact.html">Contact</a>
-            </div>
-            <p class="copyright">&copy; 2025 AI Fix Pro. All rights reserved.</p>
-        </div>
-    </footer>
-    <script src="animations.js"></script>
+CONTENT_PLACEHOLDER
 
     <script>
         // Hamburger Menu Toggle
@@ -310,3 +191,22 @@
     <script src="animations.js"></script>
 </body>
 </html>
+EOFHTML
+
+  # Extract title and content from original file
+  TITLE=$(grep -o '<title>.*</title>' "$file" | sed 's/<[^>]*>//g' | head -1)
+  
+  # Extract content between <body> and </body>, excluding nav and scripts
+  CONTENT=$(awk '/<body>/,/<\/body>/' "$file" | sed '1d;$d' | awk '/<!-- Navigation -->/,/<\/nav>/{next} /<script>/,/<\/script>/{next} /<\/body>/{next} {print}')
+  
+  # Replace placeholders
+  sed -i "s|TITLE_PLACEHOLDER|${TITLE}|g" "${file}.new"
+  sed -i "/CONTENT_PLACEHOLDER/r /dev/stdin" "${file}.new" <<< "$CONTENT"
+  sed -i '/CONTENT_PLACEHOLDER/d' "${file}.new"
+  
+  # Replace old file with new one
+  mv "${file}.new" "$file"
+  
+done
+
+echo "All pages updated with working mega menu!"
