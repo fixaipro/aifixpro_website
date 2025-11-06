@@ -22,7 +22,6 @@ nav {
     backdrop-filter: blur(10px);
     z-index: 1000;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    border-bottom: 5px solid #4ecdc4;
 }
 
 nav .container {
@@ -116,6 +115,12 @@ nav .container {
         padding-top: 90px;
     }
     
+    nav {
+        background: rgba(26, 26, 46, 0.3);
+        backdrop-filter: blur(5px);
+        padding: 1rem 1.5rem;
+    }
+    
     .nav-links {
         position: fixed;
         right: -100%;
@@ -147,16 +152,10 @@ nav .container {
         display: flex;
     }
     
-    nav {
-        padding: 1rem 1.5rem;
-    }
-    
     .logo img {
         height: 50px;
     }
 }
-
-/* Removed spiral animation for better performance */
 
 .hero {
     padding: 120px 2rem 60px;
@@ -192,21 +191,6 @@ nav .container {
     justify-content: center;
     border: 2px solid #4ecdc4;
     position: relative;
-}
-
-.video-placeholder::before {
-    content: "▶";
-    font-size: 4rem;
-    color: #4ecdc4;
-    position: absolute;
-}
-
-.video-placeholder::after {
-    content: "Industry Demo Video";
-    position: absolute;
-    bottom: 20px;
-    font-size: 1.2rem;
-    color: #fff;
 }
 
 .container {
@@ -255,45 +239,6 @@ nav .container {
     margin-bottom: 1rem;
 }
 
-.feature-card ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 1.5rem;
-}
-
-.feature-card ul li {
-    padding: 0.5rem 0;
-    color: #bbb;
-    position: relative;
-    padding-left: 1.5rem;
-}
-
-.feature-card ul li::before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    color: #4ecdc4;
-    font-weight: bold;
-}
-
-.cta-section {
-    text-align: center;
-    padding: 4rem 2rem;
-    background: rgba(15, 52, 96, 0.4);
-}
-
-.cta-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    color: #4ecdc4;
-}
-
-.cta-section p {
-    font-size: 1.3rem;
-    margin-bottom: 2rem;
-    color: #ddd;
-}
-
 .cta-button {
     display: inline-block;
     padding: 1rem 2.5rem;
@@ -334,19 +279,6 @@ footer {
 .copyright {
     color: #888;
     font-size: 0.9rem;
-}
-
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-    .features-grid {
-        grid-template-columns: 1fr;
-    }
-    .nav-links {
-        flex-direction: column;
-        gap: 1rem;
-    }
 }
 
 /* Mega Menu Styles */
