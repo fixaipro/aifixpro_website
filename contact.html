@@ -7,308 +7,109 @@
     <link rel="stylesheet" href="industry-style.css">
     <link rel="stylesheet" href="animations.css">
     <style>
-        /* Mega Menu Styles */
-        .has-dropdown {
-            position: relative;
-        }
-
-        .dropdown-arrow {
-            font-size: 0.8rem;
-            margin-left: 5px;
-        }
-
+        .has-dropdown { position: relative; }
+        .dropdown-arrow { font-size: 0.8rem; margin-left: 5px; }
         .mega-menu {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(26, 26, 46, 0.98);
-            border: 2px solid #4ecdc4;
-            border-radius: 15px;
-            padding: 2rem;
-            min-width: 800px;
-            display: none;
-            margin-top: 10px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-            z-index: 2000;
+            position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+            background: rgba(26, 26, 46, 0.98); border: 2px solid #4ecdc4; border-radius: 15px;
+            padding: 2rem; min-width: 800px; display: none; margin-top: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); z-index: 2000;
         }
-
-        .mega-menu.active {
-            display: block;
-        }
-
-        .mega-menu-content {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-        }
-
+        .mega-menu.active { display: block; }
+        .mega-menu-content { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
         .mega-menu-column h4 {
-            color: #4ecdc4;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid #4ecdc4;
+            color: #4ecdc4; font-size: 1.1rem; margin-bottom: 1rem;
+            padding-bottom: 0.5rem; border-bottom: 2px solid #4ecdc4;
         }
-
         .mega-menu-column a {
-            display: block;
-            color: #fff;
-            text-decoration: none;
-            padding: 0.5rem 0.75rem;
-            margin: 0.25rem 0;
-            border-radius: 6px;
-            transition: all 0.3s;
-            font-size: 0.95rem;
+            display: block; color: #fff; text-decoration: none; padding: 0.5rem 0.75rem;
+            margin: 0.25rem 0; border-radius: 6px; transition: all 0.3s; font-size: 0.95rem;
         }
+        .mega-menu-column a:hover { background: rgba(78, 205, 196, 0.2); color: #4ecdc4; padding-left: 1rem; }
 
-        .mega-menu-column a:hover {
-            background: rgba(78, 205, 196, 0.2);
-            color: #4ecdc4;
-            padding-left: 1rem;
-        }
-
-        /* Contact Page Styles */
         .contact-hero {
-            text-align: center;
-            padding: 3rem 2rem;
+            text-align: center; padding: 3rem 2rem;
             background: linear-gradient(135deg, rgba(78, 205, 196, 0.1), rgba(255, 107, 53, 0.1));
-            border-radius: 20px;
-            margin: 2rem auto;
-            max-width: 1200px;
+            border-radius: 20px; margin: 2rem auto; max-width: 1200px;
         }
-
         .contact-hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+            font-size: 3.5rem; margin-bottom: 1rem;
             background: linear-gradient(135deg, #4ecdc4, #ff6b35);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
         }
-
-        .contact-hero p {
-            font-size: 1.3rem;
-            color: #ccc;
-            margin-bottom: 2rem;
-        }
-
+        .contact-hero p { font-size: 1.3rem; color: #ccc; margin-bottom: 2rem; }
         .contact-container {
-            max-width: 1200px;
-            margin: 3rem auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            max-width: 1200px; margin: 3rem auto; padding: 0 2rem;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
         }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
+        .contact-info { display: flex; flex-direction: column; gap: 2rem; }
         .contact-card {
-            background: rgba(26, 26, 46, 0.8);
-            border: 2px solid #4ecdc4;
-            border-radius: 15px;
-            padding: 2rem;
-            transition: all 0.3s;
+            background: rgba(26, 26, 46, 0.8); border: 2px solid #4ecdc4; border-radius: 15px;
+            padding: 2rem; transition: all 0.3s;
         }
-
-        .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(78, 205, 196, 0.3);
-        }
-
-        .contact-card-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact-card h3 {
-            color: #4ecdc4;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact-card p {
-            color: #ccc;
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-
-        .contact-card a {
-            color: #ff6b35;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-
-        .contact-card a:hover {
-            color: #4ecdc4;
-        }
-
+        .contact-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(78, 205, 196, 0.3); }
+        .contact-card-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .contact-card h3 { color: #4ecdc4; font-size: 1.5rem; margin-bottom: 1rem; }
+        .contact-card p { color: #ccc; font-size: 1.1rem; line-height: 1.6; }
+        .contact-card a { color: #ff6b35; text-decoration: none; font-weight: 500; transition: all 0.3s; }
+        .contact-card a:hover { color: #4ecdc4; }
         .contact-form {
-            background: rgba(26, 26, 46, 0.8);
-            border: 2px solid #4ecdc4;
-            border-radius: 15px;
-            padding: 2.5rem;
+            background: rgba(26, 26, 46, 0.8); border: 2px solid #4ecdc4;
+            border-radius: 15px; padding: 2.5rem;
         }
-
-        .contact-form h2 {
-            color: #4ecdc4;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            text-align: center;
+        .contact-form h2 { color: #4ecdc4; font-size: 2rem; margin-bottom: 2rem; text-align: center; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; color: #4ecdc4; font-weight: 500; margin-bottom: 0.5rem; font-size: 1.1rem; }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%; padding: 1rem; background: rgba(22, 33, 62, 0.8);
+            border: 2px solid rgba(78, 205, 196, 0.3); border-radius: 10px;
+            color: #fff; font-size: 1rem; transition: all 0.3s;
         }
-
-        .form-group {
-            margin-bottom: 1.5rem;
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none; border-color: #4ecdc4; box-shadow: 0 0 15px rgba(78, 205, 196, 0.3);
         }
-
-        .form-group label {
-            display: block;
-            color: #4ecdc4;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 1rem;
-            background: rgba(22, 33, 62, 0.8);
-            border: 2px solid rgba(78, 205, 196, 0.3);
-            border-radius: 10px;
-            color: #fff;
-            font-size: 1rem;
-            transition: all 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: #4ecdc4;
-            box-shadow: 0 0 15px rgba(78, 205, 196, 0.3);
-        }
-
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
+        .form-group textarea { min-height: 150px; resize: vertical; }
         .submit-btn {
-            width: 100%;
-            padding: 1.2rem;
-            background: linear-gradient(135deg, #4ecdc4, #ff6b35);
-            border: none;
-            border-radius: 10px;
-            color: #fff;
-            font-size: 1.2rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
+            width: 100%; padding: 1.2rem; background: linear-gradient(135deg, #4ecdc4, #ff6b35);
+            border: none; border-radius: 10px; color: #fff; font-size: 1.2rem; font-weight: 600;
+            cursor: pointer; transition: all 0.3s;
         }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(78, 205, 196, 0.5);
-        }
-
-        .why-choose {
-            max-width: 1200px;
-            margin: 5rem auto;
-            padding: 0 2rem;
-        }
-
-        .why-choose h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            color: #4ecdc4;
-            margin-bottom: 3rem;
-        }
-
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
+        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(78, 205, 196, 0.5); }
+        .why-choose { max-width: 1200px; margin: 5rem auto; padding: 0 2rem; }
+        .why-choose h2 { text-align: center; font-size: 2.5rem; color: #4ecdc4; margin-bottom: 3rem; }
+        .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
         .benefit-card {
-            background: rgba(26, 26, 46, 0.8);
-            border: 2px solid rgba(78, 205, 196, 0.3);
-            border-radius: 15px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s;
+            background: rgba(26, 26, 46, 0.8); border: 2px solid rgba(78, 205, 196, 0.3);
+            border-radius: 15px; padding: 2rem; text-align: center; transition: all 0.3s;
         }
-
         .benefit-card:hover {
-            border-color: #4ecdc4;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(78, 205, 196, 0.3);
+            border-color: #4ecdc4; transform: translateY(-5px); box-shadow: 0 10px 30px rgba(78, 205, 196, 0.3);
         }
-
-        .benefit-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .benefit-card h3 {
-            color: #4ecdc4;
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-        }
-
-        .benefit-card p {
-            color: #ccc;
-            line-height: 1.6;
-        }
+        .benefit-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+        .benefit-card h3 { color: #4ecdc4; font-size: 1.3rem; margin-bottom: 1rem; }
+        .benefit-card p { color: #ccc; line-height: 1.6; }
 
         @media (max-width: 968px) {
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .mega-menu {
-                position: static;
-                transform: none;
-                min-width: auto;
-                width: 100%;
-            }
-
-            .mega-menu-content {
-                grid-template-columns: 1fr;
-            }
+            .contact-container { grid-template-columns: 1fr; }
+            .contact-hero h1 { font-size: 2.5rem; }
+            .mega-menu { position: static; transform: none; min-width: auto; width: 100%; }
+            .mega-menu-content { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <div class="container">
             <a href="index.html" class="logo">
                 <img src="logo.png" alt="AI Fix Pro" style="height: 65px; width: auto;">
             </a>
             <div class="menu-toggle" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
                 <li class="has-dropdown">
-                    <a href="#" id="servicesBtn">
-                        Services <span class="dropdown-arrow">▼</span>
-                    </a>
+                    <a href="#" id="servicesBtn">Services <span class="dropdown-arrow">▼</span></a>
                     <div class="mega-menu" id="servicesMenu">
                         <div class="mega-menu-content">
                             <div class="mega-menu-column">
@@ -347,15 +148,12 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <div class="contact-hero floating">
         <h1>📞 Get In Touch</h1>
         <p>Let's discuss how we can transform your business with AI</p>
     </div>
 
-    <!-- Contact Container -->
     <div class="contact-container">
-        <!-- Contact Info -->
         <div class="contact-info">
             <div class="contact-card floating" style="animation-delay: 0.1s;">
                 <div class="contact-card-icon">📧</div>
@@ -363,51 +161,43 @@
                 <p>Get a response within 24 hours</p>
                 <a href="mailto:admin@aifixpro.co.uk">admin@aifixpro.co.uk</a>
             </div>
-
             <div class="contact-card floating" style="animation-delay: 0.2s;">
                 <div class="contact-card-icon">📱</div>
                 <h3>Call Us</h3>
                 <p>Available Monday - Friday, 9AM - 6PM GMT</p>
                 <a href="tel:+447459750559">+44 7459 750559</a>
             </div>
-
             <div class="contact-card floating" style="animation-delay: 0.3s;">
                 <div class="contact-card-icon">📍</div>
                 <h3>Visit Us</h3>
                 <p>London, United Kingdom</p>
                 <p style="margin-top: 1rem; font-size: 0.95rem;">Serving clients across the UK and internationally</p>
             </div>
-
             <div class="contact-card floating" style="animation-delay: 0.4s;">
                 <div class="contact-card-icon">⏰</div>
                 <h3>Business Hours</h3>
-                <p><strong>Mon - Fri:</strong> 9:00 AM - 6:00 PM<br>
-                   <strong>Sat - Sun:</strong> Emergency support only</p>
+                <p><strong>Mon - Fri:</strong> 9:00 AM - 6:00 PM<br><strong>Sat - Sun:</strong> Emergency support only</p>
             </div>
         </div>
 
-        <!-- Contact Form -->
         <div class="contact-form floating" style="animation-delay: 0.2s;">
             <h2>✨ Send Us A Message</h2>
-            <form id="contactForm" action="https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse" method="POST" target="hidden_iframe">
+            <form id="contactForm">
                 <div class="form-group">
                     <label for="name">👤 Your Name *</label>
-                    <input type="text" id="name" name="entry.name" required placeholder="John Doe">
+                    <input type="text" id="name" required placeholder="John Doe">
                 </div>
-
                 <div class="form-group">
                     <label for="email">📧 Your Email *</label>
-                    <input type="email" id="email" name="entry.email" required placeholder="john@example.com">
+                    <input type="email" id="email" required placeholder="john@example.com">
                 </div>
-
                 <div class="form-group">
                     <label for="phone">📱 Phone Number</label>
-                    <input type="tel" id="phone" name="entry.phone" placeholder="+44 7XXX XXXXXX">
+                    <input type="tel" id="phone" placeholder="+44 7XXX XXXXXX">
                 </div>
-
                 <div class="form-group">
                     <label for="service">🎯 Service Interested In *</label>
-                    <select id="service" name="entry.service" required>
+                    <select id="service" required>
                         <option value="">Select a service</option>
                         <option value="AI Automation">🤖 AI Automation</option>
                         <option value="AI Consultancy">💡 AI Consultancy</option>
@@ -420,19 +210,15 @@
                         <option value="Other">🔧 Other</option>
                     </select>
                 </div>
-
                 <div class="form-group">
                     <label for="message">💬 Your Message *</label>
-                    <textarea id="message" name="entry.message" required placeholder="Tell us about your project..."></textarea>
+                    <textarea id="message" required placeholder="Tell us about your project..."></textarea>
                 </div>
-
                 <button type="submit" class="submit-btn">🚀 Send Message</button>
             </form>
-            <iframe name="hidden_iframe" style="display:none;"></iframe>
         </div>
     </div>
 
-    <!-- Why Choose Us -->
     <div class="why-choose">
         <h2>🌟 Why Choose AI Fix Pro?</h2>
         <div class="benefits-grid">
@@ -441,31 +227,26 @@
                 <h3>Fast Turnaround</h3>
                 <p>Quick response times and efficient project delivery to meet your deadlines</p>
             </div>
-
             <div class="benefit-card floating" style="animation-delay: 0.2s;">
                 <div class="benefit-icon">🎯</div>
                 <h3>Tailored Solutions</h3>
                 <p>Custom AI solutions designed specifically for your business needs</p>
             </div>
-
             <div class="benefit-card floating" style="animation-delay: 0.3s;">
                 <div class="benefit-icon">🛡️</div>
                 <h3>Reliable Support</h3>
                 <p>24/7 emergency support and ongoing maintenance for peace of mind</p>
             </div>
-
             <div class="benefit-card floating" style="animation-delay: 0.4s;">
                 <div class="benefit-icon">💰</div>
                 <h3>Cost-Effective</h3>
                 <p>Competitive pricing with transparent quotes and no hidden fees</p>
             </div>
-
             <div class="benefit-card floating" style="animation-delay: 0.5s;">
                 <div class="benefit-icon">🚀</div>
                 <h3>Proven Results</h3>
                 <p>Track record of successful projects across multiple industries</p>
             </div>
-
             <div class="benefit-card floating" style="animation-delay: 0.6s;">
                 <div class="benefit-icon">🤝</div>
                 <h3>Partnership Approach</h3>
@@ -475,64 +256,45 @@
     </div>
 
     <script>
-        // Hamburger Menu Toggle
         function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
+            document.getElementById('navLinks').classList.toggle('active');
         }
 
-        // Improved Services Menu - Reliable and responsive
-        let servicesMenuOpen = false;
-
-        function initServicesMenu() {
-            const servicesBtn = document.getElementById('servicesBtn');
-            const servicesMenu = document.getElementById('servicesMenu');
-            const hasDropdown = document.querySelector('.has-dropdown');
-
-            if (!servicesBtn || !servicesMenu) return;
-
-            servicesBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
+        // SIMPLE WORKING Services Menu
+        window.addEventListener('DOMContentLoaded', function() {
+            var btn = document.getElementById('servicesBtn');
+            var menu = document.getElementById('servicesMenu');
+            var dropdown = document.querySelector('.has-dropdown');
+            
+            if (btn && menu) {
+                btn.onclick = function(e) {
+                    e.preventDefault();
+                    menu.classList.toggle('active');
+                    return false;
+                };
                 
-                servicesMenuOpen = !servicesMenuOpen;
+                document.onclick = function(e) {
+                    if (!dropdown.contains(e.target)) {
+                        menu.classList.remove('active');
+                    }
+                };
                 
-                if (servicesMenuOpen) {
-                    servicesMenu.classList.add('active');
-                } else {
-                    servicesMenu.classList.remove('active');
+                var links = menu.querySelectorAll('a');
+                for (var i = 0; i < links.length; i++) {
+                    links[i].onclick = function() {
+                        menu.classList.remove('active');
+                        document.getElementById('navLinks').classList.remove('active');
+                    };
                 }
-            });
-
-            document.addEventListener('click', function(e) {
-                if (servicesMenuOpen && !hasDropdown.contains(e.target)) {
-                    servicesMenuOpen = false;
-                    servicesMenu.classList.remove('active');
-                }
-            });
-
-            servicesMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', function() {
-                    servicesMenuOpen = false;
-                    servicesMenu.classList.remove('active');
-                    document.getElementById('navLinks').classList.remove('active');
-                });
-            });
-        }
-
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initServicesMenu);
-        } else {
-            initServicesMenu();
-        }
-
-        // Form submission handler
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            setTimeout(function() {
-                alert('Thank you! Your message has been sent. We will get back to you within 24 hours.');
-                document.getElementById('contactForm').reset();
-            }, 1000);
+            }
         });
+
+        document.getElementById('contactForm').onsubmit = function(e) {
+            e.preventDefault();
+            alert('Thank you! Your message has been sent. We will get back to you within 24 hours.');
+            this.reset();
+            return false;
+        };
     </script>
     <script src="animations.js"></script>
 </body>
