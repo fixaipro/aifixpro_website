@@ -20,11 +20,45 @@
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="automation.html">Automation</a></li>
-                <li><a href="consultancy.html">Consultancy</a></li>
-                <li><a href="development.html">Development</a></li>
-                <li><a href="design.html">Design</a></li>
+                <li class="has-dropdown">
+                    <a href="#" onclick="event.preventDefault(); toggleServicesMenu()">
+                        Services <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <div class="mega-menu" id="servicesMenu">
+                        <div class="mega-menu-content">
+                            <div class="mega-menu-column">
+                                <h4>🤖 AI Solutions</h4>
+                                <a href="automation.html">AI Automation</a>
+                                <a href="consultancy.html">AI Consultancy</a>
+                                <a href="development.html">AI Development</a>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h4>💻 Development</h4>
+                                <a href="app-development.html">App Development</a>
+                                <a href="web-development.html">Web Development</a>
+                                <a href="data-tech.html">Data &amp; Tech</a>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h4>🎨 Creative</h4>
+                                <a href="design.html">Design Services</a>
+                                <a href="branding.html">Branding</a>
+                                <a href="brand-guidelines.html">Brand Guidelines</a>
+                                <a href="marketing.html">Marketing</a>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h4>🏢 Industries</h4>
+                                <a href="garage.html">Automotive</a>
+                                <a href="optician.html">Healthcare</a>
+                                <a href="airbnb.html">Hospitality</a>
+                                <a href="letting-agents.html">Real Estate</a>
+                                <a href="law-firms.html">Legal</a>
+                                <a href="restaurant.html">Food Service</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
                 <li><a href="contact.html">Contact</a></li>
+            </ul>
             </ul>
         </div>
     </nav>
@@ -105,6 +139,30 @@
     </footer>
     <script>
 function toggleMenu() {
+
+// Services Mega Menu Toggle
+function toggleServicesMenu() {
+    const menu = document.getElementById("servicesMenu");
+    menu.classList.toggle("active");
+}
+
+// Close mega menu when clicking outside
+document.addEventListener("click", function(event) {
+    const servicesMenu = document.getElementById("servicesMenu");
+    const servicesLink = event.target.closest(".has-dropdown");
+    
+    if (!servicesLink && servicesMenu) {
+        servicesMenu.classList.remove("active");
+    }
+});
+
+// Close mega menu when clicking a link inside it
+document.querySelectorAll(".mega-menu a").forEach(link => {
+    link.addEventListener("click", () => {
+        document.getElementById("servicesMenu").classList.remove("active");
+        document.getElementById("navLinks").classList.remove("active");
+    });
+});
     const navLinks = document.getElementById("navLinks");
     navLinks.classList.toggle("active");
 }

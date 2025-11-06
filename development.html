@@ -77,6 +77,76 @@
             color: #4ecdc4;
         }
 
+        /* Mega Menu Styles */
+        .has-dropdown {
+            position: relative;
+        }
+
+        .dropdown-arrow {
+            font-size: 0.8rem;
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+
+        .has-dropdown:hover .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .mega-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(26, 26, 46, 0.98);
+            border: 2px solid #4ecdc4;
+            border-radius: 15px;
+            padding: 2rem;
+            min-width: 800px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            margin-top: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+        }
+
+        .mega-menu.active {
+            opacity: 1;
+            visibility: visible;
+            margin-top: 10px;
+        }
+
+        .mega-menu-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .mega-menu-column h4 {
+            color: #4ecdc4;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #4ecdc4;
+        }
+
+        .mega-menu-column a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            margin: 0.25rem 0;
+            border-radius: 6px;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .mega-menu-column a:hover {
+            background: rgba(78, 205, 196, 0.2);
+            color: #4ecdc4;
+            padding-left: 1rem;
+        }
+
         .top-spiral-border {
             position: fixed;
             top: 0;
@@ -267,6 +337,26 @@
             color: #888;
             font-size: 0.9rem;
         }
+
+        @media (max-width: 968px) {
+            .mega-menu {
+                position: static;
+                transform: none;
+                min-width: auto;
+                width: 100%;
+                margin-top: 0.5rem;
+                padding: 1rem;
+            }
+
+            .mega-menu-content {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .has-dropdown > a {
+                width: 100%;
+            }
+        }
     </style>
     <link rel="stylesheet" href="animations.css">
 </head>
@@ -285,11 +375,45 @@
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="automation.html">Automation</a></li>
-                <li><a href="consultancy.html">Consultancy</a></li>
-                <li><a href="development.html">Development</a></li>
-                <li><a href="design.html">Design</a></li>
+                <li class="has-dropdown">
+                    <a href="#" onclick="event.preventDefault(); toggleServicesMenu()">
+                        Services <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <div class="mega-menu" id="servicesMenu">
+                        <div class="mega-menu-content">
+                            <div class="mega-menu-column">
+                                <h4>🤖 AI Solutions</h4>
+                                <a href="automation.html">AI Automation</a>
+                                <a href="consultancy.html">AI Consultancy</a>
+                                <a href="development.html">AI Development</a>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h4>💻 Development</h4>
+                                <a href="app-development.html">App Development</a>
+                                <a href="web-development.html">Web Development</a>
+                                <a href="data-tech.html">Data &amp; Tech</a>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h4>🎨 Creative</h4>
+                                <a href="design.html">Design Services</a>
+                                <a href="branding.html">Branding</a>
+                                <a href="brand-guidelines.html">Brand Guidelines</a>
+                                <a href="marketing.html">Marketing</a>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h4>🏢 Industries</h4>
+                                <a href="garage.html">Automotive</a>
+                                <a href="optician.html">Healthcare</a>
+                                <a href="airbnb.html">Hospitality</a>
+                                <a href="letting-agents.html">Real Estate</a>
+                                <a href="law-firms.html">Legal</a>
+                                <a href="restaurant.html">Food Service</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
                 <li><a href="contact.html">Contact</a></li>
+            </ul>
             </ul>
         </div>
     </nav>
@@ -445,6 +569,30 @@
     </footer>
     <script>
 function toggleMenu() {
+
+// Services Mega Menu Toggle
+function toggleServicesMenu() {
+    const menu = document.getElementById("servicesMenu");
+    menu.classList.toggle("active");
+}
+
+// Close mega menu when clicking outside
+document.addEventListener("click", function(event) {
+    const servicesMenu = document.getElementById("servicesMenu");
+    const servicesLink = event.target.closest(".has-dropdown");
+    
+    if (!servicesLink && servicesMenu) {
+        servicesMenu.classList.remove("active");
+    }
+});
+
+// Close mega menu when clicking a link inside it
+document.querySelectorAll(".mega-menu a").forEach(link => {
+    link.addEventListener("click", () => {
+        document.getElementById("servicesMenu").classList.remove("active");
+        document.getElementById("navLinks").classList.remove("active");
+    });
+});
     const navLinks = document.getElementById("navLinks");
     navLinks.classList.toggle("active");
 }
