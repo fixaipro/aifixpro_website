@@ -1,3 +1,6 @@
+/* AI Fix Pro - Industry Style CSS - FINAL VERSION */
+/* Just replace your industry-style.css with this file */
+
 * {
     margin: 0;
     padding: 0;
@@ -8,21 +11,22 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     color: #fff;
-    padding-top: 80px;
+    padding-top: 70px !important;
 }
 
-/* NAVIGATION - THIN AND TRANSPARENT ON MOBILE */
+/* NAVIGATION - THIN VERSION */
 nav {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     width: 100%;
-    padding: 0.6rem 2rem;
-    background: rgba(26, 26, 46, 0.95);
+    padding: 0.5rem 1.5rem !important;
+    background: rgba(26, 26, 46, 0.95) !important;
     backdrop-filter: blur(10px);
     z-index: 1000;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    height: auto !important;
 }
 
 nav .container {
@@ -47,7 +51,7 @@ nav .container {
 
 .logo img {
     transition: transform 0.3s ease;
-    height: 45px;
+    height: 42px !important;
     width: auto;
 }
 
@@ -66,9 +70,9 @@ nav .container {
     color: #fff;
     text-decoration: none;
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 0.95rem !important;
     transition: all 0.3s;
-    padding: 8px 15px;
+    padding: 8px 15px !important;
     border-radius: 8px;
     position: relative;
 }
@@ -77,6 +81,22 @@ nav .container {
     color: #4ecdc4;
     background: rgba(78, 205, 196, 0.15);
     transform: translateY(-2px);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: #4ecdc4;
+    transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 60%;
 }
 
 /* Hamburger Menu */
@@ -98,16 +118,16 @@ nav .container {
     transition: 0.3s;
 }
 
-/* MOBILE STYLES - CRITICAL FIX */
+/* MOBILE STYLES */
 @media (max-width: 968px) {
     body {
-        padding-top: 65px;
+        padding-top: 60px !important;
     }
     
     nav {
-        background: rgba(26, 26, 46, 0.15);
-        backdrop-filter: blur(2px);
-        padding: 0.5rem 1rem;
+        background: rgba(26, 26, 46, 0.15) !important;
+        backdrop-filter: blur(2px) !important;
+        padding: 0.4rem 1rem !important;
     }
     
     .logo {
@@ -115,18 +135,18 @@ nav .container {
     }
     
     .logo img {
-        height: 38px;
+        height: 36px !important;
     }
     
     .nav-links {
         position: fixed;
         right: -100%;
-        top: 60px;
+        top: 55px !important;
         flex-direction: column;
         background: rgba(22, 33, 62, 0.98);
         width: 75%;
         max-width: 280px;
-        height: calc(100vh - 60px);
+        height: calc(100vh - 55px) !important;
         text-align: center;
         transition: right 0.3s ease-in-out;
         padding: 2rem 0;
@@ -143,8 +163,8 @@ nav .container {
     .nav-links a {
         width: 90%;
         margin: 0 auto;
-        font-size: 1.05rem;
-        padding: 12px 20px;
+        font-size: 1.05rem !important;
+        padding: 12px 20px !important;
     }
 
     .menu-toggle {
@@ -152,23 +172,22 @@ nav .container {
     }
 }
 
-/* Extra small phones */
 @media (max-width: 375px) {
     body {
-        padding-top: 55px;
+        padding-top: 55px !important;
     }
     
     nav {
-        padding: 0.4rem 0.8rem;
+        padding: 0.35rem 0.8rem !important;
     }
     
     .logo img {
-        height: 32px;
+        height: 32px !important;
     }
     
     .nav-links {
-        top: 50px;
-        height: calc(100vh - 50px);
+        top: 50px !important;
+        height: calc(100vh - 50px) !important;
     }
 }
 
@@ -293,6 +312,27 @@ nav .container {
     line-height: 1.6;
 }
 
+.feature-card ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+.feature-card ul li {
+    padding: 0.5rem 0;
+    color: #bbb;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.feature-card ul li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #4ecdc4;
+    font-weight: bold;
+}
+
 .cta-button {
     display: inline-block;
     padding: 1rem 2.5rem;
@@ -309,6 +349,24 @@ nav .container {
 .cta-button:hover {
     transform: translateY(-3px);
     box-shadow: 0 15px 40px rgba(255, 107, 53, 0.6);
+}
+
+.cta-section {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: rgba(15, 52, 96, 0.4);
+}
+
+.cta-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #4ecdc4;
+}
+
+.cta-section p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    color: #ddd;
 }
 
 footer {
@@ -335,7 +393,7 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Mega Menu Styles */
+/* Mega Menu */
 .has-dropdown {
     position: relative;
 }
@@ -419,4 +477,18 @@ footer {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
+}
+
+.video-placeholder {
+    width: 100%;
+    max-width: 900px;
+    height: 500px;
+    margin: 3rem auto;
+    background: rgba(15, 52, 96, 0.8);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #4ecdc4;
+    position: relative;
 }
