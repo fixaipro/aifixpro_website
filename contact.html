@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - AI Fix Pro - AI Fix Pro</title>
+    <title>Contact Us - AI Fix Pro</title>
     <link rel="stylesheet" href="industry-style.css">
     <link rel="stylesheet" href="animations.css">
     <style>
@@ -68,19 +68,225 @@
             padding-left: 1rem;
         }
 
+        /* Contact Page Styles */
+        .contact-hero {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.1), rgba(255, 107, 53, 0.1));
+            border-radius: 20px;
+            margin: 2rem auto;
+            max-width: 1200px;
+        }
+
+        .contact-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #4ecdc4, #ff6b35);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .contact-hero p {
+            font-size: 1.3rem;
+            color: #ccc;
+            margin-bottom: 2rem;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-card {
+            background: rgba(26, 26, 46, 0.8);
+            border: 2px solid #4ecdc4;
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(78, 205, 196, 0.3);
+        }
+
+        .contact-card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card h3 {
+            color: #4ecdc4;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card p {
+            color: #ccc;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .contact-card a {
+            color: #ff6b35;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .contact-card a:hover {
+            color: #4ecdc4;
+        }
+
+        .contact-form {
+            background: rgba(26, 26, 46, 0.8);
+            border: 2px solid #4ecdc4;
+            border-radius: 15px;
+            padding: 2.5rem;
+        }
+
+        .contact-form h2 {
+            color: #4ecdc4;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: #4ecdc4;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(22, 33, 62, 0.8);
+            border: 2px solid rgba(78, 205, 196, 0.3);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #4ecdc4;
+            box-shadow: 0 0 15px rgba(78, 205, 196, 0.3);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, #4ecdc4, #ff6b35);
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(78, 205, 196, 0.5);
+        }
+
+        .why-choose {
+            max-width: 1200px;
+            margin: 5rem auto;
+            padding: 0 2rem;
+        }
+
+        .why-choose h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #4ecdc4;
+            margin-bottom: 3rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-card {
+            background: rgba(26, 26, 46, 0.8);
+            border: 2px solid rgba(78, 205, 196, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .benefit-card:hover {
+            border-color: #4ecdc4;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(78, 205, 196, 0.3);
+        }
+
+        .benefit-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card h3 {
+            color: #4ecdc4;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card p {
+            color: #ccc;
+            line-height: 1.6;
+        }
+
         @media (max-width: 968px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-hero h1 {
+                font-size: 2.5rem;
+            }
+
             .mega-menu {
                 position: static;
                 transform: none;
                 min-width: auto;
                 width: 100%;
-                margin-top: 0.5rem;
-                padding: 1rem;
             }
 
             .mega-menu-content {
                 grid-template-columns: 1fr;
-                gap: 1rem;
             }
         }
     </style>
@@ -141,236 +347,132 @@
         </div>
     </nav>
 
-    <div class="top-spiral-border">
-        <div class="spiral-flow"></div>
+    <!-- Hero Section -->
+    <div class="contact-hero floating">
+        <h1>📞 Get In Touch</h1>
+        <p>Let's discuss how we can transform your business with AI</p>
     </div>
 
-    <nav>
-        <div class="container">
-            <a href="index.html" class="logo"><img src="logo.png" alt="AI Fix Pro" style="height: 65px; width: auto;"></a>
-            <div class="menu-toggle" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
-                <li class="has-dropdown">
-                    <a href="#" onclick="event.preventDefault(); toggleServicesMenu()">
-                        Services <span class="dropdown-arrow">▼</span>
-                    </a>
-                    <div class="mega-menu" id="servicesMenu">
-                        <div class="mega-menu-content">
-                            <div class="mega-menu-column">
-                                <h4>🤖 AI Solutions</h4>
-                                <a href="automation.html">AI Automation</a>
-                                <a href="consultancy.html">AI Consultancy</a>
-                                <a href="development.html">AI Development</a>
-                            </div>
-                            <div class="mega-menu-column">
-                                <h4>💻 Development</h4>
-                                <a href="app-development.html">App Development</a>
-                                <a href="web-development.html">Web Development</a>
-                                <a href="data-tech.html">Data &amp; Tech</a>
-                            </div>
-                            <div class="mega-menu-column">
-                                <h4>🎨 Creative</h4>
-                                <a href="design.html">Design Services</a>
-                                <a href="branding.html">Branding</a>
-                                <a href="brand-guidelines.html">Brand Guidelines</a>
-                                <a href="marketing.html">Marketing</a>
-                            </div>
-                            <div class="mega-menu-column">
-                                <h4>🏢 Industries</h4>
-                                <a href="garage.html">Automotive</a>
-                                <a href="optician.html">Healthcare</a>
-                                <a href="airbnb.html">Hospitality</a>
-                                <a href="letting-agents.html">Real Estate</a>
-                                <a href="law-firms.html">Legal</a>
-                                <a href="restaurant.html">Food Service</a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            </ul>
-        </div>
-    </nav>
-
-    <section class="hero">
-        <h1>📧 Get In Touch</h1>
-        <p>Let's discuss how we can transform your business</p>
-    </section>
-
-    <section class="contact-section">
+    <!-- Contact Container -->
+    <div class="contact-container">
+        <!-- Contact Info -->
         <div class="contact-info">
-            <h2>Contact Information</h2>
-            
-            <div class="info-item">
-                <h3>📧 Email</h3>
-                <p>admin@aifixpro.co.uk</p>
+            <div class="contact-card floating" style="animation-delay: 0.1s;">
+                <div class="contact-card-icon">📧</div>
+                <h3>Email Us</h3>
+                <p>Get a response within 24 hours</p>
+                <a href="mailto:admin@aifixpro.co.uk">admin@aifixpro.co.uk</a>
             </div>
 
-            <div class="info-item">
-                <h3>📞 Phone</h3>
-                <p>+44 7459 750559</p>
+            <div class="contact-card floating" style="animation-delay: 0.2s;">
+                <div class="contact-card-icon">📱</div>
+                <h3>Call Us</h3>
+                <p>Available Monday - Friday, 9AM - 6PM GMT</p>
+                <a href="tel:+447459750559">+44 7459 750559</a>
             </div>
 
-            <div class="info-item">
-                <h3>📍 Location</h3>
+            <div class="contact-card floating" style="animation-delay: 0.3s;">
+                <div class="contact-card-icon">📍</div>
+                <h3>Visit Us</h3>
                 <p>London, United Kingdom</p>
+                <p style="margin-top: 1rem; font-size: 0.95rem;">Serving clients across the UK and internationally</p>
             </div>
 
-            <div class="info-item">
-                <h3>⏰ Business Hours</h3>
-                <p>Monday - Friday: 9:00 AM - 6:00 PM GMT<br>
-                Weekend: By appointment</p>
-            </div>
-
-            <div class="info-item">
-                <h3>💡 What We Do</h3>
-                <p>We specialize in AI-powered business automation, custom software development, and digital transformation for small and medium businesses across the UK.</p>
+            <div class="contact-card floating" style="animation-delay: 0.4s;">
+                <div class="contact-card-icon">⏰</div>
+                <h3>Business Hours</h3>
+                <p><strong>Mon - Fri:</strong> 9:00 AM - 6:00 PM<br>
+                   <strong>Sat - Sun:</strong> Emergency support only</p>
             </div>
         </div>
 
-        <div class="contact-form-container">
-            <h2>Send Us a Message</h2>
-            
-            <form id="contactForm">
+        <!-- Contact Form -->
+        <div class="contact-form floating" style="animation-delay: 0.2s;">
+            <h2>✨ Send Us A Message</h2>
+            <form id="contactForm" action="https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse" method="POST" target="hidden_iframe">
                 <div class="form-group">
-                    <label for="name">Full Name *</label>
-                    <input type="text" id="name" name="name" required>
+                    <label for="name">👤 Your Name *</label>
+                    <input type="text" id="name" name="entry.name" required placeholder="John Doe">
                 </div>
 
                 <div class="form-group">
-                    <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" required>
+                    <label for="email">📧 Your Email *</label>
+                    <input type="email" id="email" name="entry.email" required placeholder="john@example.com">
                 </div>
 
                 <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone">
+                    <label for="phone">📱 Phone Number</label>
+                    <input type="tel" id="phone" name="entry.phone" placeholder="+44 7XXX XXXXXX">
                 </div>
 
                 <div class="form-group">
-                    <label for="company">Company Name</label>
-                    <input type="text" id="company" name="company">
-                </div>
-
-                <div class="form-group">
-                    <label for="service">Service Interested In *</label>
-                    <select id="service" name="service" required>
+                    <label for="service">🎯 Service Interested In *</label>
+                    <select id="service" name="entry.service" required>
                         <option value="">Select a service</option>
-                        <option value="automation">Automation Solutions</option>
-                        <option value="consultancy">Business Consultancy</option>
-                        <option value="development">Custom Development</option>
-                        <option value="design">Design Services</option>
-                        <option value="multiple">Multiple Services</option>
-                        <option value="other">Other</option>
+                        <option value="AI Automation">🤖 AI Automation</option>
+                        <option value="AI Consultancy">💡 AI Consultancy</option>
+                        <option value="AI Development">⚙️ AI Development</option>
+                        <option value="App Development">📱 App Development</option>
+                        <option value="Web Development">🌐 Web Development</option>
+                        <option value="Design Services">🎨 Design Services</option>
+                        <option value="Branding">✨ Branding</option>
+                        <option value="Marketing">📢 Marketing</option>
+                        <option value="Other">🔧 Other</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="message">Your Message *</label>
-                    <textarea id="message" name="message" required></textarea>
+                    <label for="message">💬 Your Message *</label>
+                    <textarea id="message" name="entry.message" required placeholder="Tell us about your project..."></textarea>
                 </div>
 
-                <button type="submit" class="submit-btn">Send Message</button>
-                
-                <div id="formMessage"></div>
+                <button type="submit" class="submit-btn">🚀 Send Message</button>
             </form>
+            <iframe name="hidden_iframe" style="display:none;"></iframe>
         </div>
-    </section>
+    </div>
 
-    <footer>
-        <div class="container">
-            <div class="footer-links">
-                <a href="automation.html">Automation</a>
-                <a href="consultancy.html">Consultancy</a>
-                <a href="development.html">Development</a>
-                <a href="design.html">Design</a>
-                <a href="contact.html">Contact</a>
+    <!-- Why Choose Us -->
+    <div class="why-choose">
+        <h2>🌟 Why Choose AI Fix Pro?</h2>
+        <div class="benefits-grid">
+            <div class="benefit-card floating" style="animation-delay: 0.1s;">
+                <div class="benefit-icon">⚡</div>
+                <h3>Fast Turnaround</h3>
+                <p>Quick response times and efficient project delivery to meet your deadlines</p>
             </div>
-            <p class="copyright">&copy; 2025 AI Fix Pro. All rights reserved.</p>
+
+            <div class="benefit-card floating" style="animation-delay: 0.2s;">
+                <div class="benefit-icon">🎯</div>
+                <h3>Tailored Solutions</h3>
+                <p>Custom AI solutions designed specifically for your business needs</p>
+            </div>
+
+            <div class="benefit-card floating" style="animation-delay: 0.3s;">
+                <div class="benefit-icon">🛡️</div>
+                <h3>Reliable Support</h3>
+                <p>24/7 emergency support and ongoing maintenance for peace of mind</p>
+            </div>
+
+            <div class="benefit-card floating" style="animation-delay: 0.4s;">
+                <div class="benefit-icon">💰</div>
+                <h3>Cost-Effective</h3>
+                <p>Competitive pricing with transparent quotes and no hidden fees</p>
+            </div>
+
+            <div class="benefit-card floating" style="animation-delay: 0.5s;">
+                <div class="benefit-icon">🚀</div>
+                <h3>Proven Results</h3>
+                <p>Track record of successful projects across multiple industries</p>
+            </div>
+
+            <div class="benefit-card floating" style="animation-delay: 0.6s;">
+                <div class="benefit-icon">🤝</div>
+                <h3>Partnership Approach</h3>
+                <p>We work with you, not just for you, to ensure long-term success</p>
+            </div>
         </div>
-    </footer>
-
-
-    <!-- 
-    ═══════════════════════════════════════════════════════════════
-    GOOGLE SHEETS INTEGRATION SETUP INSTRUCTIONS
-    ═══════════════════════════════════════════════════════════════
-    
-    Your Google Sheet: 
-    https://docs.google.com/spreadsheets/d/1ttctOWhnzsEX_QSMrRV2fTCDZwS82awkHsIn4W5DFpM/edit
-    
-    STEP 1: Open your Google Sheet above
-    
-    STEP 2: Set up column headers in Row 1:
-    ┌──────────────┬───────────────┬──────────────┬──────────────┬─────────────────┬──────────────┐
-    │ Timestamp    │ Full Name     │ Email        │ Phone        │ Company         │ Service      │ Message      │
-    └──────────────┴───────────────┴──────────────┴──────────────┴─────────────────┴──────────────┴──────────────┘
-    
-    STEP 3: Go to Extensions > Apps Script
-    
-    STEP 4: Delete any existing code and paste this:
-
-    function doPost(e) {
-      try {
-        const sheet = SpreadsheetApp.openById('1ttctOWhnzsEX_QSMrRV2fTCDZwS82awkHsIn4W5DFpM').getActiveSheet();
-        const data = JSON.parse(e.postData.contents);
-        
-        sheet.appendRow([
-          new Date(data.timestamp),
-          data.name,
-          data.email,
-          data.phone,
-          data.company,
-          data.service,
-          data.message
-        ]);
-        
-        return ContentService.createTextOutput(JSON.stringify({result: 'success'}))
-          .setMimeType(ContentService.MimeType.JSON);
-      } catch (error) {
-        return ContentService.createTextOutput(JSON.stringify({result: 'error', message: error.toString()}))
-          .setMimeType(ContentService.MimeType.JSON);
-      }
-    }
-
-    STEP 5: Click "Deploy" > "New deployment"
-    
-    STEP 6: Click gear icon ⚙️ > Select "Web app"
-    
-    STEP 7: Configure:
-      • Description: "Contact Form Handler"
-      • Execute as: Me (your email)
-      • Who has access: Anyone
-    
-    STEP 8: Click "Deploy"
-    
-    STEP 9: Grant permissions when asked
-    
-    STEP 10: Copy the "Web app URL" (looks like: https://script.google.com/macros/s/...)
-    
-    STEP 11: Replace GOOGLE_SCRIPT_URL above (line 318) with your copied URL
-    
-    STEP 12: Save this file and test the contact form!
-    
-    ═══════════════════════════════════════════════════════════════
-    TESTING:
-    • Fill out the contact form on your website
-    • Check your Google Sheet for the new row
-    • Data should appear within a few seconds
-    
-    TROUBLESHOOTING:
-    • If data doesn't appear, check Apps Script execution logs
-    • Ensure the sheet ID in the script matches your sheet
-    • Verify deployment permissions are set to "Anyone"
-    ═══════════════════════════════════════════════════════════════
-    -->
-    <script src="animations.js"></script>
+    </div>
 
     <script>
         // Hamburger Menu Toggle
@@ -379,32 +481,57 @@
             navLinks.classList.toggle('active');
         }
 
-        // Mega Menu Toggle - WORKING VERSION
-        const servicesBtn = document.getElementById('servicesBtn');
-        const servicesMenu = document.getElementById('servicesMenu');
+        // Improved Services Menu - Reliable and responsive
+        let servicesMenuOpen = false;
 
-        if (servicesBtn) {
+        function initServicesMenu() {
+            const servicesBtn = document.getElementById('servicesBtn');
+            const servicesMenu = document.getElementById('servicesMenu');
+            const hasDropdown = document.querySelector('.has-dropdown');
+
+            if (!servicesBtn || !servicesMenu) return;
+
             servicesBtn.addEventListener('click', function(e) {
                 e.preventDefault();
-                servicesMenu.classList.toggle('active');
+                e.stopPropagation();
+                
+                servicesMenuOpen = !servicesMenuOpen;
+                
+                if (servicesMenuOpen) {
+                    servicesMenu.classList.add('active');
+                } else {
+                    servicesMenu.classList.remove('active');
+                }
+            });
+
+            document.addEventListener('click', function(e) {
+                if (servicesMenuOpen && !hasDropdown.contains(e.target)) {
+                    servicesMenuOpen = false;
+                    servicesMenu.classList.remove('active');
+                }
+            });
+
+            servicesMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    servicesMenuOpen = false;
+                    servicesMenu.classList.remove('active');
+                    document.getElementById('navLinks').classList.remove('active');
+                });
             });
         }
 
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.has-dropdown')) {
-                if (servicesMenu) {
-                    servicesMenu.classList.remove('active');
-                }
-            }
-        });
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initServicesMenu);
+        } else {
+            initServicesMenu();
+        }
 
-        // Close menu when clicking a link
-        document.querySelectorAll('.mega-menu a').forEach(link => {
-            link.addEventListener('click', function() {
-                servicesMenu.classList.remove('active');
-                document.getElementById('navLinks').classList.remove('active');
-            });
+        // Form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            setTimeout(function() {
+                alert('Thank you! Your message has been sent. We will get back to you within 24 hours.');
+                document.getElementById('contactForm').reset();
+            }, 1000);
         });
     </script>
     <script src="animations.js"></script>

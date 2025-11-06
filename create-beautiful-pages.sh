@@ -1,3 +1,7 @@
+#!/bin/bash
+
+# Create beautiful automation.html with icons and visual elements
+cat > automation.html << 'EOFPAGE'
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -322,3 +326,6 @@
     <script src="animations.js"></script>
 </body>
 </html>
+EOFPAGE
+
+echo "Created beautiful automation.html"
