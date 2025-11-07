@@ -11,7 +11,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     color: #fff;
-    padding-top: 60px !important;
+    padding-top: 70px !important;
 }
 
 /* NAVIGATION - THIN VERSION */
@@ -21,7 +21,7 @@ nav {
     left: 0;
     right: 0;
     width: 100%;
-    padding: 0.4rem 2rem !important;
+    padding: 0.5rem 1.5rem !important;
     background: rgba(26, 26, 46, 0.95) !important;
     backdrop-filter: blur(10px);
     z-index: 1000;
@@ -43,7 +43,7 @@ nav .container {
     display: flex;
     align-items: center;
     text-decoration: none;
-    padding: 5px 10px;
+    padding: 6px 12px;
     border-radius: 12px;
     background: white;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
@@ -61,7 +61,7 @@ nav .container {
 
 .nav-links {
     display: flex;
-    gap: 2.5rem;
+    gap: 2rem;
     list-style: none;
     align-items: center;
 }
@@ -70,9 +70,9 @@ nav .container {
     color: #fff;
     text-decoration: none;
     font-weight: 500;
-    font-size: 1.05rem !important;
+    font-size: 0.95rem !important;
     transition: all 0.3s;
-    padding: 5px 10px !important;
+    padding: 8px 15px !important;
     border-radius: 8px;
     position: relative;
 }
@@ -99,6 +99,7 @@ nav .container {
     width: 60%;
 }
 
+/* Hamburger Menu */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -117,9 +118,10 @@ nav .container {
     transition: 0.3s;
 }
 
+/* MOBILE STYLES */
 @media (max-width: 968px) {
     body {
-        padding-top: 40px !important;
+        padding-top: 60px !important;
     }
     
     nav {
@@ -189,6 +191,7 @@ nav .container {
     }
 }
 
+/* HERO SECTION */
 .hero {
     padding: 100px 2rem 60px;
     text-align: center;
@@ -390,6 +393,7 @@ footer {
     font-size: 0.9rem;
 }
 
+/* Mega Menu */
 .has-dropdown {
     position: relative;
 }
