@@ -11,7 +11,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     color: #fff;
-    padding-top: 55px !important;
+    padding-top: 50px !important;
 }
 
 /* NAVIGATION - ULTRA THIN VERSION */
@@ -72,7 +72,7 @@ nav .container {
     font-weight: 500;
     font-size: 0.95rem !important;
     transition: all 0.3s;
-    padding: 8px 15px !important;
+    padding: 4px 12px !important;
     border-radius: 8px;
     position: relative;
 }
