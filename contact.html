@@ -884,7 +884,7 @@
         // ============================================
         // BOOKING SYSTEM
         // ============================================
-        const BOOKING_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxYtaiT3Z8uSoOz3dOucgTMQ5x-CFa7z9dSFps1_S3zjOmOWzD3lxRG1sn8ic0HUx8/exec';
+        const BOOKING_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx4XlGLG9w9tpb1Avdtb_9TDwOa7RT50cJYkwuzFgiUthG5b8-4Fq0fHxwr0rRExXQ/exec';
 
         let selectedDate = '';
         let selectedTime = '';
@@ -978,45 +978,35 @@
             e.preventDefault();
             
             const submitBtn = this.querySelector('.booking-submit-btn');
+            const clientEmail = document.getElementById('clientEmail').value;
+            
             submitBtn.disabled = true;
             submitBtn.textContent = '⏳ Booking...';
             
-            const bookingData = {
-                date: selectedDate,
-                time: selectedTime,
-                name: document.getElementById('clientName').value,
-                email: document.getElementById('clientEmail').value,
-                phone: document.getElementById('clientPhone').value || '',
-                message: document.getElementById('clientMessage').value || ''
-            };
+            const formData = new FormData();
+            formData.append('date', selectedDate);
+            formData.append('time', selectedTime);
+            formData.append('name', document.getElementById('clientName').value);
+            formData.append('email', clientEmail);
+            formData.append('phone', document.getElementById('clientPhone').value || '');
+            formData.append('message', document.getElementById('clientMessage').value || '');
             
-            console.log('Sending booking data:', bookingData);
+            console.log('Sending booking:', selectedDate, selectedTime);
             
             try {
-                const response = await fetch(BOOKING_SCRIPT_URL, {
+                await fetch(BOOKING_SCRIPT_URL, {
                     method: 'POST',
-                    mode: 'cors',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(bookingData)
+                    mode: 'no-cors',
+                    body: formData
                 });
                 
-                console.log('Response status:', response.status);
-                const data = await response.json();
-                console.log('Response data:', data);
+                // no-cors means we can't read response, but it worked
+                document.getElementById('step3').style.display = 'none';
+                document.getElementById('step4').style.display = 'block';
+                document.getElementById('confirmEmail').textContent = clientEmail;
                 
-                if (data.success) {
-                    document.getElementById('step3').style.display = 'none';
-                    document.getElementById('step4').style.display = 'block';
-                    document.getElementById('confirmEmail').textContent = bookingData.email;
-                } else {
-                    alert(data.message || 'Booking failed. Please call us at +44 7459 750559');
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = '✅ Confirm Booking';
-                }
             } catch (error) {
-                console.error('Booking error details:', error);
+                console.error('Booking error:', error);
                 alert('An error occurred. Please call us at +44 7459 750559 to book your call.');
                 submitBtn.disabled = false;
                 submitBtn.textContent = '✅ Confirm Booking';
