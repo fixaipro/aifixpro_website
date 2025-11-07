@@ -14,7 +14,7 @@ body {
     padding-top: 50px !important;
 }
 
-/* NAVIGATION - ULTRA THIN VERSION */
+/* NAVIGATION - TRANSPARENT VERSION */
 nav {
     position: fixed;
     top: 0;
@@ -22,10 +22,10 @@ nav {
     right: 0;
     width: 100%;
     padding: 0.3rem 1.5rem !important;
-    background: rgba(26, 26, 46, 0.95) !important;
-    backdrop-filter: blur(10px);
+    background: transparent !important;
+    backdrop-filter: none;
     z-index: 1000;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: none;
     height: auto !important;
 }
 
