@@ -11,21 +11,21 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     color: #fff;
-    padding-top: 50px !important;
+    padding-top: 65px !important;
 }
 
-/* NAVIGATION - TRANSPARENT VERSION */
+/* NAVIGATION - THIN LIKE HOMEPAGE */
 nav {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     width: 100%;
-    padding: 0.3rem 1.5rem !important;
-    background: transparent !important;
-    backdrop-filter: none;
+    padding: 0.5rem 2rem !important;
+    background: rgba(26, 26, 46, 0.9) !important;
+    backdrop-filter: blur(10px);
     z-index: 1000;
-    box-shadow: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     height: auto !important;
 }
 
@@ -43,15 +43,15 @@ nav .container {
     display: flex;
     align-items: center;
     text-decoration: none;
-    padding: 3px 8px;
-    border-radius: 8px;
+    padding: 4px 10px;
+    border-radius: 12px;
     background: white;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .logo img {
     transition: transform 0.3s ease;
-    height: 36px !important;
+    height: 40px !important;
     width: auto;
 }
 
@@ -72,7 +72,7 @@ nav .container {
     font-weight: 500;
     font-size: 0.95rem !important;
     transition: all 0.3s;
-    padding: 4px 12px !important;
+    padding: 6px 14px !important;
     border-radius: 8px;
     position: relative;
 }
