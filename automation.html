@@ -177,10 +177,204 @@
             line-height: 1.6;
         }
 
+        /* Pricing Section */
+        .pricing-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            color: #4ecdc4;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #ddd;
+            max-width: 900px;
+            margin: 1rem auto 4rem;
+            line-height: 1.8;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: rgba(15, 52, 96, 0.4);
+            border: 2px solid rgba(78, 205, 196, 0.3);
+            border-radius: 25px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: #4ecdc4;
+            box-shadow: 0 20px 50px rgba(78, 205, 196, 0.3);
+            background: rgba(15, 52, 96, 0.6);
+        }
+
+        .pricing-card.featured {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.15) 0%, rgba(78, 205, 196, 0.15) 100%);
+            border: 3px solid #4ecdc4;
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.08) translateY(-10px);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: -15px;
+            right: 30px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+        }
+
+        .plan-header {
+            margin-bottom: 2rem;
+        }
+
+        .plan-name {
+            font-size: 2rem;
+            color: #4ecdc4;
+            margin-bottom: 1rem;
+        }
+
+        .plan-description {
+            color: #bbb;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .plan-button {
+            display: block;
+            width: 100%;
+            padding: 1rem 2rem;
+            background: rgba(78, 205, 196, 0.2);
+            color: #4ecdc4;
+            border: 2px solid #4ecdc4;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s;
+            margin-bottom: 2rem;
+        }
+
+        .plan-button:hover {
+            background: #4ecdc4;
+            color: #1a1a2e;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(78, 205, 196, 0.4);
+        }
+
+        .featured-button {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            border: none;
+        }
+
+        .featured-button:hover {
+            background: linear-gradient(135deg, #f7931e, #ff6b35);
+            color: white;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.5);
+        }
+
+        .plan-features {
+            flex: 1;
+        }
+
+        .feature-group {
+            margin: 1.5rem 0 1rem;
+        }
+
+        .feature-group-title {
+            color: #4ecdc4;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            color: #ddd;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .feature-item.highlight {
+            color: #fff;
+            background: rgba(78, 205, 196, 0.1);
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            margin: 0.25rem 0;
+        }
+
+        .check-icon {
+            color: #4ecdc4;
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
         @media (max-width: 968px) {
             .hero h1 { font-size: 2.5rem; }
             .mega-menu { position: static; transform: none; min-width: auto; width: 100%; }
             .mega-menu-content { grid-template-columns: 1fr; }
+            
+            .pricing-section {
+                padding: 3rem 1rem;
+            }
+
+            .pricing-subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 2rem;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .pricing-card.featured:hover {
+                transform: scale(1.02) translateY(-5px);
+            }
+
+            .plan-name {
+                font-size: 1.7rem;
+            }
+
+            .featured-badge {
+                font-size: 0.7rem;
+                padding: 0.4rem 1rem;
+            }
         }
     </style>
 </head>
@@ -304,7 +498,156 @@
         </div>
     </div>
 
-    
+    <!-- PRICING SECTION -->
+    <section class="pricing-section">
+        <div class="container">
+            <h2 class="section-title">💰 Pricing Plans</h2>
+            <p class="pricing-subtitle">
+                Free up time, Reduce Costs<br>
+                Whether you're just getting started or need a fully customised solution, 
+                our plans are designed to help you save time, reduce costs, and streamline workflows effortlessly.
+            </p>
+
+            <div class="pricing-grid">
+                
+                <!-- Basic Plan -->
+                <div class="pricing-card floating" style="animation-delay: 0.1s;">
+                    <div class="plan-header">
+                        <h3 class="plan-name">Basic ⚡</h3>
+                        <p class="plan-description">Perfect for Small businesses starting with AI automation</p>
+                    </div>
+                    
+                    <a href="contact.html" class="plan-button">Get started</a>
+                    
+                    <div class="plan-features">
+                        <div class="feature-item">
+                            <span class="check-icon">✓</span>
+                            <span>Incoming Voice Calls</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="check-icon">✓</span>
+                            <span>Outbound Calls</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="check-icon">✓</span>
+                            <span>Analytics Dashboards</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="check-icon">✓</span>
+                            <span>Live Transcripts</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="check-icon">✓</span>
+                            <span>Calendar Management</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Turbo Plan (Featured) -->
+                <div class="pricing-card featured floating" style="animation-delay: 0.2s;">
+                    <div class="featured-badge">🔥 MOST POPULAR</div>
+                    <div class="plan-header">
+                        <h3 class="plan-name">Turbo Start ⚡</h3>
+                        <p class="plan-description">Scaling businesses looking to optimise operations</p>
+                    </div>
+                    
+                    <a href="contact.html" class="plan-button featured-button">Get started</a>
+                    
+                    <div class="plan-features">
+                        <div class="feature-group">
+                            <p class="feature-group-title">Everything in Basic, plus:</p>
+                        </div>
+                        <div class="feature-item">
+                            <span class="check-icon">✓</span>
+                            <span>Smart Notifications (Email, SMS)</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="check-icon">✓</span>
+                            <span>Website Chatbot</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="check-icon">✓</span>
+                            <span>SMS Bot</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="check-icon">✓</span>
+                            <span>WhatsApp Bot</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="check-icon">✓</span>
+                            <span>Multi-Channel Integration</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="check-icon">✓</span>
+                            <span>2 Automated Workflows</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pro Plan -->
+                <div class="pricing-card floating" style="animation-delay: 0.3s;">
+                    <div class="plan-header">
+                        <h3 class="plan-name">Maxx Performance 🚀</h3>
+                        <p class="plan-description">Large businesses needing advanced AI solutions. Custom-made, Just for You.</p>
+                    </div>
+                    
+                    <a href="contact.html" class="plan-button">Get started</a>
+                    
+                    <div class="plan-features">
+                        <div class="feature-group">
+                            <p class="feature-group-title">Everything in Basic + Turbo, plus:</p>
+                        </div>
+                        <div class="feature-item highlight">
+                            <span class="check-icon">✓</span>
+                            <span><strong>Voice AI with Smart Agents</strong></span>
+                        </div>
+                        <div class="feature-item highlight">
+                            <span class="check-icon">✓</span>
+                            <span><strong>Advanced NLP Capabilities</strong></span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="check-icon">✓</span>
+                            <span>AI Powered CRM</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="check-icon">✓</span>
+                            <span>AI Appointment Setter</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="check-icon">✓</span>
+                            <span>10+ Automated Workflows</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="check-icon">✓</span>
+                            <span>Outbound Calls</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="check-icon">✓</span>
+                            <span>Enterprise-level Integrations</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="check-icon">✓</span>
+                            <span>Custom Workflow Builder</span>
+                        </div>
+                        <div class="feature-item highlight">
+                            <span class="check-icon">✓</span>
+                            <span><strong>24/7 Dedicated Support</strong></span>
+                        </div>
+                        <div class="feature-item highlight">
+                            <span class="check-icon">✓</span>
+                            <span><strong>Daily Customer Reminders</strong></span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="check-icon">✓</span>
+                            <span>Fully Customized Business Automation Suite</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <script src="animations.js"></script>
     <script>
         console.log('Script loaded!');
@@ -345,6 +688,5 @@
         
         console.log('Event listeners attached!');
     </script>
-    <script src="animations.js"></script>
 </body>
 </html>

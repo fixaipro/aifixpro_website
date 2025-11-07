@@ -209,78 +209,88 @@
         
         .contact-card-icon {
             font-size: 2.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
         
         .contact-card h3 {
             color: #4ecdc4;
-            font-size: clamp(1.2rem, 3vw, 1.5rem);
-            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+            margin-bottom: 0.6rem;
         }
         
         .contact-card p {
-            color: #ccc;
-            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            color: #aaa;
+            margin-bottom: 0.8rem;
             line-height: 1.6;
         }
         
         .contact-card a {
-            color: #ff6b35;
+            color: #fff;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background: linear-gradient(135deg, #4ecdc4, #ff6b35);
+            border-radius: 8px;
             transition: all 0.3s;
-            word-break: break-word;
         }
         
         .contact-card a:hover {
-            color: #4ecdc4;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.4);
+        }
+
+        .address-line {
+            color: #ccc;
+            margin: 0.3rem 0;
+            font-size: 0.95rem;
         }
         
         .contact-form {
             background: rgba(26, 26, 46, 0.8);
             border: 2px solid #4ecdc4;
             border-radius: 15px;
-            padding: 2rem 1.5rem;
+            padding: 2rem;
         }
         
         .contact-form h2 {
             color: #4ecdc4;
-            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-size: 1.8rem;
             margin-bottom: 1.5rem;
-            text-align: center;
         }
         
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.3rem;
         }
         
         .form-group label {
             display: block;
             color: #4ecdc4;
-            font-weight: 500;
             margin-bottom: 0.5rem;
-            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            font-weight: 600;
+            font-size: 1rem;
         }
         
         .form-group input,
-        .form-group textarea,
-        .form-group select {
+        .form-group select,
+        .form-group textarea {
             width: 100%;
-            padding: 1rem;
-            background: rgba(22, 33, 62, 0.8);
+            padding: 0.9rem;
+            background: rgba(15, 52, 96, 0.5);
             border: 2px solid rgba(78, 205, 196, 0.3);
-            border-radius: 10px;
+            border-radius: 8px;
             color: #fff;
             font-size: 1rem;
             transition: all 0.3s;
+            font-family: inherit;
         }
         
         .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
+        .form-group select:focus,
+        .form-group textarea:focus {
             outline: none;
             border-color: #4ecdc4;
-            box-shadow: 0 0 15px rgba(78, 205, 196, 0.3);
+            box-shadow: 0 0 10px rgba(78, 205, 196, 0.3);
         }
         
         .form-group textarea {
@@ -288,56 +298,227 @@
             resize: vertical;
         }
         
+        .form-group select {
+            cursor: pointer;
+        }
+        
         .submit-btn {
             width: 100%;
             padding: 1rem;
             background: linear-gradient(135deg, #4ecdc4, #ff6b35);
-            border: none;
-            border-radius: 10px;
             color: #fff;
-            font-size: clamp(1rem, 3vw, 1.2rem);
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
         }
         
         .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(78, 205, 196, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(78, 205, 196, 0.4);
+        }
+        
+        /* FREE BOOKING SYSTEM STYLES */
+        .booking-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            margin: 3rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #4ecdc4;
+            margin-bottom: 1rem;
+        }
+
+        .booking-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #ddd;
+            max-width: 850px;
+            margin: 1rem auto 3rem;
+            line-height: 1.7;
+        }
+
+        .booking-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 3rem;
+            border: 2px solid #4ecdc4;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .booking-form-wrapper {
+            min-height: 400px;
+        }
+
+        .booking-step h3 {
+            color: #4ecdc4;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .date-input {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.1rem;
+            background: rgba(15, 52, 96, 0.5);
+            border: 2px solid rgba(78, 205, 196, 0.3);
+            border-radius: 10px;
+            color: #fff;
+            margin-bottom: 2rem;
+        }
+
+        .date-input:focus {
+            outline: none;
+            border-color: #4ecdc4;
+            box-shadow: 0 0 10px rgba(78, 205, 196, 0.3);
+        }
+
+        .time-slots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .time-slot {
+            padding: 1rem;
+            background: rgba(15, 52, 96, 0.5);
+            border: 2px solid rgba(78, 205, 196, 0.3);
+            border-radius: 10px;
+            color: #fff;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .time-slot:hover {
+            background: rgba(78, 205, 196, 0.2);
+            border-color: #4ecdc4;
+            transform: translateY(-3px);
+        }
+
+        .time-slot.selected {
+            background: #4ecdc4;
+            color: #1a1a2e;
+            border-color: #4ecdc4;
+        }
+
+        .booking-summary {
+            background: rgba(78, 205, 196, 0.1);
+            border: 2px solid #4ecdc4;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .booking-summary h4 {
+            color: #4ecdc4;
+            margin-bottom: 1rem;
+        }
+
+        .booking-summary p {
+            color: #fff;
+            margin: 0.5rem 0;
+        }
+
+        .next-btn, .back-btn, .cta-button {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 0.5rem;
+        }
+
+        .next-btn, .cta-button {
+            background: linear-gradient(135deg, #4ecdc4, #ff6b35);
+            color: white;
+        }
+
+        .next-btn:hover, .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(78, 205, 196, 0.4);
+        }
+
+        .back-btn {
+            background: rgba(78, 205, 196, 0.2);
+            color: #4ecdc4;
+            border: 2px solid #4ecdc4;
+        }
+
+        .back-btn:hover {
+            background: rgba(78, 205, 196, 0.3);
+        }
+
+        .success-message {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .success-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+        }
+
+        .success-message h3 {
+            color: #4ecdc4;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .success-message p {
+            color: #ddd;
+            font-size: 1.1rem;
+            margin: 1rem 0;
+            line-height: 1.6;
         }
         
         .why-choose {
-            max-width: 1200px;
-            margin: 3rem auto;
-            padding: 0 1rem;
+            background: rgba(26, 26, 46, 0.5);
+            padding: 4rem 2rem;
+            margin: 4rem 0 2rem;
         }
         
         .why-choose h2 {
             text-align: center;
-            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            font-size: 2.5rem;
             color: #4ecdc4;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
         }
         
         .benefits-grid {
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
         }
         
         .benefit-card {
-            background: rgba(26, 26, 46, 0.8);
+            background: rgba(15, 52, 96, 0.5);
             border: 2px solid rgba(78, 205, 196, 0.3);
             border-radius: 15px;
-            padding: 1.5rem;
+            padding: 2rem;
             text-align: center;
             transition: all 0.3s;
         }
         
         .benefit-card:hover {
             border-color: #4ecdc4;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(78, 205, 196, 0.3);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(78, 205, 196, 0.3);
         }
         
         .benefit-icon {
@@ -347,28 +528,31 @@
         
         .benefit-card h3 {
             color: #4ecdc4;
-            font-size: clamp(1.1rem, 3vw, 1.3rem);
-            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
         }
         
         .benefit-card p {
             color: #ccc;
             line-height: 1.6;
-            font-size: clamp(0.9rem, 2vw, 1rem);
         }
-
-        /* Mobile Responsive */
+        
         @media (max-width: 968px) {
-            body {
-                padding-top: 70px;
+            .contact-container {
+                grid-template-columns: 1fr;
             }
             
-            nav {
-                padding: 0.8rem 1rem;
+            .mega-menu {
+                position: static;
+                transform: none;
+                min-width: auto;
+                width: 100%;
+                padding: 1rem;
             }
             
-            nav:hover {
-                padding: 0.8rem 1rem;
+            .mega-menu-content {
+                grid-template-columns: 1fr;
+                gap: 1rem;
             }
             
             .menu-toggle {
@@ -377,15 +561,13 @@
             
             .nav-links {
                 position: fixed;
-                top: 70px;
                 right: -100%;
-                background: rgba(26, 26, 46, 0.98);
+                top: 70px;
                 flex-direction: column;
-                width: 80%;
-                max-width: 300px;
+                background: rgba(26, 26, 46, 0.98);
+                width: 75%;
                 height: calc(100vh - 70px);
-                padding: 2rem 1rem;
-                gap: 0;
+                padding: 2rem 0;
                 transition: right 0.3s ease;
                 overflow-y: auto;
             }
@@ -393,79 +575,31 @@
             .nav-links.active {
                 right: 0;
             }
-            
-            .nav-links li {
-                width: 100%;
-                margin: 0.5rem 0;
+
+            .booking-container {
+                padding: 2rem 1rem;
             }
-            
-            .nav-links a {
-                display: block;
-                width: 100%;
-                padding: 1rem;
+
+            .time-slots-grid {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+                gap: 0.8rem;
             }
-            
-            .mega-menu {
-                position: static;
-                transform: none;
-                min-width: auto;
-                width: 100%;
-                margin-top: 0.5rem;
-                padding: 1rem;
-            }
-            
-            .mega-menu-content {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .contact-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .contact-hero {
-                padding: 1.5rem 1rem;
-                margin: 0.5rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .logo img {
-                height: 40px;
-            }
-            
-            nav:hover .logo img {
-                height: 50px;
-            }
-            
-            .contact-card {
-                padding: 1rem;
-            }
-            
-            .contact-form {
-                padding: 1.5rem 1rem;
-            }
-            
-            .form-group input,
-            .form-group textarea,
-            .form-group select {
-                padding: 0.8rem;
+
+            .time-slot {
+                padding: 0.8rem 0.5rem;
                 font-size: 0.9rem;
             }
         }
     </style>
 </head>
 <body>
-    <nav id="navbar">
+    <nav>
         <div class="container">
             <a href="index.html" class="logo">
                 <img src="logo.png" alt="AI Fix Pro">
             </a>
             <div class="menu-toggle" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
@@ -531,8 +665,10 @@
             <div class="contact-card floating" style="animation-delay: 0.3s;">
                 <div class="contact-card-icon">📍</div>
                 <h3>Visit Us</h3>
-                <p>London, United Kingdom</p>
-                <p style="margin-top: 0.5rem; font-size: 0.9rem;">Serving clients across the UK and internationally</p>
+                <div class="address-line"><strong>1 Coldbath Square, Farringdon</strong></div>
+                <div class="address-line">London, EC1R 5HL</div>
+                <div class="address-line">United Kingdom</div>
+                <p style="margin-top: 1rem; font-size: 0.9rem;">Serving clients across the UK and internationally</p>
             </div>
             <div class="contact-card floating" style="animation-delay: 0.4s;">
                 <div class="contact-card-icon">⏰</div>
@@ -579,6 +715,87 @@
             </form>
         </div>
     </div>
+
+    <!-- FREE BOOKING SYSTEM -->
+    <section class="booking-section">
+        <div class="container">
+            <h2 class="section-title">📅 Book Your AI Discovery Call</h2>
+            <p class="booking-subtitle">
+                Schedule a call and we will show you how you can implement an AI Growth Infrastructure 
+                into your business to take care of Cold Calling, Appointment Setting, Sales Calls, and plenty more...
+            </p>
+
+            <div class="booking-container">
+                <div class="booking-form-wrapper">
+                    <!-- Step 1: Select Date -->
+                    <div class="booking-step" id="step1">
+                        <h3>Select a Date</h3>
+                        <input type="date" id="bookingDate" class="date-input" min="">
+                        <button onclick="selectDate()" class="next-btn">Next →</button>
+                    </div>
+
+                    <!-- Step 2: Select Time -->
+                    <div class="booking-step" id="step2" style="display: none;">
+                        <h3>Select a Time (GMT)</h3>
+                        <div id="loadingSlots" style="text-align: center; padding: 2rem;">
+                            <p>Loading available times...</p>
+                        </div>
+                        <div id="timeSlots" class="time-slots-grid"></div>
+                        <button onclick="goBack(1)" class="back-btn">← Back</button>
+                    </div>
+
+                    <!-- Step 3: Your Information -->
+                    <div class="booking-step" id="step3" style="display: none;">
+                        <h3>Your Information</h3>
+                        <form id="bookingForm">
+                            <div class="form-group">
+                                <label>👤 Your Name *</label>
+                                <input type="text" id="clientName" required placeholder="John Doe">
+                            </div>
+                            <div class="form-group">
+                                <label>📧 Your Email *</label>
+                                <input type="email" id="clientEmail" required placeholder="john@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label>📱 Phone Number</label>
+                                <input type="tel" id="clientPhone" placeholder="+44 7XXX XXXXXX">
+                            </div>
+                            <div class="form-group">
+                                <label>🏢 Company Name (Optional)</label>
+                                <input type="text" id="clientCompany" placeholder="Your Company">
+                            </div>
+                            <div class="form-group">
+                                <label>💬 Tell us about your project (Optional)</label>
+                                <textarea id="clientMessage" rows="4" placeholder="Brief description of what you're looking for..."></textarea>
+                            </div>
+
+                            <div class="booking-summary">
+                                <h4>📋 Booking Summary:</h4>
+                                <p><strong>Date:</strong> <span id="summaryDate"></span></p>
+                                <p><strong>Time:</strong> <span id="summaryTime"></span> (GMT)</p>
+                                <p><strong>Duration:</strong> 30 minutes</p>
+                            </div>
+
+                            <button type="button" onclick="goBack(2)" class="back-btn">← Back</button>
+                            <button type="submit" class="submit-btn">✅ Confirm Booking</button>
+                        </form>
+                    </div>
+
+                    <!-- Step 4: Confirmation -->
+                    <div class="booking-step" id="step4" style="display: none;">
+                        <div class="success-message">
+                            <div class="success-icon">✅</div>
+                            <h3>Booking Confirmed!</h3>
+                            <p>Thank you! Your AI Discovery Call has been confirmed.</p>
+                            <p>We've sent a confirmation email to <strong id="confirmEmail"></strong> with all the details and a calendar invite.</p>
+                            <p>We're looking forward to speaking with you!</p>
+                            <button onclick="bookAnother()" class="cta-button">Book Another Call</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <div class="why-choose">
         <h2>🌟 Why Choose AI Fix Pro?</h2>
@@ -645,8 +862,8 @@
             document.getElementById('navLinks').classList.toggle('active');
         }
         
-        // Google Sheets Form Submission
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwwhLOgXbnwnDoAOzBPsX1sUubM1u9nj8f2OZp1YZ_NQjE62IqBihI44goyf8907cM/exec';
+        // Google Sheets Contact Form Submission
+        const CONTACT_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzNYPCiFhrEkJcLXIADLe66t9GWzBjxSiU_zp70JxLKopTnGf1mqCWZFek9rjF8bZg/exec';
         
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -659,7 +876,7 @@
             
             const formData = new FormData(form);
             
-            fetch(SCRIPT_URL, {
+            fetch(CONTACT_SCRIPT_URL, {
                 method: 'POST',
                 body: formData
             })
@@ -676,6 +893,178 @@
                 submitBtn.textContent = '🚀 Send Message';
             });
         });
+
+        // ============================================
+        // FREE BOOKING SYSTEM
+        // ============================================
+
+        // YOUR GOOGLE APPS SCRIPT URL FOR BOOKING SYSTEM
+        const BOOKING_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzBA0MgsBae7NNqIwgmQIy-wly3VwcZIp87CfRdCH7dIWmIsy-a__1WAWZ-kxXxbOEXdg/exec';
+
+        let selectedDate = '';
+        let selectedTime = '';
+
+        // Initialize date picker with min date as today
+        document.addEventListener('DOMContentLoaded', function() {
+            const dateInput = document.getElementById('bookingDate');
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.min = today;
+            
+            // Set max date to 30 days from now
+            const maxDate = new Date();
+            maxDate.setDate(maxDate.getDate() + 30);
+            dateInput.max = maxDate.toISOString().split('T')[0];
+        });
+
+        // Step 1: Date selected
+        function selectDate() {
+            const dateInput = document.getElementById('bookingDate');
+            selectedDate = dateInput.value;
+            
+            if (!selectedDate) {
+                alert('Please select a date');
+                return;
+            }
+            
+            // Move to step 2
+            document.getElementById('step1').style.display = 'none';
+            document.getElementById('step2').style.display = 'block';
+            
+            // Load available time slots
+            loadTimeSlots();
+        }
+
+        // Load available time slots from server
+        async function loadTimeSlots() {
+            const loadingDiv = document.getElementById('loadingSlots');
+            const slotsDiv = document.getElementById('timeSlots');
+            
+            loadingDiv.style.display = 'block';
+            slotsDiv.innerHTML = '';
+            
+            try {
+                const response = await fetch(`${BOOKING_SCRIPT_URL}?date=${selectedDate}`);
+                const data = await response.json();
+                
+                loadingDiv.style.display = 'none';
+                
+                if (data.success && data.slots.length > 0) {
+                    data.slots.forEach(time => {
+                        const slot = document.createElement('div');
+                        slot.className = 'time-slot';
+                        slot.textContent = time;
+                        slot.onclick = () => selectTime(time, slot);
+                        slotsDiv.appendChild(slot);
+                    });
+                } else {
+                    slotsDiv.innerHTML = '<p style="text-align: center; color: #ddd;">No available slots for this date. Please choose another day.</p>';
+                }
+            } catch (error) {
+                loadingDiv.style.display = 'none';
+                slotsDiv.innerHTML = '<p style="text-align: center; color: #ff6b35;">Error loading slots. Please try again.</p>';
+                console.error('Error:', error);
+            }
+        }
+
+        // Step 2: Time selected
+        function selectTime(time, element) {
+            selectedTime = time;
+            
+            // Remove selected class from all slots
+            document.querySelectorAll('.time-slot').forEach(slot => {
+                slot.classList.remove('selected');
+            });
+            
+            // Add selected class to clicked slot
+            element.classList.add('selected');
+            
+            // Wait a moment then move to step 3
+            setTimeout(() => {
+                document.getElementById('step2').style.display = 'none';
+                document.getElementById('step3').style.display = 'block';
+                
+                // Update summary
+                const date = new Date(selectedDate);
+                const formattedDate = date.toLocaleDateString('en-GB', { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                });
+                document.getElementById('summaryDate').textContent = formattedDate;
+                document.getElementById('summaryTime').textContent = selectedTime;
+            }, 500);
+        }
+
+        // Step 3: Form submission
+        document.getElementById('bookingForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = e.target.querySelector('.submit-btn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = '⏳ Booking...';
+            
+            const bookingData = {
+                date: selectedDate,
+                time: selectedTime,
+                name: document.getElementById('clientName').value,
+                email: document.getElementById('clientEmail').value,
+                phone: document.getElementById('clientPhone').value,
+                company: document.getElementById('clientCompany').value,
+                message: document.getElementById('clientMessage').value
+            };
+            
+            try {
+                const response = await fetch(BOOKING_SCRIPT_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(bookingData)
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    // Show confirmation
+                    document.getElementById('step3').style.display = 'none';
+                    document.getElementById('step4').style.display = 'block';
+                    document.getElementById('confirmEmail').textContent = bookingData.email;
+                } else {
+                    alert(data.message || 'Booking failed. Please try again or contact us directly.');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = '✅ Confirm Booking';
+                }
+            } catch (error) {
+                alert('An error occurred. Please try again or email us at admin@aifixpro.co.uk');
+                submitBtn.disabled = false;
+                submitBtn.textContent = '✅ Confirm Booking';
+                console.error('Error:', error);
+            }
+        });
+
+        // Navigation
+        function goBack(step) {
+            if (step === 1) {
+                document.getElementById('step2').style.display = 'none';
+                document.getElementById('step1').style.display = 'block';
+            } else if (step === 2) {
+                document.getElementById('step3').style.display = 'none';
+                document.getElementById('step2').style.display = 'block';
+            }
+        }
+
+        function bookAnother() {
+            // Reset form
+            document.getElementById('bookingForm').reset();
+            document.getElementById('bookingDate').value = '';
+            selectedDate = '';
+            selectedTime = '';
+            
+            // Go back to step 1
+            document.getElementById('step4').style.display = 'none';
+            document.getElementById('step1').style.display = 'block';
+        }
     </script>
 </body>
 </html>
