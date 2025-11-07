@@ -302,7 +302,7 @@
             cursor: pointer;
         }
         
-        .submit-btn, .booking-submit-btn {
+        .submit-btn {
             width: 100%;
             padding: 1rem;
             background: linear-gradient(135deg, #4ecdc4, #ff6b35);
@@ -315,7 +315,7 @@
             transition: all 0.3s;
         }
         
-        .submit-btn:hover, .booking-submit-btn:hover {
+        .submit-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(78, 205, 196, 0.4);
         }
@@ -761,6 +761,10 @@
                                 <input type="tel" id="clientPhone" placeholder="+44 7XXX XXXXXX">
                             </div>
                             <div class="form-group">
+                                <label>🏢 Company Name (Optional)</label>
+                                <input type="text" id="clientCompany" placeholder="Your Company">
+                            </div>
+                            <div class="form-group">
                                 <label>💬 Tell us about your project (Optional)</label>
                                 <textarea id="clientMessage" rows="4" placeholder="Brief description of what you're looking for..."></textarea>
                             </div>
@@ -773,7 +777,7 @@
                             </div>
 
                             <button type="button" onclick="goBack(2)" class="back-btn">← Back</button>
-                            <button type="submit" class="booking-submit-btn">✅ Confirm Booking</button>
+                            <button type="submit" class="submit-btn">✅ Confirm Booking</button>
                         </form>
                     </div>
 
@@ -858,57 +862,55 @@
             document.getElementById('navLinks').classList.toggle('active');
         }
         
-        // ============================================
-        // CONTACT FORM (Google Sheets)
-        // ============================================
+        // Google Sheets Contact Form Submission
         const CONTACT_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzNYPCiFhrEkJcLXIADLe66t9GWzBjxSiU_zp70JxLKopTnGf1mqCWZFek9rjF8bZg/exec';
         
-        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const submitBtn = this.querySelector('.submit-btn');
-            const form = this;
+            const submitBtn = document.querySelector('.submit-btn');
+            const form = document.getElementById('contactForm');
             
             submitBtn.disabled = true;
             submitBtn.textContent = '⏳ Sending...';
             
             const formData = new FormData(form);
             
-            try {
-                const response = await fetch(CONTACT_SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    body: formData
-                });
-                
-                // no-cors mode - assume success after request sent
+            fetch(CONTACT_SCRIPT_URL, {
+                method: 'no-cors',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
                 alert('✅ Thank you! Your message has been sent successfully. We\'ll get back to you within 24 hours.');
                 form.reset();
                 submitBtn.disabled = false;
                 submitBtn.textContent = '🚀 Send Message';
-            } catch (error) {
+            })
+            .catch(error => {
                 alert('❌ Sorry, there was an error. Please try again or email us at admin@aifixpro.co.uk');
                 submitBtn.disabled = false;
                 submitBtn.textContent = '🚀 Send Message';
-                console.error('Error:', error);
-            }
+            });
         });
 
         // ============================================
         // FREE BOOKING SYSTEM
         // ============================================
 
+        // YOUR GOOGLE APPS SCRIPT URL FOR BOOKING SYSTEM
         const BOOKING_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzBA0MgsBae7NNqIwgmQIy-wly3VwcZIp87CfRdCH7dIWmIsy-a__1WAWZ-kxXxbOEXdg/exec';
 
         let selectedDate = '';
         let selectedTime = '';
 
-        // Initialize date picker
+        // Initialize date picker with min date as today
         document.addEventListener('DOMContentLoaded', function() {
             const dateInput = document.getElementById('bookingDate');
             const today = new Date().toISOString().split('T')[0];
             dateInput.min = today;
             
+            // Set max date to 30 days from now
             const maxDate = new Date();
             maxDate.setDate(maxDate.getDate() + 30);
             dateInput.max = maxDate.toISOString().split('T')[0];
@@ -924,12 +926,15 @@
                 return;
             }
             
+            // Move to step 2
             document.getElementById('step1').style.display = 'none';
             document.getElementById('step2').style.display = 'block';
+            
+            // Load available time slots
             loadTimeSlots();
         }
 
-        // Load available time slots
+        // Load available time slots from server
         async function loadTimeSlots() {
             const loadingDiv = document.getElementById('loadingSlots');
             const slotsDiv = document.getElementById('timeSlots');
@@ -965,16 +970,20 @@
         function selectTime(time, element) {
             selectedTime = time;
             
+            // Remove selected class from all slots
             document.querySelectorAll('.time-slot').forEach(slot => {
                 slot.classList.remove('selected');
             });
             
+            // Add selected class to clicked slot
             element.classList.add('selected');
             
+            // Wait a moment then move to step 3
             setTimeout(() => {
                 document.getElementById('step2').style.display = 'none';
                 document.getElementById('step3').style.display = 'block';
                 
+                // Update summary
                 const date = new Date(selectedDate);
                 const formattedDate = date.toLocaleDateString('en-GB', { 
                     weekday: 'long', 
@@ -987,11 +996,11 @@
             }, 500);
         }
 
-        // Step 3: Booking form submission
+        // Step 3: Form submission
         document.getElementById('bookingForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            const submitBtn = this.querySelector('.booking-submit-btn');
+            const submitBtn = e.target.querySelector('.submit-btn');
             submitBtn.disabled = true;
             submitBtn.textContent = '⏳ Booking...';
             
@@ -1001,6 +1010,7 @@
                 name: document.getElementById('clientName').value,
                 email: document.getElementById('clientEmail').value,
                 phone: document.getElementById('clientPhone').value,
+                company: document.getElementById('clientCompany').value,
                 message: document.getElementById('clientMessage').value
             };
             
@@ -1016,6 +1026,7 @@
                 const data = await response.json();
                 
                 if (data.success) {
+                    // Show confirmation
                     document.getElementById('step3').style.display = 'none';
                     document.getElementById('step4').style.display = 'block';
                     document.getElementById('confirmEmail').textContent = bookingData.email;
@@ -1044,11 +1055,13 @@
         }
 
         function bookAnother() {
+            // Reset form
             document.getElementById('bookingForm').reset();
             document.getElementById('bookingDate').value = '';
             selectedDate = '';
             selectedTime = '';
             
+            // Go back to step 1
             document.getElementById('step4').style.display = 'none';
             document.getElementById('step1').style.display = 'block';
         }
