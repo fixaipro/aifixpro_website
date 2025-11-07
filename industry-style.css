@@ -11,17 +11,17 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     color: #fff;
-    padding-top: 70px !important;
+    padding-top: 55px !important;
 }
 
-/* NAVIGATION - THIN VERSION */
+/* NAVIGATION - ULTRA THIN VERSION */
 nav {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     width: 100%;
-    padding: 0.5rem 1.5rem !important;
+    padding: 0.3rem 1.5rem !important;
     background: rgba(26, 26, 46, 0.95) !important;
     backdrop-filter: blur(10px);
     z-index: 1000;
@@ -43,15 +43,15 @@ nav .container {
     display: flex;
     align-items: center;
     text-decoration: none;
-    padding: 6px 12px;
-    border-radius: 12px;
+    padding: 3px 8px;
+    border-radius: 8px;
     background: white;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .logo img {
     transition: transform 0.3s ease;
-    height: 42px !important;
+    height: 36px !important;
     width: auto;
 }
 
