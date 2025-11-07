@@ -17,7 +17,6 @@
             padding-top: 90px;
         }
         
-        /* Collapsible Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -31,9 +30,7 @@
             transition: padding 0.3s ease;
         }
         
-        nav:hover {
-            padding: 1.2rem 2rem;
-        }
+        nav:hover { padding: 1.2rem 2rem; }
         
         nav .container {
             max-width: 1400px;
@@ -56,9 +53,7 @@
             transition: all 0.3s;
         }
         
-        nav:hover .logo img {
-            height: 65px;
-        }
+        nav:hover .logo img { height: 65px; }
         
         .nav-links {
             display: flex;
@@ -82,7 +77,6 @@
             background: rgba(78, 205, 196, 0.15);
         }
         
-        /* Hamburger Menu */
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -298,9 +292,7 @@
             resize: vertical;
         }
         
-        .form-group select {
-            cursor: pointer;
-        }
+        .form-group select { cursor: pointer; }
         
         .submit-btn {
             width: 100%;
@@ -318,171 +310,6 @@
         .submit-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(78, 205, 196, 0.4);
-        }
-        
-        /* FREE BOOKING SYSTEM STYLES */
-        .booking-section {
-            padding: 5rem 2rem;
-            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
-            margin: 3rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            color: #4ecdc4;
-            margin-bottom: 1rem;
-        }
-
-        .booking-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: #ddd;
-            max-width: 850px;
-            margin: 1rem auto 3rem;
-            line-height: 1.7;
-        }
-
-        .booking-container {
-            max-width: 700px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            padding: 3rem;
-            border: 2px solid #4ecdc4;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .booking-form-wrapper {
-            min-height: 400px;
-        }
-
-        .booking-step h3 {
-            color: #4ecdc4;
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .date-input {
-            width: 100%;
-            padding: 1rem;
-            font-size: 1.1rem;
-            background: rgba(15, 52, 96, 0.5);
-            border: 2px solid rgba(78, 205, 196, 0.3);
-            border-radius: 10px;
-            color: #fff;
-            margin-bottom: 2rem;
-        }
-
-        .date-input:focus {
-            outline: none;
-            border-color: #4ecdc4;
-            box-shadow: 0 0 10px rgba(78, 205, 196, 0.3);
-        }
-
-        .time-slots-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .time-slot {
-            padding: 1rem;
-            background: rgba(15, 52, 96, 0.5);
-            border: 2px solid rgba(78, 205, 196, 0.3);
-            border-radius: 10px;
-            color: #fff;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 1rem;
-            font-weight: 600;
-        }
-
-        .time-slot:hover {
-            background: rgba(78, 205, 196, 0.2);
-            border-color: #4ecdc4;
-            transform: translateY(-3px);
-        }
-
-        .time-slot.selected {
-            background: #4ecdc4;
-            color: #1a1a2e;
-            border-color: #4ecdc4;
-        }
-
-        .booking-summary {
-            background: rgba(78, 205, 196, 0.1);
-            border: 2px solid #4ecdc4;
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .booking-summary h4 {
-            color: #4ecdc4;
-            margin-bottom: 1rem;
-        }
-
-        .booking-summary p {
-            color: #fff;
-            margin: 0.5rem 0;
-        }
-
-        .next-btn, .back-btn, .cta-button {
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin: 0.5rem;
-        }
-
-        .next-btn, .cta-button {
-            background: linear-gradient(135deg, #4ecdc4, #ff6b35);
-            color: white;
-        }
-
-        .next-btn:hover, .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(78, 205, 196, 0.4);
-        }
-
-        .back-btn {
-            background: rgba(78, 205, 196, 0.2);
-            color: #4ecdc4;
-            border: 2px solid #4ecdc4;
-        }
-
-        .back-btn:hover {
-            background: rgba(78, 205, 196, 0.3);
-        }
-
-        .success-message {
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .success-icon {
-            font-size: 5rem;
-            margin-bottom: 1rem;
-        }
-
-        .success-message h3 {
-            color: #4ecdc4;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .success-message p {
-            color: #ddd;
-            font-size: 1.1rem;
-            margin: 1rem 0;
-            line-height: 1.6;
         }
         
         .why-choose {
@@ -574,20 +401,6 @@
             
             .nav-links.active {
                 right: 0;
-            }
-
-            .booking-container {
-                padding: 2rem 1rem;
-            }
-
-            .time-slots-grid {
-                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-                gap: 0.8rem;
-            }
-
-            .time-slot {
-                padding: 0.8rem 0.5rem;
-                font-size: 0.9rem;
             }
         }
     </style>
@@ -716,87 +529,6 @@
         </div>
     </div>
 
-    <!-- FREE BOOKING SYSTEM -->
-    <section class="booking-section">
-        <div class="container">
-            <h2 class="section-title">📅 Book Your AI Discovery Call</h2>
-            <p class="booking-subtitle">
-                Schedule a call and we will show you how you can implement an AI Growth Infrastructure 
-                into your business to take care of Cold Calling, Appointment Setting, Sales Calls, and plenty more...
-            </p>
-
-            <div class="booking-container">
-                <div class="booking-form-wrapper">
-                    <!-- Step 1: Select Date -->
-                    <div class="booking-step" id="step1">
-                        <h3>Select a Date</h3>
-                        <input type="date" id="bookingDate" class="date-input" min="">
-                        <button onclick="selectDate()" class="next-btn">Next →</button>
-                    </div>
-
-                    <!-- Step 2: Select Time -->
-                    <div class="booking-step" id="step2" style="display: none;">
-                        <h3>Select a Time (GMT)</h3>
-                        <div id="loadingSlots" style="text-align: center; padding: 2rem;">
-                            <p>Loading available times...</p>
-                        </div>
-                        <div id="timeSlots" class="time-slots-grid"></div>
-                        <button onclick="goBack(1)" class="back-btn">← Back</button>
-                    </div>
-
-                    <!-- Step 3: Your Information -->
-                    <div class="booking-step" id="step3" style="display: none;">
-                        <h3>Your Information</h3>
-                        <form id="bookingForm">
-                            <div class="form-group">
-                                <label>👤 Your Name *</label>
-                                <input type="text" id="clientName" required placeholder="John Doe">
-                            </div>
-                            <div class="form-group">
-                                <label>📧 Your Email *</label>
-                                <input type="email" id="clientEmail" required placeholder="john@example.com">
-                            </div>
-                            <div class="form-group">
-                                <label>📱 Phone Number</label>
-                                <input type="tel" id="clientPhone" placeholder="+44 7XXX XXXXXX">
-                            </div>
-                            <div class="form-group">
-                                <label>🏢 Company Name (Optional)</label>
-                                <input type="text" id="clientCompany" placeholder="Your Company">
-                            </div>
-                            <div class="form-group">
-                                <label>💬 Tell us about your project (Optional)</label>
-                                <textarea id="clientMessage" rows="4" placeholder="Brief description of what you're looking for..."></textarea>
-                            </div>
-
-                            <div class="booking-summary">
-                                <h4>📋 Booking Summary:</h4>
-                                <p><strong>Date:</strong> <span id="summaryDate"></span></p>
-                                <p><strong>Time:</strong> <span id="summaryTime"></span> (GMT)</p>
-                                <p><strong>Duration:</strong> 30 minutes</p>
-                            </div>
-
-                            <button type="button" onclick="goBack(2)" class="back-btn">← Back</button>
-                            <button type="submit" class="submit-btn">✅ Confirm Booking</button>
-                        </form>
-                    </div>
-
-                    <!-- Step 4: Confirmation -->
-                    <div class="booking-step" id="step4" style="display: none;">
-                        <div class="success-message">
-                            <div class="success-icon">✅</div>
-                            <h3>Booking Confirmed!</h3>
-                            <p>Thank you! Your AI Discovery Call has been confirmed.</p>
-                            <p>We've sent a confirmation email to <strong id="confirmEmail"></strong> with all the details and a calendar invite.</p>
-                            <p>We're looking forward to speaking with you!</p>
-                            <button onclick="bookAnother()" class="cta-button">Book Another Call</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <div class="why-choose">
         <h2>🌟 Why Choose AI Fix Pro?</h2>
         <div class="benefits-grid">
@@ -862,210 +594,39 @@
             document.getElementById('navLinks').classList.toggle('active');
         }
         
-        // Google Sheets Contact Form Submission
+        // ============================================
+        // CONTACT FORM - FIXED VERSION
+        // ============================================
         const CONTACT_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzNYPCiFhrEkJcLXIADLe66t9GWzBjxSiU_zp70JxLKopTnGf1mqCWZFek9rjF8bZg/exec';
         
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            const submitBtn = document.querySelector('.submit-btn');
-            const form = document.getElementById('contactForm');
+            const submitBtn = this.querySelector('.submit-btn');
+            const form = this;
             
             submitBtn.disabled = true;
             submitBtn.textContent = '⏳ Sending...';
             
             const formData = new FormData(form);
             
-            fetch(CONTACT_SCRIPT_URL, {
-                method: 'POST', 
-                mode: 'no-cors',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
+            try {
+                await fetch(CONTACT_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: formData
+                });
+                
+                // Success! (no-cors means we can't read response, but it worked)
                 alert('✅ Thank you! Your message has been sent successfully. We\'ll get back to you within 24 hours.');
                 form.reset();
-                submitBtn.disabled = false;
-                submitBtn.textContent = '🚀 Send Message';
-            })
-            .catch(error => {
+            } catch (error) {
                 alert('❌ Sorry, there was an error. Please try again or email us at admin@aifixpro.co.uk');
+            } finally {
                 submitBtn.disabled = false;
                 submitBtn.textContent = '🚀 Send Message';
-            });
-        });
-
-        // ============================================
-        // FREE BOOKING SYSTEM
-        // ============================================
-
-        // YOUR GOOGLE APPS SCRIPT URL FOR BOOKING SYSTEM
-        const BOOKING_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzBA0MgsBae7NNqIwgmQIy-wly3VwcZIp87CfRdCH7dIWmIsy-a__1WAWZ-kxXxbOEXdg/exec';
-
-        let selectedDate = '';
-        let selectedTime = '';
-
-        // Initialize date picker with min date as today
-        document.addEventListener('DOMContentLoaded', function() {
-            const dateInput = document.getElementById('bookingDate');
-            const today = new Date().toISOString().split('T')[0];
-            dateInput.min = today;
-            
-            // Set max date to 30 days from now
-            const maxDate = new Date();
-            maxDate.setDate(maxDate.getDate() + 30);
-            dateInput.max = maxDate.toISOString().split('T')[0];
-        });
-
-        // Step 1: Date selected
-        function selectDate() {
-            const dateInput = document.getElementById('bookingDate');
-            selectedDate = dateInput.value;
-            
-            if (!selectedDate) {
-                alert('Please select a date');
-                return;
-            }
-            
-            // Move to step 2
-            document.getElementById('step1').style.display = 'none';
-            document.getElementById('step2').style.display = 'block';
-            
-            // Load available time slots
-            loadTimeSlots();
-        }
-
-        // Load available time slots from server
-        async function loadTimeSlots() {
-            const loadingDiv = document.getElementById('loadingSlots');
-            const slotsDiv = document.getElementById('timeSlots');
-            
-            loadingDiv.style.display = 'block';
-            slotsDiv.innerHTML = '';
-            
-            try {
-                const response = await fetch(`${BOOKING_SCRIPT_URL}?date=${selectedDate}`);
-                const data = await response.json();
-                
-                loadingDiv.style.display = 'none';
-                
-                if (data.success && data.slots.length > 0) {
-                    data.slots.forEach(time => {
-                        const slot = document.createElement('div');
-                        slot.className = 'time-slot';
-                        slot.textContent = time;
-                        slot.onclick = () => selectTime(time, slot);
-                        slotsDiv.appendChild(slot);
-                    });
-                } else {
-                    slotsDiv.innerHTML = '<p style="text-align: center; color: #ddd;">No available slots for this date. Please choose another day.</p>';
-                }
-            } catch (error) {
-                loadingDiv.style.display = 'none';
-                slotsDiv.innerHTML = '<p style="text-align: center; color: #ff6b35;">Error loading slots. Please try again.</p>';
-                console.error('Error:', error);
-            }
-        }
-
-        // Step 2: Time selected
-        function selectTime(time, element) {
-            selectedTime = time;
-            
-            // Remove selected class from all slots
-            document.querySelectorAll('.time-slot').forEach(slot => {
-                slot.classList.remove('selected');
-            });
-            
-            // Add selected class to clicked slot
-            element.classList.add('selected');
-            
-            // Wait a moment then move to step 3
-            setTimeout(() => {
-                document.getElementById('step2').style.display = 'none';
-                document.getElementById('step3').style.display = 'block';
-                
-                // Update summary
-                const date = new Date(selectedDate);
-                const formattedDate = date.toLocaleDateString('en-GB', { 
-                    weekday: 'long', 
-                    year: 'numeric', 
-                    month: 'long', 
-                    day: 'numeric' 
-                });
-                document.getElementById('summaryDate').textContent = formattedDate;
-                document.getElementById('summaryTime').textContent = selectedTime;
-            }, 500);
-        }
-
-        // Step 3: Form submission
-        document.getElementById('bookingForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const submitBtn = e.target.querySelector('.submit-btn');
-            submitBtn.disabled = true;
-            submitBtn.textContent = '⏳ Booking...';
-            
-            const bookingData = {
-                date: selectedDate,
-                time: selectedTime,
-                name: document.getElementById('clientName').value,
-                email: document.getElementById('clientEmail').value,
-                phone: document.getElementById('clientPhone').value,
-                company: document.getElementById('clientCompany').value,
-                message: document.getElementById('clientMessage').value
-            };
-            
-            try {
-                const response = await fetch(BOOKING_SCRIPT_URL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(bookingData)
-                });
-                
-                const data = await response.json();
-                
-                if (data.success) {
-                    // Show confirmation
-                    document.getElementById('step3').style.display = 'none';
-                    document.getElementById('step4').style.display = 'block';
-                    document.getElementById('confirmEmail').textContent = bookingData.email;
-                } else {
-                    alert(data.message || 'Booking failed. Please try again or contact us directly.');
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = '✅ Confirm Booking';
-                }
-            } catch (error) {
-                alert('An error occurred. Please try again or email us at admin@aifixpro.co.uk');
-                submitBtn.disabled = false;
-                submitBtn.textContent = '✅ Confirm Booking';
-                console.error('Error:', error);
             }
         });
-
-        // Navigation
-        function goBack(step) {
-            if (step === 1) {
-                document.getElementById('step2').style.display = 'none';
-                document.getElementById('step1').style.display = 'block';
-            } else if (step === 2) {
-                document.getElementById('step3').style.display = 'none';
-                document.getElementById('step2').style.display = 'block';
-            }
-        }
-
-        function bookAnother() {
-            // Reset form
-            document.getElementById('bookingForm').reset();
-            document.getElementById('bookingDate').value = '';
-            selectedDate = '';
-            selectedTime = '';
-            
-            // Go back to step 1
-            document.getElementById('step4').style.display = 'none';
-            document.getElementById('step1').style.display = 'block';
-        }
     </script>
 </body>
 </html>
