@@ -99,7 +99,6 @@ nav .container {
     width: 60%;
 }
 
-/* Hamburger Menu */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -118,7 +117,6 @@ nav .container {
     transition: 0.3s;
 }
 
-/* MOBILE STYLES */
 @media (max-width: 968px) {
     body {
         padding-top: 60px !important;
@@ -191,7 +189,6 @@ nav .container {
     }
 }
 
-/* HERO SECTION */
 .hero {
     padding: 100px 2rem 60px;
     text-align: center;
@@ -393,7 +390,6 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Mega Menu */
 .has-dropdown {
     position: relative;
 }
