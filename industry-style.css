@@ -11,22 +11,21 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     color: #fff;
-    padding-top: 70px !important;
+    padding-top: 80px;
 }
 
-/* NAVIGATION - THIN VERSION */
+/* NAVIGATION - EXACT HOMEPAGE MATCH */
 nav {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     width: 100%;
-    padding: 0.5rem 1.5rem !important;
-    background: rgba(26, 26, 46, 0.95) !important;
+    padding: 0.8rem 2rem;
+    background: rgba(26, 26, 46, 0.95);
     backdrop-filter: blur(10px);
     z-index: 1000;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    height: auto !important;
 }
 
 nav .container {
@@ -38,12 +37,12 @@ nav .container {
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: bold;
     display: flex;
     align-items: center;
     text-decoration: none;
-    padding: 6px 12px;
+    padding: 8px 14px;
     border-radius: 12px;
     background: white;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
@@ -51,7 +50,7 @@ nav .container {
 
 .logo img {
     transition: transform 0.3s ease;
-    height: 42px !important;
+    height: 50px;
     width: auto;
 }
 
@@ -61,7 +60,7 @@ nav .container {
 
 .nav-links {
     display: flex;
-    gap: 2rem;
+    gap: 2.5rem;
     list-style: none;
     align-items: center;
 }
@@ -70,9 +69,9 @@ nav .container {
     color: #fff;
     text-decoration: none;
     font-weight: 500;
-    font-size: 0.95rem !important;
+    font-size: 1.05rem;
     transition: all 0.3s;
-    padding: 8px 15px !important;
+    padding: 10px 18px;
     border-radius: 8px;
     position: relative;
 }
@@ -99,7 +98,6 @@ nav .container {
     width: 60%;
 }
 
-/* Hamburger Menu */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -118,7 +116,6 @@ nav .container {
     transition: 0.3s;
 }
 
-/* MOBILE STYLES */
 @media (max-width: 968px) {
     body {
         padding-top: 60px !important;
@@ -191,7 +188,6 @@ nav .container {
     }
 }
 
-/* HERO SECTION */
 .hero {
     padding: 100px 2rem 60px;
     text-align: center;
@@ -393,7 +389,6 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Mega Menu */
 .has-dropdown {
     position: relative;
 }
