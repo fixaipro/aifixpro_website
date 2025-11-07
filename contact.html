@@ -990,16 +990,21 @@
                 message: document.getElementById('clientMessage').value || ''
             };
             
+            console.log('Sending booking data:', bookingData);
+            
             try {
                 const response = await fetch(BOOKING_SCRIPT_URL, {
                     method: 'POST',
+                    mode: 'cors',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify(bookingData)
                 });
                 
+                console.log('Response status:', response.status);
                 const data = await response.json();
+                console.log('Response data:', data);
                 
                 if (data.success) {
                     document.getElementById('step3').style.display = 'none';
@@ -1011,10 +1016,10 @@
                     submitBtn.textContent = '✅ Confirm Booking';
                 }
             } catch (error) {
+                console.error('Booking error details:', error);
                 alert('An error occurred. Please call us at +44 7459 750559 to book your call.');
                 submitBtn.disabled = false;
                 submitBtn.textContent = '✅ Confirm Booking';
-                console.error('Error:', error);
             }
         });
 
